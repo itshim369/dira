@@ -1,0 +1,964 @@
+{
+ "venue": {
+  "description": "Business centre on five levels: a fun zone in the basement, a food court and services on the ground floor, and stalls for fashion, tech, health and offices above. Demo building.",
+  "photo": null,
+  "hours": "Mo-Sa 08:00-21:00; Su 10:00-18:00",
+  "hours_status": "demo"
+ },
+ "places": {
+  "28bfdbbd-07c6-54ae-b387-17420e0e486e": {
+   "description": "Open seating.",
+   "tags": [
+    "Seating"
+   ],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  },
+  "6333b012-1d12-58c1-8e62-f4bc59281764": {
+   "description": "Games and family fun. Stall B01.",
+   "tags": [
+    "Arcade games",
+    "Air hockey",
+    "Birthday parties"
+   ],
+   "hours": "Mo-Su 10:00-22:00",
+   "hours_status": "demo",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/fun.jpg",
+    "caption": "Sample photo for the demo, not this business",
+    "credit": "Acroterion, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Terrace_Lanes_Frederick_MD2.jpg",
+    "sample": true
+   },
+   "flags": [
+    "demo-tenant"
+   ]
+  },
+  "c52d7d5f-430e-5ba9-a34c-de3222065877": {
+   "description": "Games and family fun. Stall B02.",
+   "tags": [
+    "Arcade games",
+    "Air hockey",
+    "Birthday parties"
+   ],
+   "hours": "Mo-Su 10:00-22:00",
+   "hours_status": "demo",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/fun.jpg",
+    "caption": "Sample photo for the demo, not this business",
+    "credit": "Acroterion, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Terrace_Lanes_Frederick_MD2.jpg",
+    "sample": true
+   },
+   "flags": [
+    "demo-tenant"
+   ]
+  },
+  "2b714426-038d-5f34-8917-0d9e5fc21334": {
+   "description": "Craft and art studio: classes, kits and supplies. Stall B03.",
+   "tags": [
+    "Art classes",
+    "Craft kits",
+    "Kids workshops"
+   ],
+   "hours": "Tu-Su 10:00-19:00",
+   "hours_status": "demo",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/home.jpg",
+    "caption": "Sample photo for the demo, not this business",
+    "credit": "Downtowngal, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Furniture_store_interior.jpg",
+    "sample": true
+   },
+   "flags": [
+    "demo-tenant"
+   ]
+  },
+  "b10b253a-ba37-5dad-918e-28fe584f0802": {
+   "description": "Mini cinema with recliner seating for 30. Stall B04.",
+   "tags": [
+    "Films",
+    "Private screenings",
+    "Snacks"
+   ],
+   "hours": "Mo-Su 12:00-23:00",
+   "hours_status": "demo",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/cinema.jpg",
+    "caption": "Sample photo for the demo, not this business",
+    "credit": "Wolfmann, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:4DX_seats_in_cinema_(motion_and_environmental_effects_synced_with_the_on-screen_action)_bench_rows_in_a_movie_theater_hall_Kinostoler_kinosal_Kilden_kino_T%C3%B8nsberg,_Norway_2023_IMG_7849.jpg",
+    "sample": true
+   },
+   "flags": [
+    "demo-tenant"
+   ]
+  },
+  "b7e22031-89d2-50b8-94ad-a7e218819d74": {
+   "description": "Washrooms.",
+   "tags": [
+    "Washrooms"
+   ],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  },
+  "e709cd0f-ce7c-51d0-a420-61a702b1d591": {
+   "description": "Main staircase, Basement to Third.",
+   "tags": [],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  },
+  "950471ba-966c-5737-b685-a54aaa585aea": {
+   "description": "Lift to every floor, Basement to Third, step free.",
+   "tags": [
+    "Step free"
+   ],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  },
+  "34f3a78e-4098-5139-8a7f-7ff99facb4ac": {
+   "description": "Main entrance from the street, up the front steps.",
+   "tags": [],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  },
+  "5d70f153-e92e-5484-88b2-08f31a7b718f": {
+   "description": "Reception: directions, stall enquiries and lost property.",
+   "tags": [
+    "Help desk"
+   ],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  },
+  "fa70b692-9256-5919-b0b8-7be9f49df0de": {
+   "description": "Open seating.",
+   "tags": [
+    "Seating"
+   ],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  },
+  "d5fd936e-6e8f-54aa-99f6-ccce808e8cb8": {
+   "description": "Grilled meats, ugali and kachumbari. Stall G01.",
+   "tags": [
+    "Nyama choma",
+    "Lunch",
+    "Takeaway"
+   ],
+   "hours": "Mo-Su 10:00-22:00",
+   "hours_status": "demo",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/restaurant.jpg",
+    "caption": "Sample photo for the demo, not this business",
+    "credit": "Basile Morin, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Restaurant_room_of_Amantaka_luxury_Resort_%26_Hotel_in_Luang_Prabang_Laos.jpg",
+    "sample": true
+   },
+   "flags": [
+    "demo-tenant"
+   ]
+  },
+  "8ff44584-4670-5270-8c95-42e0e943385f": {
+   "description": "Coastal Swahili dishes: biryani, pilau and samosas. Stall G02.",
+   "tags": [
+    "Biryani",
+    "Pilau",
+    "Samosas"
+   ],
+   "hours": "Mo-Su 10:00-21:00",
+   "hours_status": "demo",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/restaurant.jpg",
+    "caption": "Sample photo for the demo, not this business",
+    "credit": "Basile Morin, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Restaurant_room_of_Amantaka_luxury_Resort_%26_Hotel_in_Luang_Prabang_Laos.jpg",
+    "sample": true
+   },
+   "flags": [
+    "demo-tenant"
+   ]
+  },
+  "4c39dcca-ad0c-5927-81a8-41a5f92aa931": {
+   "description": "Kenyan coffee, tea and pastries. Stall G03.",
+   "tags": [
+    "Coffee",
+    "Tea",
+    "Pastries"
+   ],
+   "hours": "Mo-Sa 07:00-20:00; Su 09:00-18:00",
+   "hours_status": "demo",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/cafe.jpg",
+    "caption": "Sample photo for the demo, not this business",
+    "credit": "Andy Li, CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:Interior_of_Floral_Cafe_2026-02-25.jpg",
+    "sample": true
+   },
+   "flags": [
+    "demo-tenant"
+   ]
+  },
+  "8b739f1e-6194-51af-80ab-8368da51768b": {
+   "description": "Shared desks, meeting rooms and a quiet lounge for business visitors. Stall G04.",
+   "tags": [
+    "Meeting rooms",
+    "Wi-Fi",
+    "Hot desks"
+   ],
+   "hours": "Mo-Fr 08:00-19:00; Sa 09:00-14:00",
+   "hours_status": "demo",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/office.jpg",
+    "caption": "Sample photo for the demo, not this business",
+    "credit": "Shixart1985, CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Modern_medical_office_interior_design.jpg",
+    "sample": true
+   },
+   "flags": [
+    "demo-tenant"
+   ]
+  },
+  "ee61d93d-582d-5483-9904-7b00f1adb96d": {
+   "description": "Washrooms.",
+   "tags": [
+    "Washrooms"
+   ],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  },
+  "22ff6fab-923a-5044-be98-c175c73227f1": {
+   "description": "Washrooms.",
+   "tags": [
+    "Washrooms"
+   ],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  },
+  "aad1f9f6-77d9-5f57-88e4-cee7222b2647": {
+   "description": "Bank agency: deposits, withdrawals, M-Pesa and account opening. Stall G05.",
+   "tags": [
+    "Deposits",
+    "M-Pesa",
+    "Account opening"
+   ],
+   "hours": "Mo-Fr 08:30-17:00; Sa 09:00-13:00",
+   "hours_status": "demo",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/bank.jpg",
+    "caption": "Sample photo for the demo, not this business",
+    "credit": "w_lemay, CC BY-SA 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Banking_Hall,_Guardian_Building,_Griswold_Street,_Detroit,_MI.jpg",
+    "sample": true
+   },
+   "flags": [
+    "demo-tenant"
+   ]
+  },
+  "faebb008-0692-5b59-ad16-6a98f197fa1a": {
+   "description": "Cash machine.",
+   "tags": [
+    "Cash"
+   ],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  },
+  "5ac4166f-a700-5b69-8c0d-92d9b46ceb28": {
+   "description": "Main staircase, Basement to Third.",
+   "tags": [],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  },
+  "a227b5e0-3b11-5820-b580-d40408ca2089": {
+   "description": "Lift to every floor, Basement to Third, step free.",
+   "tags": [
+    "Step free"
+   ],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  },
+  "6c9a1f9d-04c3-5569-aed6-163737003729": {
+   "description": "Women's fashion in kitenge and modern cuts, made to measure. Stall 101.",
+   "tags": [
+    "Dresses",
+    "Kitenge",
+    "Tailoring"
+   ],
+   "hours": "Mo-Sa 09:00-19:00",
+   "hours_status": "demo",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/fashion.jpg",
+    "caption": "Sample photo for the demo, not this business",
+    "credit": "MAKY.OREL, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Clothing_racks_in_second_hand_shop,_Prague.jpg",
+    "sample": true
+   },
+   "flags": [
+    "demo-tenant"
+   ]
+  },
+  "a4ff2163-23b3-5396-ac81-f3fa1c888ce8": {
+   "description": "Hair, nails and make-up. Stall 102.",
+   "tags": [
+    "Hair",
+    "Nails",
+    "Make-up"
+   ],
+   "hours": "Mo-Sa 08:00-20:00; Su 10:00-17:00",
+   "hours_status": "demo",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/beauty.jpg",
+    "caption": "Sample photo for the demo, not this business",
+    "credit": "BASUWT 22 law AONGo, CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:HK_%E4%B8%AD%E7%92%B0_Central_%E7%9A%87%E5%90%8E%E5%A4%A7%E9%81%93%E4%B8%AD_88_Queen%27s_Road_%E5%8B%B5%E7%B2%BE%E4%B8%AD%E5%BF%83_Regent_Centre_shop_Mannings_Store_%E5%8C%96%E5%A6%9D%E5%B7%A5%E5%85%B7%E5%88%B7_makeup_brush_April_2024_R12S_01.jpg",
+    "sample": true
+   },
+   "flags": [
+    "demo-tenant"
+   ]
+  },
+  "9dda676d-29e0-582f-9483-7cb8a63785ae": {
+   "description": "Barber shop: cuts, shaves and beard trims. Stall 103.",
+   "tags": [
+    "Haircuts",
+    "Shaves",
+    "Beard trims"
+   ],
+   "hours": "Mo-Sa 08:00-20:00; Su 10:00-17:00",
+   "hours_status": "demo",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/salon.jpg",
+    "caption": "Sample photo for the demo, not this business",
+    "credit": "Tabrus, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Salon_z_perukami_Hair_Lux_%E2%80%93_wn%C4%99trze.jpg",
+    "sample": true
+   },
+   "flags": [
+    "demo-tenant"
+   ]
+  },
+  "b62333da-fb01-53ba-aeae-e5bc9dedce96": {
+   "description": "Shoes for work, school and weekends. Stall 104.",
+   "tags": [
+    "Formal",
+    "Sneakers",
+    "School shoes"
+   ],
+   "hours": "Mo-Sa 09:00-19:00",
+   "hours_status": "demo",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/shoes.jpg",
+    "caption": "Sample photo for the demo, not this business",
+    "credit": "Tomascastelazo, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Shoes_in_a_spanish_shoe_store.jpg",
+    "sample": true
+   },
+   "flags": [
+    "demo-tenant"
+   ]
+  },
+  "3e8ca6bb-414b-5a91-9150-9e607958d715": {
+   "description": "Beaded and silver jewellery, made in Kenya. Stall 105.",
+   "tags": [
+    "Beadwork",
+    "Silver",
+    "Gifts"
+   ],
+   "hours": "Mo-Sa 09:00-19:00",
+   "hours_status": "demo",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/jewellery.jpg",
+    "caption": "Sample photo for the demo, not this business",
+    "credit": "W.carter, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Interior_of_Sophies_Silver_jewelry_store_at_Sankt_Hansgatan_34,_Visby,_Sweden_2.jpg",
+    "sample": true
+   },
+   "flags": [
+    "demo-tenant"
+   ]
+  },
+  "7bf1b9e8-7857-5b31-9077-553da46138a2": {
+   "description": "Men's suits, shirts and casual wear. Stall 106.",
+   "tags": [
+    "Suits",
+    "Shirts",
+    "Alterations"
+   ],
+   "hours": "Mo-Sa 09:00-19:00",
+   "hours_status": "demo",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/fashion.jpg",
+    "caption": "Sample photo for the demo, not this business",
+    "credit": "MAKY.OREL, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Clothing_racks_in_second_hand_shop,_Prague.jpg",
+    "sample": true
+   },
+   "flags": [
+    "demo-tenant"
+   ]
+  },
+  "43d47c9e-fc84-5b32-898b-bd6c0aa9a565": {
+   "description": "Eye tests, frames and contact lenses. Stall 107.",
+   "tags": [
+    "Eye tests",
+    "Frames",
+    "Lenses"
+   ],
+   "hours": "Mo-Sa 09:00-18:00",
+   "hours_status": "demo",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/optician.jpg",
+    "caption": "Sample photo for the demo, not this business",
+    "credit": "Barebibotra, CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:HK_TST_Chung_King_%E6%B4%BB%E6%96%B9%E5%95%86%E5%A0%B4_Woodhouse_optician_shop_interior_display_on_sale.JPG",
+    "sample": true
+   },
+   "flags": [
+    "demo-tenant"
+   ]
+  },
+  "8f42f4bb-a491-5507-882d-6a68124abe46": {
+   "description": "Perfumes, oils and body sprays. Stall 108.",
+   "tags": [
+    "Perfume",
+    "Oud",
+    "Gift sets"
+   ],
+   "hours": "Mo-Sa 09:00-19:00",
+   "hours_status": "demo",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/beauty.jpg",
+    "caption": "Sample photo for the demo, not this business",
+    "credit": "BASUWT 22 law AONGo, CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:HK_%E4%B8%AD%E7%92%B0_Central_%E7%9A%87%E5%90%8E%E5%A4%A7%E9%81%93%E4%B8%AD_88_Queen%27s_Road_%E5%8B%B5%E7%B2%BE%E4%B8%AD%E5%BF%83_Regent_Centre_shop_Mannings_Store_%E5%8C%96%E5%A6%9D%E5%B7%A5%E5%85%B7%E5%88%B7_makeup_brush_April_2024_R12S_01.jpg",
+    "sample": true
+   },
+   "flags": [
+    "demo-tenant"
+   ]
+  },
+  "02c64455-ccb8-5da1-aeeb-0e0b942d4894": {
+   "description": "Open seating.",
+   "tags": [
+    "Seating"
+   ],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  },
+  "97b7e423-cf74-5b73-9dee-26516818242a": {
+   "description": "Main staircase, Basement to Third.",
+   "tags": [],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  },
+  "d2ab7756-572d-5d52-8dad-a96f5c1e1ef8": {
+   "description": "Lift to every floor, Basement to Third, step free.",
+   "tags": [
+    "Step free"
+   ],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  },
+  "8a7d5105-ed5b-50eb-a368-6c433108251e": {
+   "description": "Phones, accessories and screen repairs. Stall 201.",
+   "tags": [
+    "Smartphones",
+    "Accessories",
+    "Repairs"
+   ],
+   "hours": "Mo-Sa 08:30-19:00",
+   "hours_status": "demo",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/phones.jpg",
+    "caption": "Sample photo for the demo, not this business",
+    "credit": "Maksym Kozlenko, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Mobile_phone_shop_in_Singapore.jpg",
+    "sample": true
+   },
+   "flags": [
+    "demo-tenant"
+   ]
+  },
+  "0a3d5f84-d8ec-5b48-9dde-0f45709897ea": {
+   "description": "Laptops, printers and accessories. Stall 202.",
+   "tags": [
+    "Laptops",
+    "Printers",
+    "Accessories"
+   ],
+   "hours": "Mo-Sa 08:30-18:30",
+   "hours_status": "demo",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/electronics.jpg",
+    "caption": "Sample photo for the demo, not this business",
+    "credit": "Tokyo538, CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:Washing_machine_aisle_in_a_Japanese_electronics_store.jpg",
+    "sample": true
+   },
+   "flags": [
+    "demo-tenant"
+   ]
+  },
+  "4bdebb12-5211-53a6-8ef7-ea672fca9df0": {
+   "description": "Printing, photocopying, binding and branding. Stall 203.",
+   "tags": [
+    "Printing",
+    "Photocopy",
+    "Branding"
+   ],
+   "hours": "Mo-Sa 07:30-19:00",
+   "hours_status": "demo",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/services.jpg",
+    "caption": "Sample photo for the demo, not this business",
+    "credit": "Wutkh, CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:Thailand_Post_counter,_Thung_Song_Post_Office.jpg",
+    "sample": true
+   },
+   "flags": [
+    "demo-tenant"
+   ]
+  },
+  "1c7c3da9-7b1b-533d-b2c6-1ea922855444": {
+   "description": "Passport photos, portraits and printing. Stall 204.",
+   "tags": [
+    "Passport photos",
+    "Portraits",
+    "Prints"
+   ],
+   "hours": "Mo-Sa 09:00-18:00",
+   "hours_status": "demo",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/electronics.jpg",
+    "caption": "Sample photo for the demo, not this business",
+    "credit": "Tokyo538, CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:Washing_machine_aisle_in_a_Japanese_electronics_store.jpg",
+    "sample": true
+   },
+   "flags": [
+    "demo-tenant"
+   ]
+  },
+  "366a6ba2-7d1a-5e35-a52d-895d22b30ee9": {
+   "description": "Repairs for TVs, radios, laptops and phones. Stall 205.",
+   "tags": [
+    "TV repair",
+    "Laptop repair",
+    "Spare parts"
+   ],
+   "hours": "Mo-Sa 08:30-18:30",
+   "hours_status": "demo",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/electronics.jpg",
+    "caption": "Sample photo for the demo, not this business",
+    "credit": "Tokyo538, CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:Washing_machine_aisle_in_a_Japanese_electronics_store.jpg",
+    "sample": true
+   },
+   "flags": [
+    "demo-tenant"
+   ]
+  },
+  "daf0e5b8-75c0-566a-a9a2-dfb9ab9eeb0d": {
+   "description": "Books, school texts and stationery. Stall 206.",
+   "tags": [
+    "Books",
+    "Textbooks",
+    "Stationery"
+   ],
+   "hours": "Mo-Sa 09:00-18:30",
+   "hours_status": "demo",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/books.jpg",
+    "caption": "Sample photo for the demo, not this business",
+    "credit": "Anthony O'Neil, CC BY-SA 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Bookshop_interior_-_geograph.org.uk_-_7540912.jpg",
+    "sample": true
+   },
+   "flags": [
+    "demo-tenant"
+   ]
+  },
+  "771f2cb6-6fdb-5a16-a575-6f894a006ab3": {
+   "description": "Gifts, cards and wrapping. Stall 207.",
+   "tags": [
+    "Gifts",
+    "Cards",
+    "Wrapping"
+   ],
+   "hours": "Mo-Sa 09:00-19:00",
+   "hours_status": "demo",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/home.jpg",
+    "caption": "Sample photo for the demo, not this business",
+    "credit": "Downtowngal, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Furniture_store_interior.jpg",
+    "sample": true
+   },
+   "flags": [
+    "demo-tenant"
+   ]
+  },
+  "057bcfb9-00bb-5bbd-a8c0-3d09236b49d0": {
+   "description": "Travel agency: flights, holidays and visa help. Stall 208.",
+   "tags": [
+    "Flights",
+    "Holidays",
+    "Visa help"
+   ],
+   "hours": "Mo-Fr 08:30-17:30; Sa 09:00-13:00",
+   "hours_status": "demo",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/office.jpg",
+    "caption": "Sample photo for the demo, not this business",
+    "credit": "Shixart1985, CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Modern_medical_office_interior_design.jpg",
+    "sample": true
+   },
+   "flags": [
+    "demo-tenant"
+   ]
+  },
+  "a7b03b0c-e3c8-5bea-80d0-d2757f54e79c": {
+   "description": "Open seating.",
+   "tags": [
+    "Seating"
+   ],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  },
+  "55572881-81a3-53c0-8570-0249ba88f75b": {
+   "description": "Main staircase, Basement to Third.",
+   "tags": [],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  },
+  "2e5a4807-825e-5ea5-9dc0-68e3d0092ddc": {
+   "description": "Lift to every floor, Basement to Third, step free.",
+   "tags": [
+    "Step free"
+   ],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  },
+  "f3681a12-1c21-51d5-926d-6e0e5287d6d9": {
+   "description": "General and cosmetic dentistry. Stall 301.",
+   "tags": [
+    "Check-ups",
+    "Whitening",
+    "Braces"
+   ],
+   "hours": "Mo-Fr 08:00-18:00; Sa 09:00-13:00",
+   "hours_status": "demo",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/clinic.jpg",
+    "caption": "Sample photo for the demo, not this business",
+    "credit": "Helene.3160, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Childrens_dental_clinic_interior_sign.jpg",
+    "sample": true
+   },
+   "flags": [
+    "demo-tenant"
+   ]
+  },
+  "1a111bc9-e81f-52f9-9fb8-433234a36ea8": {
+   "description": "Family doctors and a small lab. Stall 302.",
+   "tags": [
+    "Consultations",
+    "Lab tests",
+    "Vaccines"
+   ],
+   "hours": "Mo-Fr 08:00-19:00; Sa 09:00-14:00",
+   "hours_status": "demo",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/clinic.jpg",
+    "caption": "Sample photo for the demo, not this business",
+    "credit": "Helene.3160, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Childrens_dental_clinic_interior_sign.jpg",
+    "sample": true
+   },
+   "flags": [
+    "demo-tenant"
+   ]
+  },
+  "f5a847be-e5c6-50cd-884c-c3e6fbc3c5f8": {
+   "description": "Prescriptions, over-the-counter medicine and health products. Stall 303.",
+   "tags": [
+    "Prescriptions",
+    "Medicine",
+    "Health products"
+   ],
+   "hours": "Mo-Sa 08:00-21:00; Su 10:00-18:00",
+   "hours_status": "demo",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/pharmacy.jpg",
+    "caption": "Sample photo for the demo, not this business",
+    "credit": "Rob Oo from NL, CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Pharmacy_(27651099119).jpg",
+    "sample": true
+   },
+   "flags": [
+    "demo-tenant"
+   ]
+  },
+  "89c5d55e-b772-5073-96db-50f96c42b17f": {
+   "description": "Advocates: conveyancing, contracts and business law. Stall 304.",
+   "tags": [
+    "Conveyancing",
+    "Contracts",
+    "Business law"
+   ],
+   "hours": "Mo-Fr 08:30-17:30",
+   "hours_status": "demo",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/office.jpg",
+    "caption": "Sample photo for the demo, not this business",
+    "credit": "Shixart1985, CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Modern_medical_office_interior_design.jpg",
+    "sample": true
+   },
+   "flags": [
+    "demo-tenant"
+   ]
+  },
+  "efc4e3d4-b9fc-5cf8-9dc1-d900accf0bd1": {
+   "description": "Accounts, tax returns and audits for small businesses. Stall 305.",
+   "tags": [
+    "Bookkeeping",
+    "KRA returns",
+    "Audits"
+   ],
+   "hours": "Mo-Fr 08:30-17:30",
+   "hours_status": "demo",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/office.jpg",
+    "caption": "Sample photo for the demo, not this business",
+    "credit": "Shixart1985, CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Modern_medical_office_interior_design.jpg",
+    "sample": true
+   },
+   "flags": [
+    "demo-tenant"
+   ]
+  },
+  "780be506-8710-51ad-ac89-8e14885ebb67": {
+   "description": "Motor, health and business insurance. Stall 306.",
+   "tags": [
+    "Motor",
+    "Health",
+    "Business"
+   ],
+   "hours": "Mo-Fr 08:30-17:00",
+   "hours_status": "demo",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/bank.jpg",
+    "caption": "Sample photo for the demo, not this business",
+    "credit": "w_lemay, CC BY-SA 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Banking_Hall,_Guardian_Building,_Griswold_Street,_Detroit,_MI.jpg",
+    "sample": true
+   },
+   "flags": [
+    "demo-tenant"
+   ]
+  },
+  "1f81de05-4aa5-56d1-b052-7900b7e33307": {
+   "description": "Shared desks, meeting rooms and a quiet lounge for business visitors. Stall 307.",
+   "tags": [
+    "Meeting rooms",
+    "Wi-Fi",
+    "Hot desks"
+   ],
+   "hours": "Mo-Fr 08:00-19:00; Sa 09:00-14:00",
+   "hours_status": "demo",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/office.jpg",
+    "caption": "Sample photo for the demo, not this business",
+    "credit": "Shixart1985, CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Modern_medical_office_interior_design.jpg",
+    "sample": true
+   },
+   "flags": [
+    "demo-tenant"
+   ]
+  },
+  "9370e4b7-f7d1-5cc2-a73e-ec8e9efe3e4e": {
+   "description": "Fitness studio: classes and personal training. Stall 308.",
+   "tags": [
+    "Classes",
+    "Weights",
+    "Personal training"
+   ],
+   "hours": "Mo-Fr 06:00-21:00; Sa,Su 08:00-16:00",
+   "hours_status": "demo",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/gym.jpg",
+    "caption": "Sample photo for the demo, not this business",
+    "credit": "Shixart1985, CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Interior_of_new_modern_gym_with_equipment.jpg",
+    "sample": true
+   },
+   "flags": [
+    "demo-tenant"
+   ]
+  },
+  "b50f1b3f-0c4e-504b-93de-05d6eb6e5f78": {
+   "description": "Open seating.",
+   "tags": [
+    "Seating"
+   ],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  },
+  "e96dbf80-2091-52e4-a2d0-aa32873a557b": {
+   "description": "Main staircase, Basement to Third.",
+   "tags": [],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  },
+  "b28cfa6b-4805-5a32-ab3e-0b16197bfb73": {
+   "description": "Lift to every floor, Basement to Third, step free.",
+   "tags": [
+    "Step free"
+   ],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  }
+ },
+ "levels": {
+  "B": {
+   "id": "a740bb09-6837-509e-82cc-a5d959668d72",
+   "name": "Basement",
+   "short": "B",
+   "ordinal": -1,
+   "approximate": false,
+   "note": "Fun Zone"
+  },
+  "G": {
+   "id": "d9db78f5-69be-5277-a7c3-12eef1cdcfad",
+   "name": "Ground floor",
+   "short": "G",
+   "ordinal": 0,
+   "approximate": false,
+   "note": "Food court and services"
+  },
+  "F1": {
+   "id": "f2338e3c-74b1-5796-8cc9-05727d9aaf01",
+   "name": "First floor",
+   "short": "1",
+   "ordinal": 1,
+   "approximate": false,
+   "note": "Fashion and beauty"
+  },
+  "F2": {
+   "id": "14788e73-786c-51c4-9d8a-9c2e43a90dae",
+   "name": "Second floor",
+   "short": "2",
+   "ordinal": 2,
+   "approximate": false,
+   "note": "Tech and services"
+  },
+  "F3": {
+   "id": "e4be922b-20d2-5779-af7f-d3bd6f8086fd",
+   "name": "Third floor",
+   "short": "3",
+   "ordinal": 3,
+   "approximate": false,
+   "note": "Health and offices"
+  }
+ }
+}

@@ -1,0 +1,198 @@
+{
+ "fun": {
+  "title": "File:Terrace Lanes Frederick MD2.jpg",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/Terrace_Lanes_Frederick_MD2.jpg/960px-Terrace_Lanes_Frederick_MD2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "page": "https://commons.wikimedia.org/wiki/File:Terrace_Lanes_Frederick_MD2.jpg",
+  "licence": "CC BY-SA 4.0",
+  "author": "Acroterion",
+  "src": "photos/mock/fun.jpg",
+  "rejected": []
+ },
+ "home": {
+  "title": "File:Furniture store interior.jpg",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/01/Furniture_store_interior.jpg/960px-Furniture_store_interior.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "page": "https://commons.wikimedia.org/wiki/File:Furniture_store_interior.jpg",
+  "licence": "CC BY-SA 4.0",
+  "author": "Downtowngal",
+  "src": "photos/mock/home.jpg",
+  "rejected": []
+ },
+ "cinema": {
+  "title": "File:4DX seats in cinema (motion and environmental effects synced with the on-screen action) bench rows in a movie theater hall Kinostoler kinosal Kilden kino Tønsberg, Norway 2023 IMG 7849.jpg",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8d/4DX_seats_in_cinema_%28motion_and_environmental_effects_synced_with_the_on-screen_action%29_bench_rows_in_a_movie_theater_hall_Kinostoler_kinosal_Kilden_kino_T%C3%B8nsberg%2C_Norway_2023_IMG_7849.jpg/960px-thumbnail.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "page": "https://commons.wikimedia.org/wiki/File:4DX_seats_in_cinema_(motion_and_environmental_effects_synced_with_the_on-screen_action)_bench_rows_in_a_movie_theater_hall_Kinostoler_kinosal_Kilden_kino_T%C3%B8nsberg,_Norway_2023_IMG_7849.jpg",
+  "licence": "CC BY-SA 4.0",
+  "author": "Wolfmann",
+  "src": "photos/mock/cinema.jpg",
+  "rejected": [
+   "File:Strood 510 seat Queens Cinema auditorium and proscenium arch 5708.jpg"
+  ]
+ },
+ "restaurant": {
+  "title": "File:Restaurant room of Amantaka luxury Resort & Hotel in Luang Prabang Laos.jpg",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f3/Restaurant_room_of_Amantaka_luxury_Resort_%26_Hotel_in_Luang_Prabang_Laos.jpg/960px-Restaurant_room_of_Amantaka_luxury_Resort_%26_Hotel_in_Luang_Prabang_Laos.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "page": "https://commons.wikimedia.org/wiki/File:Restaurant_room_of_Amantaka_luxury_Resort_%26_Hotel_in_Luang_Prabang_Laos.jpg",
+  "licence": "CC BY-SA 4.0",
+  "author": "Basile Morin",
+  "src": "photos/mock/restaurant.jpg",
+  "rejected": []
+ },
+ "cafe": {
+  "title": "File:Interior of Floral Cafe 2026-02-25.jpg",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/18/Interior_of_Floral_Cafe_2026-02-25.jpg/960px-Interior_of_Floral_Cafe_2026-02-25.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "page": "https://commons.wikimedia.org/wiki/File:Interior_of_Floral_Cafe_2026-02-25.jpg",
+  "licence": "CC0",
+  "author": "Andy Li",
+  "src": "photos/mock/cafe.jpg",
+  "rejected": [
+   "File:Starbucks coffee shop interior design.jpg"
+  ]
+ },
+ "office": {
+  "title": "File:Modern medical office interior design.jpg",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/54/Modern_medical_office_interior_design.jpg/960px-Modern_medical_office_interior_design.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "page": "https://commons.wikimedia.org/wiki/File:Modern_medical_office_interior_design.jpg",
+  "licence": "CC BY 2.0",
+  "author": "Shixart1985",
+  "src": "photos/mock/office.jpg",
+  "rejected": []
+ },
+ "bank": {
+  "title": "File:Banking Hall, Guardian Building, Griswold Street, Detroit, MI.jpg",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/66/Banking_Hall%2C_Guardian_Building%2C_Griswold_Street%2C_Detroit%2C_MI.jpg/960px-Banking_Hall%2C_Guardian_Building%2C_Griswold_Street%2C_Detroit%2C_MI.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "page": "https://commons.wikimedia.org/wiki/File:Banking_Hall,_Guardian_Building,_Griswold_Street,_Detroit,_MI.jpg",
+  "licence": "CC BY-SA 2.0",
+  "author": "w_lemay",
+  "src": "photos/mock/bank.jpg",
+  "rejected": [
+   "File:Bank of Montreal 4 db.jpg"
+  ]
+ },
+ "fashion": {
+  "title": "File:Clothing racks in second hand shop, Prague.jpg",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/87/Clothing_racks_in_second_hand_shop%2C_Prague.jpg/960px-Clothing_racks_in_second_hand_shop%2C_Prague.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "page": "https://commons.wikimedia.org/wiki/File:Clothing_racks_in_second_hand_shop,_Prague.jpg",
+  "licence": "CC BY-SA 4.0",
+  "author": "MAKY.OREL",
+  "src": "photos/mock/fashion.jpg",
+  "rejected": [
+   "File:Clothing store interior.jpg"
+  ]
+ },
+ "beauty": {
+  "title": "File:HK 中環 Central 皇后大道中 88 Queen's Road 勵精中心 Regent Centre shop Mannings Store 化妝工具刷 makeup brush April 2024 R12S 01.jpg",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d9/HK_%E4%B8%AD%E7%92%B0_Central_%E7%9A%87%E5%90%8E%E5%A4%A7%E9%81%93%E4%B8%AD_88_Queen%27s_Road_%E5%8B%B5%E7%B2%BE%E4%B8%AD%E5%BF%83_Regent_Centre_shop_Mannings_Store_%E5%8C%96%E5%A6%9D%E5%B7%A5%E5%85%B7%E5%88%B7_makeup_brush_April_2024_R12S_01.jpg/960px-HK_%E4%B8%AD%E7%92%B0_Central_%E7%9A%87%E5%90%8E%E5%A4%A7%E9%81%93%E4%B8%AD_88_Queen%27s_Road_%E5%8B%B5%E7%B2%BE%E4%B8%AD%E5%BF%83_Regent_Centre_shop_Mannings_Store_%E5%8C%96%E5%A6%9D%E5%B7%A5%E5%85%B7%E5%88%B7_makeup_brush_April_2024_R12S_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "page": "https://commons.wikimedia.org/wiki/File:HK_%E4%B8%AD%E7%92%B0_Central_%E7%9A%87%E5%90%8E%E5%A4%A7%E9%81%93%E4%B8%AD_88_Queen%27s_Road_%E5%8B%B5%E7%B2%BE%E4%B8%AD%E5%BF%83_Regent_Centre_shop_Mannings_Store_%E5%8C%96%E5%A6%9D%E5%B7%A5%E5%85%B7%E5%88%B7_makeup_brush_April_2024_R12S_01.jpg",
+  "licence": "CC0",
+  "author": "BASUWT 22 law AONGo",
+  "src": "photos/mock/beauty.jpg",
+  "rejected": [
+   "File:London - Brompton Road - Harrods - Cosmetics Department.jpg"
+  ]
+ },
+ "salon": {
+  "title": "File:Salon z perukami Hair Lux – wnętrze.jpg",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7d/Salon_z_perukami_Hair_Lux_%E2%80%93_wn%C4%99trze.jpg/960px-Salon_z_perukami_Hair_Lux_%E2%80%93_wn%C4%99trze.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "page": "https://commons.wikimedia.org/wiki/File:Salon_z_perukami_Hair_Lux_%E2%80%93_wn%C4%99trze.jpg",
+  "licence": "CC BY-SA 4.0",
+  "author": "Tabrus",
+  "src": "photos/mock/salon.jpg",
+  "rejected": []
+ },
+ "shoes": {
+  "title": "File:Shoes in a spanish shoe store.jpg",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3e/Shoes_in_a_spanish_shoe_store.jpg/960px-Shoes_in_a_spanish_shoe_store.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "page": "https://commons.wikimedia.org/wiki/File:Shoes_in_a_spanish_shoe_store.jpg",
+  "licence": "CC BY-SA 4.0",
+  "author": "Tomascastelazo",
+  "src": "photos/mock/shoes.jpg",
+  "rejected": [
+   "File:Shoe repair shop - Arlington, MA.jpg"
+  ]
+ },
+ "jewellery": {
+  "title": "File:Interior of Sophies Silver jewelry store at Sankt Hansgatan 34, Visby, Sweden 2.jpg",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d8/Interior_of_Sophies_Silver_jewelry_store_at_Sankt_Hansgatan_34%2C_Visby%2C_Sweden_2.jpg/960px-Interior_of_Sophies_Silver_jewelry_store_at_Sankt_Hansgatan_34%2C_Visby%2C_Sweden_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "page": "https://commons.wikimedia.org/wiki/File:Interior_of_Sophies_Silver_jewelry_store_at_Sankt_Hansgatan_34,_Visby,_Sweden_2.jpg",
+  "licence": "CC BY-SA 4.0",
+  "author": "W.carter",
+  "src": "photos/mock/jewellery.jpg",
+  "rejected": [
+   "File:Chicago in 2022 Display cabinets at David Yurman jewelry store (52054440401).jpg"
+  ]
+ },
+ "optician": {
+  "title": "File:HK TST Chung King 活方商場 Woodhouse optician shop interior display on sale.JPG",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7d/HK_TST_Chung_King_%E6%B4%BB%E6%96%B9%E5%95%86%E5%A0%B4_Woodhouse_optician_shop_interior_display_on_sale.JPG/960px-HK_TST_Chung_King_%E6%B4%BB%E6%96%B9%E5%95%86%E5%A0%B4_Woodhouse_optician_shop_interior_display_on_sale.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "page": "https://commons.wikimedia.org/wiki/File:HK_TST_Chung_King_%E6%B4%BB%E6%96%B9%E5%95%86%E5%A0%B4_Woodhouse_optician_shop_interior_display_on_sale.JPG",
+  "licence": "CC BY-SA 3.0",
+  "author": "Barebibotra",
+  "src": "photos/mock/optician.jpg",
+  "rejected": []
+ },
+ "phones": {
+  "title": "File:Mobile phone shop in Singapore.jpg",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e2/Mobile_phone_shop_in_Singapore.jpg/960px-Mobile_phone_shop_in_Singapore.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "page": "https://commons.wikimedia.org/wiki/File:Mobile_phone_shop_in_Singapore.jpg",
+  "licence": "CC BY-SA 4.0",
+  "author": "Maksym Kozlenko",
+  "src": "photos/mock/phones.jpg",
+  "rejected": []
+ },
+ "electronics": {
+  "title": "File:Washing machine aisle in a Japanese electronics store.jpg",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8d/Washing_machine_aisle_in_a_Japanese_electronics_store.jpg/960px-Washing_machine_aisle_in_a_Japanese_electronics_store.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "page": "https://commons.wikimedia.org/wiki/File:Washing_machine_aisle_in_a_Japanese_electronics_store.jpg",
+  "licence": "CC0",
+  "author": "Tokyo538",
+  "src": "photos/mock/electronics.jpg",
+  "rejected": []
+ },
+ "services": {
+  "title": "File:Thailand Post counter, Thung Song Post Office.jpg",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c2/Thailand_Post_counter%2C_Thung_Song_Post_Office.jpg/960px-Thailand_Post_counter%2C_Thung_Song_Post_Office.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "page": "https://commons.wikimedia.org/wiki/File:Thailand_Post_counter,_Thung_Song_Post_Office.jpg",
+  "licence": "CC0",
+  "author": "Wutkh",
+  "src": "photos/mock/services.jpg",
+  "rejected": []
+ },
+ "books": {
+  "title": "File:Bookshop interior - geograph.org.uk - 7540912.jpg",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/46/Bookshop_interior_-_geograph.org.uk_-_7540912.jpg/960px-Bookshop_interior_-_geograph.org.uk_-_7540912.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "page": "https://commons.wikimedia.org/wiki/File:Bookshop_interior_-_geograph.org.uk_-_7540912.jpg",
+  "licence": "CC BY-SA 2.0",
+  "author": "Anthony O'Neil",
+  "src": "photos/mock/books.jpg",
+  "rejected": []
+ },
+ "clinic": {
+  "title": "File:Childrens dental clinic interior sign.jpg",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/56/Childrens_dental_clinic_interior_sign.jpg/960px-Childrens_dental_clinic_interior_sign.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "page": "https://commons.wikimedia.org/wiki/File:Childrens_dental_clinic_interior_sign.jpg",
+  "licence": "CC BY-SA 4.0",
+  "author": "Helene.3160",
+  "src": "photos/mock/clinic.jpg",
+  "rejected": []
+ },
+ "pharmacy": {
+  "title": "File:Pharmacy (27651099119).jpg",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f6/Pharmacy_%2827651099119%29.jpg/960px-Pharmacy_%2827651099119%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "page": "https://commons.wikimedia.org/wiki/File:Pharmacy_(27651099119).jpg",
+  "licence": "CC BY 2.0",
+  "author": "Rob Oo from NL",
+  "src": "photos/mock/pharmacy.jpg",
+  "rejected": [
+   "File:Pharmacy, interior, cash register, scale, interior of a pharmacy Fortepan 57178.jpg"
+  ]
+ },
+ "gym": {
+  "title": "File:Interior of new modern gym with equipment.jpg",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2e/Interior_of_new_modern_gym_with_equipment.jpg/960px-Interior_of_new_modern_gym_with_equipment.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "page": "https://commons.wikimedia.org/wiki/File:Interior_of_new_modern_gym_with_equipment.jpg",
+  "licence": "CC BY 2.0",
+  "author": "Shixart1985",
+  "src": "photos/mock/gym.jpg",
+  "rejected": []
+ }
+}

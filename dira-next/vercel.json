@@ -1,0 +1,7 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "installCommand": "echo \"Prebuilt: run npm run deploy from this folder\"",
+  "buildCommand": "echo \"Prebuilt: dist/ was built locally with the venue maps\"",
+  "outputDirectory": "dist"
+}

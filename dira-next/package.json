@@ -1,0 +1,24 @@
+{
+  "name": "dira-next",
+  "private": true,
+  "version": "0.2.0",
+  "description": "Dira on IMDF: indoor navigation with 3D maps of every floor, built on the imdf-sarit archive.",
+  "type": "module",
+  "scripts": {
+    "sync": "node scripts/sync-venues.mjs",
+    "dev": "npm run sync && vite --port 5175",
+    "build": "npm run sync && vite build",
+    "preview": "vite preview --port 5175",
+    "test": "node scripts/test-directions.mjs",
+    "deploy": "npm run build && npx vercel --prod --yes"
+  },
+  "dependencies": {
+    "maplibre-gl": "^6.15.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^6.1.2",
+    "vite": "^8.3.5"
+  }
+}

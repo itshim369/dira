@@ -1,0 +1,160 @@
+{
+ "LG": {
+  "transform": [
+   [
+    1.0,
+    -0.0,
+    0.0
+   ],
+   [
+    0.0,
+    1.0,
+    0.0
+   ]
+  ],
+  "method": "reference",
+  "approximate": false
+ },
+ "G": {
+  "transform": [
+   [
+    2.549930473837221,
+    -0.007099646880772566,
+    1044.6268887740157
+   ],
+   [
+    0.007099646880772566,
+    2.549930473837221,
+    -646.5122370840453
+   ]
+  ],
+  "method": "outline-ecc + lift stacking",
+  "ecc": 0.9518,
+  "iou_with_LG": 0.812,
+  "scale": 2.5499,
+  "rotation_deg": 0.16,
+  "approximate": false,
+  "lift_pairs": 3,
+  "lift_residual_px": 3.5
+ },
+ "F1": {
+  "transform": [
+   [
+    2.1982296452627788,
+    -0.004350624353407171,
+    1045.775475707011
+   ],
+   [
+    0.004350624353407171,
+    2.1982296452627788,
+    -60.911971182120176
+   ]
+  ],
+  "method": "outline-ecc + lift stacking",
+  "ecc": 0.9653,
+  "iou_with_LG": 0.829,
+  "scale": 2.1982,
+  "rotation_deg": 0.11,
+  "approximate": false,
+  "lift_pairs": 3,
+  "lift_residual_px": 6.8
+ },
+ "F2": {
+  "transform": [
+   [
+    2.104286362300257,
+    0.004490958179453308,
+    1061.290828085363
+   ],
+   [
+    -0.004490958179453308,
+    2.104286362300257,
+    -31.39344456241381
+   ]
+  ],
+  "method": "outline-ecc + lift stacking",
+  "ecc": 0.9642,
+  "iou_with_LG": 0.828,
+  "scale": 2.1043,
+  "rotation_deg": -0.12,
+  "approximate": false,
+  "lift_pairs": 5,
+  "lift_residual_px": 17.7
+ },
+ "F3": {
+  "transform": [
+   [
+    1.3578053873386002,
+    -0.0,
+    1302.488978074149
+   ],
+   [
+    0.0,
+    1.3578053873386002,
+    518.3657579342748
+   ]
+  ],
+  "method": "stack-lifts-on-F2",
+  "scale": 1.3578,
+  "rotation_deg": 0.0,
+  "approximate": true,
+  "note": "Position and zoom from stacking the two lifts on the Second floor tower lifts, no rotation. Check on site."
+ },
+ "F4": {
+  "transform": [
+   [
+    1.3677892504807958,
+    -0.0,
+    1302.2094299061673
+   ],
+   [
+    0.0,
+    1.3677892504807958,
+    520.976538145959
+   ]
+  ],
+  "method": "stack-lifts-on-F2",
+  "scale": 1.3678,
+  "rotation_deg": 0.0,
+  "approximate": true,
+  "note": "Position and zoom from stacking the two lifts on the Second floor tower lifts, no rotation. Check on site."
+ },
+ "F5": {
+  "transform": [
+   [
+    1.3578053873386002,
+    -0.0,
+    1797.7484931059034
+   ],
+   [
+    0.0,
+    1.3578053873386002,
+    -254.5649588082233
+   ]
+  ],
+  "method": "stack-lifts-on-F2",
+  "scale": 1.3578,
+  "rotation_deg": 0.0,
+  "approximate": true,
+  "note": "Only one lift on this page and no shared outline; placed over the tower lifts with the third floor's zoom as a guess. Real position unknown."
+ },
+ "F6": {
+  "transform": [
+   [
+    1.3578053873386002,
+    -0.0,
+    2088.318845996364
+   ],
+   [
+    0.0,
+    1.3578053873386002,
+    -126.2523497047257
+   ]
+  ],
+  "method": "stack-lifts-on-F2",
+  "scale": 1.3578,
+  "rotation_deg": 0.0,
+  "approximate": true,
+  "note": "Only one lift on this page and no shared outline; placed over the tower lifts with the third floor's zoom as a guess. Real position unknown."
+ }
+}

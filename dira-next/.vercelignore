@@ -1,0 +1,5 @@
+# The site is built here (it needs the venue maps from ../imdf-sarit and ../imdf-nisake),
+# so only the built files go up.
+/*
+!/dist
+!/vercel.json

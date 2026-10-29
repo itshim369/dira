@@ -1,0 +1,26 @@
+{
+  "name": "imdf-sarit",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Sarit Centre (all eight levels) as an IMDF archive, with a 3D indoor map viewer.",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --port 5174",
+    "build": "vite build",
+    "preview": "vite preview --port 5174",
+    "extract": "python scripts/extract_units.py ../images/Sarit_Centre_Mall_Map_HD.pdf 1 LG data --overlay review && python scripts/extract_units.py ../images/Sarit_Centre_Mall_Map.pdf 2 G data --scale 0.45 --overlay review && python scripts/extract_units.py ../images/Sarit_Centre_Mall_Map.pdf 3 F1 data --scale 0.45 --overlay review && python scripts/extract_units.py ../images/Sarit_Centre_Mall_Map.pdf 4 F2 data --scale 0.45 --overlay review && python scripts/extract_units.py ../images/Sarit_Centre_Mall_Map.pdf 5 F3 data --scale 0.45 --overlay review && python scripts/extract_units.py ../images/Sarit_Centre_Mall_Map.pdf 6 F4 data --scale 0.45 --overlay review && python scripts/extract_units.py ../images/Sarit_Centre_Mall_Map.pdf 7 F5 data --scale 0.45 --overlay review && python scripts/extract_units.py ../images/Sarit_Centre_Mall_Map.pdf 8 F6 data --scale 0.45 --overlay review",
+    "imdf": "python scripts/build_imdf.py",
+    "test": "node scripts/test-routes.mjs",
+    "register": "python scripts/register_floors.py",
+    "data": "npm run extract && npm run register && npm run imdf"
+  },
+  "dependencies": {
+    "maplibre-gl": "^6.15.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^6.1.2",
+    "vite": "^8.3.5"
+  }
+}

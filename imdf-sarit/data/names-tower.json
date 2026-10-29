@@ -1,0 +1,42 @@
+{
+  "_about": "Office tower floors 3 to 6, read off the standard-resolution floor plan PDF (pages 5 to 8). Same format as names-G.json, one block per level.",
+  "F3": {
+    "units": {
+      "unit-001": ["Eyequip Vision Ltd", "opticians"],
+      "unit-002": ["Serv-All Insurance Agency Ltd", "insurance"],
+      "unit-003": ["Dr. Abda F. Khan", "physician"],
+      "unit-004": ["SA", "corporateoffices"],
+      "unit-005": null,
+      "unit-006": ["Urban Dynamics", "architecture", "verify"],
+      "unit-007": ["GSM Retail", "mobilephones"],
+      "unit-008": ["AA Kenya", "automotive"],
+      "unit-009": ["AL", "corporateoffices"],
+      "unit-010": ["Design for Living", "interiordesign"]
+    },
+    "labels": {}
+  },
+  "F4": {
+    "units": {
+      "unit-001": ["AL", "corporateoffices"],
+      "unit-002": ["SPL", "corporateoffices"],
+      "unit-003": ["Upin Vasani & Co", "accounting"],
+      "unit-004": ["Blue Sky Dental", "dentistry"],
+      "unit-005": ["AAR", "insurance.health"]
+    },
+    "labels": {}
+  },
+  "F5": {
+    "units": {
+      "unit-001": ["Alloy Padel", "sportsclub"]
+    },
+    "labels": {}
+  },
+  "F6": {
+    "units": {
+      "unit-001": ["Refloat Studio", "floatspa"],
+      "unit-002": ["Smash Fit", "gym"],
+      "unit-003": ["Alloy Lounge", "loungebar"]
+    },
+    "labels": {}
+  }
+}

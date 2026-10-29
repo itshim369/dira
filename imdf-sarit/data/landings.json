@@ -1,0 +1,8 @@
+{
+  "_about": "Where you get on and off lifts and travelators, when the floor plan alone does not show it. Keyed by level and traced unit id; 'end' is the side of the unit's outline (north, south, east, west) that is the landing on that level. Written into the IMDF archive as openings. 'name' renames the unit.",
+  "_source": "Venue description from the project owner, 26 October 2026: the two 'escalators' drawn across the ends of the Lower Ground corridor in front of Carrefour are inclined travelators that bring shoppers (and trolleys) down from the Ground floor straight into Carrefour's entrance zone; the glass lifts beside Bella Zuri also open into that space. The corridor has no walking link to the main Lower Ground corridors.",
+  "LG": {
+    "escalator-104": { "end": "east", "name": "Travelator" },
+    "escalator-102": { "end": "north", "name": "Travelator" }
+  }
+}

@@ -1,0 +1,16 @@
+# The new Dira: dira-next plus the IMDF venue projects it builds from.
+# Retired original app (see focus-new-dira) and large media stay out of the repo.
+/dira-web/
+/video/
+/recordings/
+/images/
+/design review images/
+/docs/
+
+node_modules/
+dist/
+.vercel/
+.env*
+*.log
+.DS_Store
+Thumbs.db

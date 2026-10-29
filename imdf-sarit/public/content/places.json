@@ -1,0 +1,5442 @@
+{
+ "venue": {
+  "description": "Shopping centre in Westlands, Nairobi, with shops, banks, restaurants, a cinema, an expo hall and offices across eight levels.",
+  "photo": {
+   "src": "photos/sarit-centre.jpg",
+   "caption": "Sarit Centre, Westlands",
+   "credit": "OhanaUnited, CC BY-SA 3.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Sarit_Centre.jpg"
+  },
+  "hours": "Mo-Su 09:00-20:00",
+  "hours_status": "estimate"
+ },
+ "places": {
+  "c270b45e-3e85-5b37-bdda-bc76659ea719": {
+   "unnamed": true,
+   "feature": "LG unit-007",
+   "flags": [
+    "name-unreadable"
+   ]
+  },
+  "7ddda0ec-b499-5962-8806-3d3ff38b9bda": {
+   "description": "Hotpoint Appliances showroom: TVs, fridges, cookers and small appliances.",
+   "tags": [
+    "TVs",
+    "Fridges",
+    "Cookers",
+    "Small appliances"
+   ],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/electronics.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Tokyo538, CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:Washing_machine_aisle_in_a_Japanese_electronics_store.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "7f067eeb-95f5-52e1-8007-fcb8dfa83e6c": {
+   "description": "Bank branch for accounts, cards, loans and help with mobile banking.",
+   "tags": [
+    "Accounts",
+    "Cards",
+    "Loans",
+    "Mobile banking"
+   ],
+   "hours": "Mo-Fr 08:30-16:00; Sa 09:00-12:00",
+   "hours_status": "estimate",
+   "website": "https://www.absabank.co.ke",
+   "photo": {
+    "src": "photos/mock/bank.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "w_lemay, CC BY-SA 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Banking_Hall,_Guardian_Building,_Griswold_Street,_Detroit,_MI.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "7af459b8-8822-58b4-a76d-750939468803": {
+   "description": "Bank branch for accounts, cards, loans and help with mobile banking.",
+   "tags": [
+    "Accounts",
+    "Cards",
+    "Loans",
+    "Mobile banking"
+   ],
+   "hours": "Mo-Fr 08:30-16:00; Sa 09:00-12:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/bank.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "w_lemay, CC BY-SA 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Banking_Hall,_Guardian_Building,_Griswold_Street,_Detroit,_MI.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "27e0a5be-1d7c-5b82-9f65-31b8298d9dc7": {
+   "unnamed": true,
+   "feature": "LG unit-018",
+   "flags": [
+    "name-unreadable"
+   ]
+  },
+  "31a91e10-5511-5540-84f7-42071df49962": {
+   "unnamed": true,
+   "feature": "LG unit-019",
+   "flags": [
+    "name-unreadable"
+   ]
+  },
+  "c1ba9444-aa39-5c32-9ca2-ccc2f4867619": {
+   "unnamed": true,
+   "feature": "LG unit-020",
+   "flags": [
+    "name-unreadable"
+   ]
+  },
+  "e955aca4-2760-5d78-8e53-f248ad0b79e4": {
+   "description": "Frozen yoghurt and desserts.",
+   "tags": [
+    "Frozen yoghurt",
+    "Desserts"
+   ],
+   "hours": "Mo-Su 08:00-22:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/dessert.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Infrogmation of New Orleans, CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Gelato_Pazzo_New_Orleans_Interior_August_2008_B.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "6df09de7-0be2-50ce-97bc-34431bc220c0": {
+   "description": "Shop.",
+   "tags": [],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/services.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Wutkh, CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:Thailand_Post_counter,_Thung_Song_Post_Office.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "6aa21e1d-c20c-5921-a010-8d3a134b84fd": {
+   "description": "Health store with vitamins, supplements and wellness products.",
+   "tags": [
+    "Vitamins",
+    "Supplements",
+    "Wellness"
+   ],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/pharmacy.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Rob Oo from NL, CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Pharmacy_(27651099119).jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "30478de2-dc39-5eea-8b32-574543dae19d": {
+   "unnamed": true,
+   "feature": "LG unit-027",
+   "flags": [
+    "name-unreadable"
+   ]
+  },
+  "fc002bbc-3d3f-57fc-a7d3-a874942c403c": {
+   "description": "Electronics and smart home devices.",
+   "tags": [
+    "Electronics",
+    "Smart home"
+   ],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/electronics.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Tokyo538, CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:Washing_machine_aisle_in_a_Japanese_electronics_store.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "acb233e5-b85e-5695-85a5-72e358000ce0": {
+   "description": "Gifts and novelties.",
+   "tags": [
+    "Gifts",
+    "Homeware"
+   ],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/home.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Downtowngal, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Furniture_store_interior.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "b45800c1-f613-5aa6-94ef-dc3ffee49764": {
+   "description": "Bicycles, parts and accessories.",
+   "tags": [
+    "Bicycles",
+    "Parts"
+   ],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/sports.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Steffen Mokosch, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Interior_sports_clothing_store_Cala_Millor.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed",
+    "name-to-verify"
+   ]
+  },
+  "3984482c-ca06-5dd3-a424-dbf00700eaec": {
+   "description": "Optician for eye tests, glasses and contact lenses.",
+   "tags": [
+    "Eye tests",
+    "Glasses",
+    "Contact lenses"
+   ],
+   "hours": "Mo-Sa 08:00-18:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/optician.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Barebibotra, CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:HK_TST_Chung_King_%E6%B4%BB%E6%96%B9%E5%95%86%E5%A0%B4_Woodhouse_optician_shop_interior_display_on_sale.JPG",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "1d6dbe01-f99d-51d0-958e-81913d8bc174": {
+   "description": "Homeware, decor and kitchen goods.",
+   "tags": [
+    "Homeware",
+    "Decor",
+    "Kitchen"
+   ],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/home.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Downtowngal, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Furniture_store_interior.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "cfb530fc-8b1e-5446-8059-9b388c13219c": {
+   "description": "Real estate agency.",
+   "tags": [
+    "Property sales",
+    "Lettings"
+   ],
+   "hours": "Mo-Fr 08:00-17:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/office.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Shixart1985, CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Modern_medical_office_interior_design.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "71132988-4823-58c9-b660-38224cb49b01": {
+   "description": "Bank branch for accounts, cards, loans and help with mobile banking.",
+   "tags": [
+    "Accounts",
+    "Cards",
+    "Loans",
+    "Mobile banking"
+   ],
+   "hours": "Mo-Fr 08:30-16:00; Sa 09:00-12:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/bank.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "w_lemay, CC BY-SA 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Banking_Hall,_Guardian_Building,_Griswold_Street,_Detroit,_MI.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "c4d2733a-0e43-5774-bb69-c2e7e48d5335": {
+   "description": "Leather bags and accessories.",
+   "tags": [
+    "Bags",
+    "Leather goods"
+   ],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/fashion.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "MAKY.OREL, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Clothing_racks_in_second_hand_shop,_Prague.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "41e4b83e-cf66-5c29-a421-1e183c56a090": {
+   "description": "Shop.",
+   "tags": [],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/services.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Wutkh, CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:Thailand_Post_counter,_Thung_Song_Post_Office.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "f559c24d-88a5-5ab6-9a91-c910a75908ca": {
+   "description": "Jewellery and watches.",
+   "tags": [
+    "Jewellery",
+    "Watches"
+   ],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/jewellery.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "W.carter, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Interior_of_Sophies_Silver_jewelry_store_at_Sankt_Hansgatan_34,_Visby,_Sweden_2.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "ffaffc07-4de9-54d6-9f1c-e56a3a891613": {
+   "description": "Phones, tablets and accessories.",
+   "tags": [
+    "Phones",
+    "Accessories",
+    "Repairs"
+   ],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/phones.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Maksym Kozlenko, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Mobile_phone_shop_in_Singapore.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "aff562d5-cb57-531c-9e59-0c7287714a5f": {
+   "description": "Pharmacy chain for prescriptions, over-the-counter medicine and health products.",
+   "tags": [
+    "Prescriptions",
+    "Medicine",
+    "Health and beauty"
+   ],
+   "hours": "Mo-Sa 08:00-18:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/pharmacy.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Rob Oo from NL, CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Pharmacy_(27651099119).jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "59ef746a-98bc-5544-93c4-e3188961e8a2": {
+   "description": "Kenyan coffee house chain serving coffee, breakfast and meals all day.",
+   "tags": [
+    "Coffee",
+    "Breakfast",
+    "Light meals"
+   ],
+   "hours": "Mo-Su 08:00-22:00",
+   "hours_status": "estimate",
+   "website": "https://www.javahouseafrica.com",
+   "photo": {
+    "src": "photos/mock/cafe.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Andy Li, CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:Interior_of_Floral_Cafe_2026-02-25.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "8217217c-0589-5ac8-b424-dd762334b8b7": {
+   "description": "Hair salon.",
+   "tags": [
+    "Hair",
+    "Styling"
+   ],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/salon.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Tabrus, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Salon_z_perukami_Hair_Lux_%E2%80%93_wn%C4%99trze.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "b9b9f2a2-fc7a-5d3d-9596-e08460d2f0bc": {
+   "description": "Optician for eye tests, glasses and contact lenses.",
+   "tags": [
+    "Eye tests",
+    "Glasses",
+    "Contact lenses"
+   ],
+   "hours": "Mo-Sa 08:00-18:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/optician.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Barebibotra, CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:HK_TST_Chung_King_%E6%B4%BB%E6%96%B9%E5%95%86%E5%A0%B4_Woodhouse_optician_shop_interior_display_on_sale.JPG",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "e7353f90-b35c-5279-a8f9-dd9d6c1c13ff": {
+   "description": "Courier and parcel services.",
+   "tags": [
+    "Parcels",
+    "Courier"
+   ],
+   "hours": "Mo-Fr 08:00-17:00",
+   "hours_status": "estimate",
+   "website": "https://www.dhl.com/ke-en",
+   "photo": {
+    "src": "photos/mock/services.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Wutkh, CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:Thailand_Post_counter,_Thung_Song_Post_Office.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "47dc1b7b-cad5-5442-8576-e55aab4b8568": {
+   "description": "Computers, laptops and accessories.",
+   "tags": [
+    "Laptops",
+    "Accessories",
+    "Printers"
+   ],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/electronics.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Tokyo538, CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:Washing_machine_aisle_in_a_Japanese_electronics_store.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "0a8229bb-e556-51a6-93f6-cf02a7c5720d": {
+   "description": "NCBA's digital banking brand: help with the Loop app and cards.",
+   "tags": [
+    "Accounts",
+    "Cards",
+    "Loans",
+    "Mobile banking"
+   ],
+   "hours": "Mo-Fr 08:30-16:00; Sa 09:00-12:00",
+   "hours_status": "estimate",
+   "website": "https://ke.ncbagroup.com",
+   "photo": {
+    "src": "photos/mock/bank.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "w_lemay, CC BY-SA 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Banking_Hall,_Guardian_Building,_Griswold_Street,_Detroit,_MI.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "05483783-5edb-5139-a0a3-7739ef3dcf0c": {
+   "description": "Fashion and accessories.",
+   "tags": [
+    "Clothing",
+    "Accessories"
+   ],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/fashion.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "MAKY.OREL, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Clothing_racks_in_second_hand_shop,_Prague.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "a8143ca9-284a-5e04-9c56-bc1d77a0348c": {
+   "description": "Airline office for bookings and ticket changes.",
+   "tags": [
+    "Bookings",
+    "Tickets"
+   ],
+   "hours": "Mo-Fr 08:00-17:00",
+   "hours_status": "estimate",
+   "website": "https://www.kenya-airways.com",
+   "photo": {
+    "src": "photos/mock/office.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Shixart1985, CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Modern_medical_office_interior_design.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "318c24e6-b116-5bfa-a108-6f29c3d16f17": {
+   "description": "Vet clinic and pet supplies.",
+   "tags": [
+    "Pet care",
+    "Vet"
+   ],
+   "hours": "Mo-Sa 08:00-18:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/clinic.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Helene.3160, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Childrens_dental_clinic_interior_sign.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "1fef6b59-0365-57e9-ba39-cda3692f2f2e": {
+   "description": "Beauty salon for hair, nails and treatments.",
+   "tags": [
+    "Hair",
+    "Nails",
+    "Treatments"
+   ],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/salon.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Tabrus, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Salon_z_perukami_Hair_Lux_%E2%80%93_wn%C4%99trze.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "3dd188fc-03e8-595d-9757-d71c579e1115": {
+   "description": "Shop.",
+   "tags": [],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/services.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Wutkh, CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:Thailand_Post_counter,_Thung_Song_Post_Office.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "1eb6398e-348b-5e33-879f-c986c3457336": {
+   "description": "Optician for eye tests, glasses and contact lenses.",
+   "tags": [
+    "Eye tests",
+    "Glasses",
+    "Contact lenses"
+   ],
+   "hours": "Mo-Sa 08:00-18:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/optician.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Barebibotra, CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:HK_TST_Chung_King_%E6%B4%BB%E6%96%B9%E5%95%86%E5%A0%B4_Woodhouse_optician_shop_interior_display_on_sale.JPG",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "3347128d-35fb-51b9-91c2-68eeb0894cb2": {
+   "description": "Shop.",
+   "tags": [],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/services.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Wutkh, CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:Thailand_Post_counter,_Thung_Song_Post_Office.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "1e5ecd21-81cc-52bd-a9e8-099c175bb475": {
+   "description": "Bicycles, parts and accessories.",
+   "tags": [
+    "Bicycles",
+    "Parts"
+   ],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/sports.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Steffen Mokosch, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Interior_sports_clothing_store_Cala_Millor.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "162f404f-1da7-583d-ba2f-7a37e1de2cb7": {
+   "description": "Women's fashion and accessories.",
+   "tags": [
+    "Women's clothing",
+    "Accessories"
+   ],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/fashion.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "MAKY.OREL, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Clothing_racks_in_second_hand_shop,_Prague.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "2e7706f8-eb04-5ab1-84df-8ba66699ff26": {
+   "description": "Computers, laptops and accessories.",
+   "tags": [
+    "Laptops",
+    "Accessories",
+    "Printers"
+   ],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/electronics.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Tokyo538, CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:Washing_machine_aisle_in_a_Japanese_electronics_store.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "687893da-e1aa-563f-b585-d7b76cd2df46": {
+   "description": "Books, stationery and school supplies.",
+   "tags": [
+    "Books",
+    "Stationery"
+   ],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/books.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Anthony O'Neil, CC BY-SA 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Bookshop_interior_-_geograph.org.uk_-_7540912.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "da09a4d1-3b6a-5796-aa49-bf4621ff316f": {
+   "unnamed": true,
+   "feature": "LG unit-064",
+   "flags": [
+    "name-unreadable"
+   ]
+  },
+  "79d8a15f-d3ff-5207-8052-70ab121d4b06": {
+   "description": "Shoes for the family.",
+   "tags": [
+    "Shoes",
+    "Bags"
+   ],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/shoes.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Tomascastelazo, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Shoes_in_a_spanish_shoe_store.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "28544660-fa92-5014-8792-cfa1d1086b5e": {
+   "description": "Posta Kenya post office for letters, parcels and post boxes.",
+   "tags": [
+    "Post",
+    "Parcels"
+   ],
+   "hours": "Mo-Fr 08:00-17:00; Sa 09:00-12:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/services.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Wutkh, CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:Thailand_Post_counter,_Thung_Song_Post_Office.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "159fe407-497e-5cfb-860e-ea3a5bfb112e": {
+   "description": "Forex bureau for buying and selling foreign currency.",
+   "tags": [
+    "Foreign exchange",
+    "Money transfer"
+   ],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/bank.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "w_lemay, CC BY-SA 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Banking_Hall,_Guardian_Building,_Griswold_Street,_Detroit,_MI.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "07780551-76eb-5169-ada8-6e16b4b90f34": {
+   "description": "Gifts and novelties.",
+   "tags": [
+    "Gifts",
+    "Homeware"
+   ],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/home.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Downtowngal, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Furniture_store_interior.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "eb8efdb5-5df2-57a0-952f-d0382c45a5df": {
+   "unnamed": true,
+   "feature": "LG unit-069",
+   "flags": [
+    "name-unreadable"
+   ]
+  },
+  "7e202cfe-d8a3-59dc-b40d-641d6934bc1e": {
+   "description": "Phones, tablets and accessories.",
+   "tags": [
+    "Phones",
+    "Accessories",
+    "Repairs"
+   ],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/phones.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Maksym Kozlenko, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Mobile_phone_shop_in_Singapore.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "4b244f3e-e183-5b71-8606-4000cfdc9ae0": {
+   "unnamed": true,
+   "feature": "LG unit-071",
+   "flags": [
+    "name-unreadable"
+   ]
+  },
+  "cf53784b-631a-51dc-9ef2-970fc731e853": {
+   "unnamed": true,
+   "feature": "LG unit-072",
+   "flags": [
+    "name-unreadable"
+   ]
+  },
+  "eb40934a-881f-5581-9b45-786943ef6c76": {
+   "description": "Handicrafts, art and souvenirs.",
+   "tags": [
+    "Crafts",
+    "Art",
+    "Gifts"
+   ],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/home.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Downtowngal, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Furniture_store_interior.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "d86e86b1-d748-59e4-bda4-f037ac126cb8": {
+   "description": "Ice cream and desserts.",
+   "tags": [
+    "Ice cream",
+    "Desserts"
+   ],
+   "hours": "Mo-Su 08:00-22:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/dessert.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Infrogmation of New Orleans, CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Gelato_Pazzo_New_Orleans_Interior_August_2008_B.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "86a51ee5-9e6d-523f-9f95-71026a1359e1": {
+   "description": "Shop.",
+   "tags": [],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/services.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Wutkh, CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:Thailand_Post_counter,_Thung_Song_Post_Office.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "d5a7d241-2a89-5e0f-bd02-79a220f9c900": {
+   "description": "Courier and parcel services.",
+   "tags": [
+    "Parcels",
+    "Courier"
+   ],
+   "hours": "Mo-Fr 08:00-17:00",
+   "hours_status": "estimate",
+   "website": "https://www.fedex.com",
+   "photo": {
+    "src": "photos/mock/services.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Wutkh, CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:Thailand_Post_counter,_Thung_Song_Post_Office.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "84473e3e-e62d-5cc4-8d08-d6559367c0df": {
+   "description": "Shop.",
+   "tags": [],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/services.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Wutkh, CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:Thailand_Post_counter,_Thung_Song_Post_Office.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "7ffdf9b2-d64f-51fd-8f35-bd100429ffa6": {
+   "description": "Perfumes and fragrances.",
+   "tags": [
+    "Perfume",
+    "Oud",
+    "Gift sets"
+   ],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/beauty.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "BASUWT 22 law AONGo, CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:HK_%E4%B8%AD%E7%92%B0_Central_%E7%9A%87%E5%90%8E%E5%A4%A7%E9%81%93%E4%B8%AD_88_Queen%27s_Road_%E5%8B%B5%E7%B2%BE%E4%B8%AD%E5%BF%83_Regent_Centre_shop_Mannings_Store_%E5%8C%96%E5%A6%9D%E5%B7%A5%E5%85%B7%E5%88%B7_makeup_brush_April_2024_R12S_01.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "bde0890d-394b-529b-9cae-f5e3fffd9181": {
+   "description": "Shop.",
+   "tags": [],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/services.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Wutkh, CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:Thailand_Post_counter,_Thung_Song_Post_Office.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "a8b89c84-22e8-52a2-8b24-5fae790aca5a": {
+   "description": "Hardware and home improvement.",
+   "tags": [
+    "Tools",
+    "Hardware"
+   ],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/home.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Downtowngal, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Furniture_store_interior.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "f600f5a1-5e11-5163-a239-838509bc327d": {
+   "description": "Advertising and branding services.",
+   "tags": [
+    "Advertising",
+    "Branding"
+   ],
+   "hours": "Mo-Fr 08:00-17:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/office.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Shixart1985, CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Modern_medical_office_interior_design.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "ebcab430-affb-55af-b086-9ac7f999d5fb": {
+   "unnamed": true,
+   "feature": "LG unit-082",
+   "flags": [
+    "name-unreadable"
+   ]
+  },
+  "e8d0e74f-d1fa-5eb3-a3c8-05a08f5e23b9": {
+   "description": "Posta Kenya post office for letters, parcels and post boxes.",
+   "tags": [
+    "Post",
+    "Parcels"
+   ],
+   "hours": "Mo-Fr 08:00-17:00; Sa 09:00-12:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/services.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Wutkh, CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:Thailand_Post_counter,_Thung_Song_Post_Office.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "d989ae5a-7781-59e4-a596-d44b6a86cbbb": {
+   "description": "Bank branch for accounts, cards, loans and help with mobile banking.",
+   "tags": [
+    "Accounts",
+    "Cards",
+    "Loans",
+    "Mobile banking"
+   ],
+   "hours": "Mo-Fr 08:30-16:00; Sa 09:00-12:00",
+   "hours_status": "estimate",
+   "website": "https://ke.ncbagroup.com",
+   "photo": {
+    "src": "photos/mock/bank.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "w_lemay, CC BY-SA 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Banking_Hall,_Guardian_Building,_Griswold_Street,_Detroit,_MI.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "14eab773-fa8e-5938-bca4-dd4e2f329c67": {
+   "description": "Picture framing and glass.",
+   "tags": [
+    "Framing",
+    "Glass"
+   ],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/home.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Downtowngal, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Furniture_store_interior.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "737434cf-f52b-539e-9531-e12daa598c00": {
+   "description": "Handicrafts, art and souvenirs.",
+   "tags": [
+    "Crafts",
+    "Art",
+    "Gifts"
+   ],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/home.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Downtowngal, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Furniture_store_interior.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "31e84156-5376-5f16-9444-bfa61e632b4b": {
+   "description": "Handicrafts, art and souvenirs.",
+   "tags": [
+    "Crafts",
+    "Art",
+    "Gifts"
+   ],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/home.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Downtowngal, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Furniture_store_interior.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "ba5f5083-b2ff-5dfe-8615-58dd1963b311": {
+   "description": "Suitcases, travel bags and accessories.",
+   "tags": [
+    "Suitcases",
+    "Travel bags"
+   ],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/fashion.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "MAKY.OREL, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Clothing_racks_in_second_hand_shop,_Prague.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "4a1b1dac-c93c-5710-85bb-a95cc3828b15": {
+   "description": "Phones, tablets and accessories.",
+   "tags": [
+    "Phones",
+    "Accessories",
+    "Repairs"
+   ],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/phones.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Maksym Kozlenko, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Mobile_phone_shop_in_Singapore.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "9bfc0b20-487c-57bd-ae00-9dc78173db3e": {
+   "description": "Bank branch for accounts, cards, loans and help with mobile banking.",
+   "tags": [
+    "Accounts",
+    "Cards",
+    "Loans",
+    "Mobile banking"
+   ],
+   "hours": "Mo-Fr 08:30-16:00; Sa 09:00-12:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/bank.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "w_lemay, CC BY-SA 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Banking_Hall,_Guardian_Building,_Griswold_Street,_Detroit,_MI.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "5d74621b-c8fb-5a53-a525-df414fa047c5": {
+   "description": "Mattresses, beds and bedding.",
+   "tags": [
+    "Mattresses",
+    "Beds",
+    "Bedding"
+   ],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/home.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Downtowngal, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Furniture_store_interior.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "3f952e7b-da06-549d-97d7-617aef69c949": {
+   "description": "Safaricom shop for lines, phones, M-Pesa and home internet.",
+   "tags": [
+    "Lines",
+    "Phones",
+    "Mobile money",
+    "Internet"
+   ],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": "https://www.safaricom.co.ke",
+   "photo": {
+    "src": "photos/mock/phones.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Maksym Kozlenko, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Mobile_phone_shop_in_Singapore.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "20dcc706-781c-5233-adf9-b2cb2f44fe4e": {
+   "description": "Phones, tablets and accessories.",
+   "tags": [
+    "Phones",
+    "Accessories",
+    "Repairs"
+   ],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/phones.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Maksym Kozlenko, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Mobile_phone_shop_in_Singapore.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "24ba0778-3d07-5f43-8c84-03b0d5213b37": {
+   "description": "Safaricom shop for lines, phones, M-Pesa and home internet.",
+   "tags": [
+    "Lines",
+    "Phones",
+    "Mobile money",
+    "Internet"
+   ],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": "https://www.safaricom.co.ke",
+   "photo": {
+    "src": "photos/mock/phones.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Maksym Kozlenko, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Mobile_phone_shop_in_Singapore.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "7af33dbe-dcad-5281-96f4-76d774d5b05a": {
+   "description": "Home and kitchen goods.",
+   "tags": [
+    "Kitchen",
+    "Home"
+   ],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/home.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Downtowngal, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Furniture_store_interior.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "44f53774-48e3-58e1-8d8f-daef9f52a9e2": {
+   "description": "KCB premium banking centre.",
+   "tags": [
+    "Accounts",
+    "Cards",
+    "Loans",
+    "Mobile banking"
+   ],
+   "hours": "Mo-Fr 08:30-16:00; Sa 09:00-12:00",
+   "hours_status": "estimate",
+   "website": "https://ke.kcbgroup.com",
+   "photo": {
+    "src": "photos/kcb.jpg",
+    "caption": "Representative photo: KCB Kipande branch, Kenyatta Avenue",
+    "credit": "DEMOSH, CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:KCB_bank_(2108245215).jpg"
+   },
+   "flags": []
+  },
+  "f86ad62d-5c3a-5c3f-b833-d1ebcedfbaaf": {
+   "description": "Hypermarket with fresh food, groceries, household goods and electronics.",
+   "tags": [
+    "Fresh food",
+    "Groceries",
+    "Household",
+    "Bakery"
+   ],
+   "hours": "Mo-Su 08:00-22:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/carrefour.jpg",
+    "caption": "Representative photo: Carrefour at Village Market, Nairobi",
+    "credit": "Wadakuramon, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Village_Market_-_Carrefour_6.jpg"
+   },
+   "flags": []
+  },
+  "cc5e5cd9-d374-5554-8ec4-1c047602cf9c": {
+   "unnamed": true,
+   "feature": "LG unit-098",
+   "flags": [
+    "name-unreadable"
+   ]
+  },
+  "96833e4b-a1ac-52fc-b94a-3e1132fcd368": {
+   "description": "Washrooms.",
+   "tags": [
+    "Washrooms"
+   ],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  },
+  "fa669c46-b0a1-5f23-a978-bc34c82e3bac": {
+   "description": "Washrooms.",
+   "tags": [
+    "Washrooms"
+   ],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  },
+  "e2506623-3931-5272-8d89-b9502a0c2ec6": {
+   "description": "Washrooms.",
+   "tags": [
+    "Washrooms"
+   ],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  },
+  "b79af162-cc12-5e08-a5a7-017bb2a0c0a2": {
+   "description": "Escalator between floors.",
+   "tags": [],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  },
+  "0682e4f5-1a7c-51e8-b449-d0437b7ea7c7": {
+   "description": "Escalator between floors.",
+   "tags": [],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  },
+  "6aeca88d-d0ca-5efe-87f0-6eb5206df07c": {
+   "description": "Escalator between floors.",
+   "tags": [],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  },
+  "6fefed21-5ace-5262-b14b-8e9df39163c1": {
+   "description": "Escalator between floors.",
+   "tags": [],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  },
+  "553df423-b551-5d80-9fda-051feaa39507": {
+   "description": "Stairs between floors.",
+   "tags": [],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  },
+  "d04df2f6-c6a5-5a7e-aeb2-bc7c27470370": {
+   "description": "Stairs between floors.",
+   "tags": [],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  },
+  "daa5c3e3-5d79-528c-87bb-7b2032b96780": {
+   "description": "Stairs between floors.",
+   "tags": [],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  },
+  "8a4638d6-887f-5bb8-ad9c-2c167f5bcea0": {
+   "description": "Stairs between floors.",
+   "tags": [],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  },
+  "1c153b91-edad-5464-ac2b-dd654cbd3658": {
+   "description": "Lift between floors, step free.",
+   "tags": [
+    "Step free"
+   ],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  },
+  "a461aeba-8225-5171-b05f-ceede735c16e": {
+   "description": "Lift between floors, step free.",
+   "tags": [
+    "Step free"
+   ],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  },
+  "0dafb930-a586-5f7d-8151-a70fd2c2e525": {
+   "description": "Lift between floors, step free.",
+   "tags": [
+    "Step free"
+   ],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  },
+  "10c3474b-8709-5e42-8bfd-787062aa75e6": {
+   "description": "Cash machine.",
+   "tags": [
+    "Cash"
+   ],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  },
+  "5c13a7a4-2567-5a28-9f85-ffdfc845cef8": {
+   "description": "Cash machine.",
+   "tags": [
+    "Cash"
+   ],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  },
+  "269a37ab-1fbf-5186-8141-8cf73e39962c": {
+   "description": "Cash machine.",
+   "tags": [
+    "Cash"
+   ],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  },
+  "179d9c89-9531-5ae9-86fb-bb90f581e2ef": {
+   "description": "Cash machine.",
+   "tags": [
+    "Cash"
+   ],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  },
+  "cadd2669-96e3-50bb-bb1c-46f500150be8": {
+   "description": "Cash machine.",
+   "tags": [
+    "Cash"
+   ],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  },
+  "1bd7db64-4d25-51ce-b5b2-0282a3fd4a0d": {
+   "description": "Cash machine.",
+   "tags": [
+    "Cash"
+   ],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  },
+  "7c82ecc4-719b-5fb4-8b3a-c3317904344e": {
+   "description": "Cash machine.",
+   "tags": [
+    "Cash"
+   ],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  },
+  "a3cebfa9-ef9e-5ac5-b5b4-b09607e6e2c9": {
+   "description": "Pedestrian entrance.",
+   "tags": [],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  },
+  "36a4c3e0-3078-59b0-a960-ed73461c03e4": {
+   "description": "Pedestrian entrance.",
+   "tags": [],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  },
+  "58df11fc-64c2-5619-b10e-8a702aa2b362": {
+   "description": "Pedestrian entrance.",
+   "tags": [],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  },
+  "0a9d8d94-337a-5700-9884-df7b9a51ca1b": {
+   "description": "Pedestrian entrance.",
+   "tags": [],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  },
+  "38098d37-5cc2-59f7-b8e9-5ddbe9cbb58b": {
+   "description": "Pedestrian entrance.",
+   "tags": [],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  },
+  "644a7955-aecd-529b-a152-b85d8e9fc196": {
+   "description": "Pedestrian entrance.",
+   "tags": [],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  },
+  "417ba956-9617-5d0c-a7cf-4672c591c30a": {
+   "description": "Pedestrian entrance.",
+   "tags": [],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  },
+  "fcbb8edb-d625-5527-9b0b-d0b4caab5d83": {
+   "description": "Car park.",
+   "tags": [
+    "Parking"
+   ],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  },
+  "87c06ae7-3d20-57fa-9727-048645928f70": {
+   "description": "Car park.",
+   "tags": [
+    "Parking"
+   ],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  },
+  "9714fb67-d8a6-511b-b6f6-d16dc4c9b6d7": {
+   "description": "Car park.",
+   "tags": [
+    "Parking"
+   ],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  },
+  "7ea9d433-0f2b-59fd-aed4-7697bca2d81a": {
+   "description": "Pedestrian entrance.",
+   "tags": [],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  },
+  "be05030c-5101-5efa-95f9-f49c683841ea": {
+   "unnamed": true,
+   "feature": "G unit-001",
+   "flags": [
+    "name-unreadable"
+   ]
+  },
+  "a7afc1a6-f5e7-5166-b945-fbd37b3b2250": {
+   "description": "Kenyan bookshop and stationery chain: books, school supplies and office stationery.",
+   "tags": [
+    "Books",
+    "Stationery"
+   ],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/books.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Anthony O'Neil, CC BY-SA 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Bookshop_interior_-_geograph.org.uk_-_7540912.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "6c57caae-b705-5026-97c4-dacbf3b8c62d": {
+   "unnamed": true,
+   "feature": "G unit-003",
+   "flags": [
+    "name-unreadable"
+   ]
+  },
+  "36bfeac0-66aa-5675-8d04-71fd295979cb": {
+   "description": "Fashion and accessories.",
+   "tags": [
+    "Clothing",
+    "Accessories"
+   ],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/fashion.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "MAKY.OREL, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Clothing_racks_in_second_hand_shop,_Prague.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "4655c080-416e-5cb0-a2e8-3e7aeca4326d": {
+   "description": "Fashion and accessories.",
+   "tags": [
+    "Clothing",
+    "Accessories"
+   ],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/fashion.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "MAKY.OREL, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Clothing_racks_in_second_hand_shop,_Prague.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "2036801c-d76c-5b45-9d70-20afbfd59a6a": {
+   "unnamed": true,
+   "feature": "G unit-006",
+   "flags": [
+    "name-unreadable"
+   ]
+  },
+  "87adb95a-ce09-54a5-bf47-a1c70b6f6136": {
+   "unnamed": true,
+   "feature": "G unit-007",
+   "flags": [
+    "name-unreadable"
+   ]
+  },
+  "ab4c7faf-80b0-5f94-a03d-5a97e4c1d3b9": {
+   "description": "Baby clothes, gear and essentials.",
+   "tags": [
+    "Baby clothes",
+    "Baby gear"
+   ],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/toys.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Wide Awake!, CC BY 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:New_Toy_Kingdom_store_at_SM_City_Cebu_(2024-06-11).jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "f44ba2e5-49cf-52d4-8bb4-427c8456667a": {
+   "description": "Baking and kitchen supplies.",
+   "tags": [
+    "Baking",
+    "Kitchen"
+   ],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/home.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Downtowngal, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Furniture_store_interior.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "ce1c8643-aacd-50c6-b61e-fc3d79460491": {
+   "description": "Bakery with fresh bread, cakes and pastries.",
+   "tags": [
+    "Bread",
+    "Cakes",
+    "Pastries"
+   ],
+   "hours": "Mo-Su 08:00-22:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/bakery.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Mmangan333, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:A_display_of_Scali_bread_at_the_Winter_Hill_Bakery.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "d581ab95-3dfa-5c96-9c36-f6b1366befd8": {
+   "unnamed": true,
+   "feature": "G unit-011",
+   "flags": [
+    "name-unreadable"
+   ]
+  },
+  "d3c29dce-55f0-53b1-806b-2172d2e2d599": {
+   "unnamed": true,
+   "feature": "G unit-012",
+   "flags": [
+    "name-unreadable"
+   ]
+  },
+  "5da900bf-9ef9-5684-b526-926eaca5e698": {
+   "description": "Party supplies, balloons and decorations.",
+   "tags": [
+    "Party supplies",
+    "Decorations"
+   ],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/toys.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Wide Awake!, CC BY 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:New_Toy_Kingdom_store_at_SM_City_Cebu_(2024-06-11).jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "7fc2ec8e-b467-5acb-a2c7-9d8000f3a8c8": {
+   "unnamed": true,
+   "feature": "G unit-014",
+   "flags": [
+    "name-unreadable"
+   ]
+  },
+  "432e08f5-fbaa-574c-b5db-45f21c9bcf6d": {
+   "description": "Sportswear, trainers and sports gear.",
+   "tags": [
+    "Trainers",
+    "Sportswear",
+    "Accessories"
+   ],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/sports.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Steffen Mokosch, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Interior_sports_clothing_store_Cala_Millor.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "199db160-28f2-5dfb-b563-873174831ce6": {
+   "description": "Make-up, skincare and beauty products.",
+   "tags": [
+    "Make-up",
+    "Skincare",
+    "Fragrance"
+   ],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/beauty.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "BASUWT 22 law AONGo, CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:HK_%E4%B8%AD%E7%92%B0_Central_%E7%9A%87%E5%90%8E%E5%A4%A7%E9%81%93%E4%B8%AD_88_Queen%27s_Road_%E5%8B%B5%E7%B2%BE%E4%B8%AD%E5%BF%83_Regent_Centre_shop_Mannings_Store_%E5%8C%96%E5%A6%9D%E5%B7%A5%E5%85%B7%E5%88%B7_makeup_brush_April_2024_R12S_01.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "e52bf7ab-945d-530e-8011-5b8560388fea": {
+   "description": "Shoes for the family.",
+   "tags": [
+    "Shoes",
+    "Bags"
+   ],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/shoes.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Tomascastelazo, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Shoes_in_a_spanish_shoe_store.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "f2ba97d2-52f6-5f01-a79b-60d295fec246": {
+   "unnamed": true,
+   "feature": "G unit-018",
+   "flags": [
+    "name-unreadable"
+   ]
+  },
+  "86f032ca-f92a-5ede-8206-fd83379772dd": {
+   "description": "Restaurant serving sit-down meals and takeaway.",
+   "tags": [
+    "Meals",
+    "Takeaway"
+   ],
+   "hours": "Mo-Su 08:00-22:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/restaurant.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Basile Morin, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Restaurant_room_of_Amantaka_luxury_Resort_%26_Hotel_in_Luang_Prabang_Laos.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "1ba8f30b-981b-56c9-ab80-df097458e6a4": {
+   "description": "Fashion and accessories.",
+   "tags": [
+    "Clothing",
+    "Accessories"
+   ],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/fashion.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "MAKY.OREL, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Clothing_racks_in_second_hand_shop,_Prague.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed",
+    "name-to-verify"
+   ]
+  },
+  "60e6d99d-d9e0-562d-a0ef-1d34b888d7ab": {
+   "description": "Sports equipment and sportswear.",
+   "tags": [
+    "Equipment",
+    "Sportswear"
+   ],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/sports.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Steffen Mokosch, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Interior_sports_clothing_store_Cala_Millor.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "9d54c876-4b9e-5595-8979-670427656c46": {
+   "description": "Fashion and accessories.",
+   "tags": [
+    "Clothing",
+    "Accessories"
+   ],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/fashion.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "MAKY.OREL, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Clothing_racks_in_second_hand_shop,_Prague.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed",
+    "name-to-verify"
+   ]
+  },
+  "d19e52ca-0ac1-550f-a5cf-6da21f6f07f3": {
+   "description": "Shoes for the family.",
+   "tags": [
+    "Shoes",
+    "Bags"
+   ],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/shoes.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Tomascastelazo, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Shoes_in_a_spanish_shoe_store.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed",
+    "name-to-verify"
+   ]
+  },
+  "ce40cdcd-e40e-57f7-8f50-676598c67b1a": {
+   "description": "Restaurant serving sit-down meals and takeaway.",
+   "tags": [
+    "Meals",
+    "Takeaway"
+   ],
+   "hours": "Mo-Su 08:00-22:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/restaurant.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Basile Morin, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Restaurant_room_of_Amantaka_luxury_Resort_%26_Hotel_in_Luang_Prabang_Laos.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "8a741b7e-7f01-50d3-92ca-700603f83f59": {
+   "description": "Toys and games for children.",
+   "tags": [
+    "Toys",
+    "Games"
+   ],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/toys.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Wide Awake!, CC BY 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:New_Toy_Kingdom_store_at_SM_City_Cebu_(2024-06-11).jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "09f7d83c-05fe-5295-b9cb-a7bc09dab0a1": {
+   "description": "Baby clothes, gear and essentials.",
+   "tags": [
+    "Baby clothes",
+    "Baby gear"
+   ],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/toys.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Wide Awake!, CC BY 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:New_Toy_Kingdom_store_at_SM_City_Cebu_(2024-06-11).jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "b5c2f598-e083-5949-8e74-7fb7c774e86b": {
+   "unnamed": true,
+   "feature": "G unit-027",
+   "flags": [
+    "name-unreadable"
+   ]
+  },
+  "bc1b33d6-8c60-512e-b75e-eabb6c41b9ff": {
+   "description": "Homeware, decor and kitchen goods.",
+   "tags": [
+    "Homeware",
+    "Decor",
+    "Kitchen"
+   ],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/home.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Downtowngal, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Furniture_store_interior.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "34125ef6-70ba-5e4c-8c21-133024d9abbf": {
+   "description": "Women's fashion and accessories.",
+   "tags": [
+    "Women's clothing",
+    "Accessories"
+   ],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/fashion.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "MAKY.OREL, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Clothing_racks_in_second_hand_shop,_Prague.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed",
+    "name-to-verify"
+   ]
+  },
+  "d4ee33b8-2229-587f-9723-d0c2fc261b00": {
+   "unnamed": true,
+   "feature": "G unit-031",
+   "flags": [
+    "name-unreadable"
+   ]
+  },
+  "4f9b4642-2459-51ad-b042-37cd32fad91e": {
+   "description": "Shop.",
+   "tags": [],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/services.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Wutkh, CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:Thailand_Post_counter,_Thung_Song_Post_Office.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed",
+    "name-to-verify"
+   ]
+  },
+  "314dc516-b0ed-5095-a3a5-aa8f07fc6564": {
+   "description": "Jewellery and watches.",
+   "tags": [
+    "Jewellery",
+    "Watches"
+   ],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/jewellery.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "W.carter, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Interior_of_Sophies_Silver_jewelry_store_at_Sankt_Hansgatan_34,_Visby,_Sweden_2.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "380f8c9f-61fb-548b-94d3-c6fe33557f9b": {
+   "unnamed": true,
+   "feature": "G unit-034",
+   "flags": [
+    "name-unreadable"
+   ]
+  },
+  "f73d21af-3e6a-593e-b3aa-df1889bcf73b": {
+   "unnamed": true,
+   "feature": "G unit-035",
+   "flags": [
+    "name-unreadable"
+   ]
+  },
+  "bd01f345-c139-5084-a790-82990ab721fa": {
+   "unnamed": true,
+   "feature": "G unit-036",
+   "flags": [
+    "name-unreadable"
+   ]
+  },
+  "7e9fc66a-981d-524a-ad58-f595456459a1": {
+   "description": "Photo printing and photography services.",
+   "tags": [
+    "Photo printing",
+    "Passport photos"
+   ],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/electronics.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Tokyo538, CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:Washing_machine_aisle_in_a_Japanese_electronics_store.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "33c1ea1c-9b85-5ed7-8a6c-d71b499f992c": {
+   "description": "Health store with vitamins, supplements and wellness products.",
+   "tags": [
+    "Vitamins",
+    "Supplements",
+    "Wellness"
+   ],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/pharmacy.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Rob Oo from NL, CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Pharmacy_(27651099119).jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "ec1d2662-4a8e-540e-91bf-44beb63e9a01": {
+   "description": "Fashion and accessories.",
+   "tags": [
+    "Clothing",
+    "Accessories"
+   ],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/fashion.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "MAKY.OREL, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Clothing_racks_in_second_hand_shop,_Prague.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed",
+    "name-to-verify"
+   ]
+  },
+  "91825184-3573-543b-b2b3-406647b5d199": {
+   "description": "Pharmacy chain for prescriptions, over-the-counter medicine and health products.",
+   "tags": [
+    "Prescriptions",
+    "Medicine",
+    "Health and beauty"
+   ],
+   "hours": "Mo-Sa 08:00-18:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/pharmacy.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Rob Oo from NL, CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Pharmacy_(27651099119).jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "def796e1-beba-5a2b-8927-063b795e4b23": {
+   "description": "Make-up, skincare and beauty products.",
+   "tags": [
+    "Make-up",
+    "Skincare",
+    "Fragrance"
+   ],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/beauty.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "BASUWT 22 law AONGo, CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:HK_%E4%B8%AD%E7%92%B0_Central_%E7%9A%87%E5%90%8E%E5%A4%A7%E9%81%93%E4%B8%AD_88_Queen%27s_Road_%E5%8B%B5%E7%B2%BE%E4%B8%AD%E5%BF%83_Regent_Centre_shop_Mannings_Store_%E5%8C%96%E5%A6%9D%E5%B7%A5%E5%85%B7%E5%88%B7_makeup_brush_April_2024_R12S_01.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "8f9202b2-eee4-5a47-a78f-22c48a5f5d37": {
+   "description": "Women's fashion and accessories.",
+   "tags": [
+    "Women's clothing",
+    "Accessories"
+   ],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/fashion.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "MAKY.OREL, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Clothing_racks_in_second_hand_shop,_Prague.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "5f57acc4-04dc-5c87-b44e-a3bee2211bfa": {
+   "description": "Home appliances: TVs, fridges, cookers and small appliances.",
+   "tags": [
+    "TVs",
+    "Fridges",
+    "Cookers",
+    "Small appliances"
+   ],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/electronics.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Tokyo538, CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:Washing_machine_aisle_in_a_Japanese_electronics_store.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "46611e3f-ed41-5ea0-908e-205184d503be": {
+   "description": "Jewellery and watches.",
+   "tags": [
+    "Jewellery",
+    "Watches"
+   ],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/jewellery.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "W.carter, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Interior_of_Sophies_Silver_jewelry_store_at_Sankt_Hansgatan_34,_Visby,_Sweden_2.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "151e217c-f72c-5197-8eb2-c063261b707c": {
+   "description": "Printing, copying and binding.",
+   "tags": [
+    "Printing",
+    "Copying"
+   ],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/services.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Wutkh, CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:Thailand_Post_counter,_Thung_Song_Post_Office.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "ccd9e900-bfd3-5998-8152-68d2e4e7a6fa": {
+   "unnamed": true,
+   "feature": "G unit-046",
+   "flags": [
+    "name-unreadable"
+   ]
+  },
+  "c0da8970-b98f-5e2e-a1ff-8b55a5d51d5e": {
+   "unnamed": true,
+   "feature": "G unit-047",
+   "flags": [
+    "name-unreadable"
+   ]
+  },
+  "59dbefdb-63e2-58ec-8b3b-e19629d96199": {
+   "unnamed": true,
+   "feature": "G unit-048",
+   "flags": [
+    "name-unreadable"
+   ]
+  },
+  "f390f9f4-ed0f-5697-a87c-5fff67825198": {
+   "unnamed": true,
+   "feature": "G unit-049",
+   "flags": [
+    "name-unreadable"
+   ]
+  },
+  "f09ae152-ee53-5319-b95d-ff97363e8fd7": {
+   "description": "Phones, tablets and accessories.",
+   "tags": [
+    "Phones",
+    "Accessories",
+    "Repairs"
+   ],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/phones.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Maksym Kozlenko, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Mobile_phone_shop_in_Singapore.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "3610640b-05bc-56ef-9994-b20cedf27df4": {
+   "description": "Handicrafts, art and souvenirs.",
+   "tags": [
+    "Crafts",
+    "Art",
+    "Gifts"
+   ],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/home.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Downtowngal, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Furniture_store_interior.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed",
+    "name-to-verify"
+   ]
+  },
+  "9ea2b2e3-b031-5484-8a2c-9c0ed00b3a55": {
+   "description": "Homeware, decor and kitchen goods.",
+   "tags": [
+    "Homeware",
+    "Decor",
+    "Kitchen"
+   ],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/home.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Downtowngal, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Furniture_store_interior.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "68535df0-4d2d-5d08-9f7e-69d30317e6be": {
+   "description": "Fashion and accessories.",
+   "tags": [
+    "Clothing",
+    "Accessories"
+   ],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/fashion.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "MAKY.OREL, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Clothing_racks_in_second_hand_shop,_Prague.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "1e6de225-c21a-5476-90c3-d7cc6c6f486c": {
+   "unnamed": true,
+   "feature": "G unit-054",
+   "flags": [
+    "name-unreadable"
+   ]
+  },
+  "1abf3bb5-52f0-5b8e-a2c3-5818fb348a75": {
+   "description": "Airtel shop for lines, phones, Airtel Money and internet.",
+   "tags": [
+    "Lines",
+    "Phones",
+    "Mobile money",
+    "Internet"
+   ],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": "https://www.airtelkenya.com",
+   "photo": {
+    "src": "photos/mock/phones.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Maksym Kozlenko, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Mobile_phone_shop_in_Singapore.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "c011717d-7d27-57b0-83f3-31e72c6911b3": {
+   "description": "Computers, laptops and accessories.",
+   "tags": [
+    "Laptops",
+    "Accessories",
+    "Printers"
+   ],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/electronics.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Tokyo538, CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:Washing_machine_aisle_in_a_Japanese_electronics_store.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "6f8e312b-c356-57f8-ac20-369c26f21e1f": {
+   "description": "Phones, tablets and accessories.",
+   "tags": [
+    "Phones",
+    "Accessories",
+    "Repairs"
+   ],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/phones.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Maksym Kozlenko, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Mobile_phone_shop_in_Singapore.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "4e9a5373-7812-57ff-af02-15fbbd8ffa1c": {
+   "description": "Shoes for the family.",
+   "tags": [
+    "Shoes",
+    "Bags"
+   ],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/shoes.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Tomascastelazo, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Shoes_in_a_spanish_shoe_store.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "578bc415-65b6-5fb4-a690-7b8b40bde5f6": {
+   "unnamed": true,
+   "feature": "G unit-059",
+   "flags": [
+    "name-unreadable"
+   ]
+  },
+  "86ea5179-7f25-5b4f-a0c5-0dd4b482ae85": {
+   "description": "Gifts and novelties.",
+   "tags": [
+    "Gifts",
+    "Homeware"
+   ],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/home.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Downtowngal, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Furniture_store_interior.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "4957f72a-f8c3-5726-bab8-07062bea55b5": {
+   "description": "Lampshades and lighting.",
+   "tags": [
+    "Lampshades",
+    "Lighting"
+   ],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/home.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Downtowngal, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Furniture_store_interior.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "494d3fb7-76ba-5e85-8ff8-c7d2fd89a8c7": {
+   "description": "Sports equipment and sportswear.",
+   "tags": [
+    "Equipment",
+    "Sportswear"
+   ],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/sports.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Steffen Mokosch, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Interior_sports_clothing_store_Cala_Millor.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed",
+    "name-to-verify"
+   ]
+  },
+  "afd87935-eaa0-554a-a238-b30a1f4e479b": {
+   "unnamed": true,
+   "feature": "G unit-063",
+   "flags": [
+    "name-unreadable"
+   ]
+  },
+  "40ce793b-0b0b-5f3d-bee4-094e6d8296e2": {
+   "unnamed": true,
+   "feature": "G unit-064",
+   "flags": [
+    "name-unreadable"
+   ]
+  },
+  "9b5215fb-b6ea-5420-bb3f-36def8074936": {
+   "unnamed": true,
+   "feature": "G unit-065",
+   "flags": [
+    "name-unreadable"
+   ]
+  },
+  "9100eb12-0e33-5960-802d-77f30aea82fd": {
+   "unnamed": true,
+   "feature": "G unit-066",
+   "flags": [
+    "name-unreadable"
+   ]
+  },
+  "ebad9c9d-57c5-5622-9c86-dec7f6c7ad01": {
+   "description": "Shoes for the family.",
+   "tags": [
+    "Shoes",
+    "Bags"
+   ],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/shoes.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Tomascastelazo, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Shoes_in_a_spanish_shoe_store.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "f77bf8a9-1f4f-54bd-b597-3a4c6fff590a": {
+   "description": "Fashion for women, men and children.",
+   "tags": [
+    "Clothing",
+    "Accessories"
+   ],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/fashion.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "MAKY.OREL, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Clothing_racks_in_second_hand_shop,_Prague.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "52830b39-01a9-518d-9046-c1edf19f54e5": {
+   "description": "Bank branch for accounts, cards, loans and help with mobile banking.",
+   "tags": [
+    "Accounts",
+    "Cards",
+    "Loans",
+    "Mobile banking"
+   ],
+   "hours": "Mo-Fr 08:30-16:00; Sa 09:00-12:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/bank.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "w_lemay, CC BY-SA 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Banking_Hall,_Guardian_Building,_Griswold_Street,_Detroit,_MI.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "9d35336d-a7b1-5fa6-bb2d-224e31430595": {
+   "description": "KCB Bank branch for accounts, cards, loans and mobile banking.",
+   "tags": [
+    "Accounts",
+    "Cards",
+    "Loans",
+    "Mobile banking"
+   ],
+   "hours": "Mo-Fr 08:30-16:00; Sa 09:00-12:00",
+   "hours_status": "estimate",
+   "website": "https://ke.kcbgroup.com",
+   "photo": {
+    "src": "photos/kcb.jpg",
+    "caption": "Representative photo: KCB Kipande branch, Kenyatta Avenue",
+    "credit": "DEMOSH, CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:KCB_bank_(2108245215).jpg"
+   },
+   "flags": []
+  },
+  "174c3c2e-fef8-5a66-bdc9-0042244de80b": {
+   "unnamed": true,
+   "feature": "G unit-076",
+   "flags": [
+    "name-unreadable"
+   ]
+  },
+  "a0bef488-1124-5432-b282-9f3a1a885a09": {
+   "description": "Washrooms.",
+   "tags": [
+    "Washrooms"
+   ],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  },
+  "351e331f-6647-588c-b967-01c13ab483c9": {
+   "description": "Washrooms.",
+   "tags": [
+    "Washrooms"
+   ],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  },
+  "bb6640dc-c888-5321-ae88-9d3d27260435": {
+   "description": "Washrooms.",
+   "tags": [
+    "Washrooms"
+   ],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  },
+  "00311a3f-e4e3-5191-8dc5-2621357a5f7a": {
+   "description": "Escalator between floors.",
+   "tags": [],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  },
+  "8a8e9665-27a5-5c94-abc6-2fbf85037d07": {
+   "description": "Escalator between floors.",
+   "tags": [],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  },
+  "65a8d2f5-abd6-57ec-bcd0-fdacb6c8856e": {
+   "description": "Stairs between floors.",
+   "tags": [],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  },
+  "96e445c9-e3b0-5612-9627-80f16afe73ce": {
+   "description": "Lift between floors, step free.",
+   "tags": [
+    "Step free"
+   ],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  },
+  "f10c3a0b-14ce-5091-b140-a6dc7cbedb92": {
+   "description": "Lift between floors, step free.",
+   "tags": [
+    "Step free"
+   ],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  },
+  "e7f79b89-a1a3-503d-9ef2-ab3f0bf07d46": {
+   "description": "Lift between floors, step free.",
+   "tags": [
+    "Step free"
+   ],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  },
+  "b110b1aa-6bc8-5251-a6f6-d675ddb657c6": {
+   "description": "Car park.",
+   "tags": [
+    "Parking"
+   ],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  },
+  "a69ac7cc-bda4-5bda-a16f-3b8006d6086e": {
+   "description": "Pedestrian entrance.",
+   "tags": [],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  },
+  "66797768-7db8-533e-b0ac-b55af13d7185": {
+   "description": "Cash machine.",
+   "tags": [
+    "Cash"
+   ],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  },
+  "238914b6-a33a-5578-965f-719169f391aa": {
+   "description": "Cash machine.",
+   "tags": [
+    "Cash"
+   ],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  },
+  "c3aa42e6-8283-5de4-be37-212edb3a08d0": {
+   "description": "Cash machine.",
+   "tags": [
+    "Cash"
+   ],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  },
+  "be80ba34-bd82-5a48-9074-03abd506591c": {
+   "description": "Pedestrian entrance.",
+   "tags": [],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  },
+  "85f6cf06-3c63-5af4-8fc7-577c888dd433": {
+   "description": "Pedestrian entrance.",
+   "tags": [],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  },
+  "ba8c0dbe-2605-5853-a013-8fe964c1310e": {
+   "description": "Pedestrian entrance.",
+   "tags": [],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  },
+  "96852549-dfee-59c8-83ad-9e2a269fcc18": {
+   "description": "Car park.",
+   "tags": [
+    "Parking"
+   ],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  },
+  "c0085bf6-01f1-5e0d-beb5-cf6b8dc545da": {
+   "description": "Sportswear, trainers and sports gear.",
+   "tags": [
+    "Trainers",
+    "Sportswear",
+    "Accessories"
+   ],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/sports.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Steffen Mokosch, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Interior_sports_clothing_store_Cala_Millor.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "39576965-aab5-5fae-88b4-6a7a030e5ed7": {
+   "description": "Make-up, skincare and beauty products.",
+   "tags": [
+    "Make-up",
+    "Skincare",
+    "Fragrance"
+   ],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/beauty.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "BASUWT 22 law AONGo, CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:HK_%E4%B8%AD%E7%92%B0_Central_%E7%9A%87%E5%90%8E%E5%A4%A7%E9%81%93%E4%B8%AD_88_Queen%27s_Road_%E5%8B%B5%E7%B2%BE%E4%B8%AD%E5%BF%83_Regent_Centre_shop_Mannings_Store_%E5%8C%96%E5%A6%9D%E5%B7%A5%E5%85%B7%E5%88%B7_makeup_brush_April_2024_R12S_01.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "e17f8c5c-8870-5da0-8cc8-cebbd87b9f57": {
+   "description": "Sports equipment and sportswear.",
+   "tags": [
+    "Equipment",
+    "Sportswear"
+   ],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/sports.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Steffen Mokosch, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Interior_sports_clothing_store_Cala_Millor.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "3ddb6563-a7ea-56cf-ab9a-dac3a6dd4844": {
+   "description": "Prayer and quiet room.",
+   "tags": [
+    "Quiet room"
+   ],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  },
+  "c45995e1-242a-5055-b24a-81d917ba6970": {
+   "description": "Coffee shop with espresso drinks, tea and pastries.",
+   "tags": [
+    "Coffee",
+    "Tea",
+    "Pastries"
+   ],
+   "hours": "Mo-Su 08:00-22:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/cafe.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Andy Li, CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:Interior_of_Floral_Cafe_2026-02-25.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed",
+    "name-to-verify"
+   ]
+  },
+  "3c779543-3ef4-5b2b-902b-0ae5bd019270": {
+   "unnamed": true,
+   "feature": "F1 unit-006",
+   "flags": [
+    "name-unreadable"
+   ]
+  },
+  "a3ee8657-f6b7-53fe-9164-2d750ff4df96": {
+   "unnamed": true,
+   "feature": "F1 unit-007",
+   "flags": [
+    "name-unreadable"
+   ]
+  },
+  "db6b0d92-352a-52c0-bc7e-d8c2dae63147": {
+   "description": "Fashion and accessories.",
+   "tags": [
+    "Clothing",
+    "Accessories"
+   ],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/fashion.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "MAKY.OREL, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Clothing_racks_in_second_hand_shop,_Prague.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed",
+    "name-to-verify"
+   ]
+  },
+  "111e2a2d-0871-5668-bf3e-6c54c93b13a6": {
+   "unnamed": true,
+   "feature": "F1 unit-009",
+   "flags": [
+    "name-unreadable"
+   ]
+  },
+  "7878ed6a-dc1c-5c00-9943-87b922262767": {
+   "description": "Homeware, decor and kitchen goods.",
+   "tags": [
+    "Homeware",
+    "Decor",
+    "Kitchen"
+   ],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/home.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Downtowngal, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Furniture_store_interior.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed",
+    "name-to-verify"
+   ]
+  },
+  "2c5185b2-5464-534b-808b-057a679ef6f4": {
+   "description": "Fashion and accessories.",
+   "tags": [
+    "Clothing",
+    "Accessories"
+   ],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/fashion.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "MAKY.OREL, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Clothing_racks_in_second_hand_shop,_Prague.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "db53e172-987f-5bbf-8a47-88f5b4c62c2f": {
+   "description": "Suitcases, travel bags and accessories.",
+   "tags": [
+    "Suitcases",
+    "Travel bags"
+   ],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/fashion.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "MAKY.OREL, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Clothing_racks_in_second_hand_shop,_Prague.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "72fd090e-d023-5aaa-bf1d-120c9435fd67": {
+   "description": "Sportswear, trainers and sports gear.",
+   "tags": [
+    "Trainers",
+    "Sportswear",
+    "Accessories"
+   ],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/sports.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Steffen Mokosch, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Interior_sports_clothing_store_Cala_Millor.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "f8815cd5-c0ff-5d75-ac02-7c3928e9827f": {
+   "description": "Family entertainment: bowling, games and food.",
+   "tags": [
+    "Bowling",
+    "Games",
+    "Food"
+   ],
+   "hours": "Mo-Su 10:00-23:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/fun.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Acroterion, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Terrace_Lanes_Frederick_MD2.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "48b5b32a-43aa-5c3f-bb16-0190ba577f7e": {
+   "description": "Fashion and accessories.",
+   "tags": [
+    "Clothing",
+    "Accessories"
+   ],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/fashion.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "MAKY.OREL, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Clothing_racks_in_second_hand_shop,_Prague.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed",
+    "name-to-verify"
+   ]
+  },
+  "e123a8ee-e567-504d-b63f-b7936708d2fa": {
+   "description": "Fashion and accessories.",
+   "tags": [
+    "Clothing",
+    "Accessories"
+   ],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/fashion.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "MAKY.OREL, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Clothing_racks_in_second_hand_shop,_Prague.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "a2fcffa8-183f-5dc1-9e56-611f84a26b4d": {
+   "description": "Men's fashion.",
+   "tags": [
+    "Men's clothing",
+    "Accessories"
+   ],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/fashion.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "MAKY.OREL, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Clothing_racks_in_second_hand_shop,_Prague.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "6bca1b9a-bf6e-565a-a02c-a83cb1853276": {
+   "unnamed": true,
+   "feature": "F1 unit-018",
+   "flags": [
+    "name-unreadable"
+   ]
+  },
+  "7160d39e-1cdc-56d0-a031-607a281b0627": {
+   "description": "Carpets and rugs.",
+   "tags": [
+    "Carpets",
+    "Rugs"
+   ],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/home.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Downtowngal, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Furniture_store_interior.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "7e8d0554-9ed6-589f-b11f-9224352d1091": {
+   "description": "Homeware, decor and kitchen goods.",
+   "tags": [
+    "Homeware",
+    "Decor",
+    "Kitchen"
+   ],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/home.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Downtowngal, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Furniture_store_interior.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "b6f2e78c-b68b-5290-87e5-ea4c7f83191b": {
+   "description": "Fashion and accessories.",
+   "tags": [
+    "Clothing",
+    "Accessories"
+   ],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/fashion.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "MAKY.OREL, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Clothing_racks_in_second_hand_shop,_Prague.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "31723974-5269-560a-a28f-2fcaddad0aab": {
+   "description": "Furniture for the home and office.",
+   "tags": [
+    "Furniture",
+    "Home office"
+   ],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/home.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Downtowngal, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Furniture_store_interior.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "a7775d6d-bff2-507f-8505-ba00c1942d21": {
+   "unnamed": true,
+   "feature": "F1 unit-023",
+   "flags": [
+    "name-unreadable"
+   ]
+  },
+  "6487f76b-992e-5d52-bf6b-d9692feaf598": {
+   "unnamed": true,
+   "feature": "F1 unit-024",
+   "flags": [
+    "name-unreadable"
+   ]
+  },
+  "8660ed79-fb4c-509f-86c2-89665b40c737": {
+   "unnamed": true,
+   "feature": "F1 unit-025",
+   "flags": [
+    "name-unreadable"
+   ]
+  },
+  "2cf825b0-58f0-592e-b061-849f314d3c06": {
+   "unnamed": true,
+   "feature": "F1 unit-026",
+   "flags": [
+    "name-unreadable"
+   ]
+  },
+  "3cad73c0-3a37-553e-ba8b-71b4fb29f2b1": {
+   "description": "Fashion and accessories.",
+   "tags": [
+    "Clothing",
+    "Accessories"
+   ],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/fashion.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "MAKY.OREL, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Clothing_racks_in_second_hand_shop,_Prague.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed",
+    "name-to-verify"
+   ]
+  },
+  "4cbd8d98-69f8-5f3b-8313-d30c95953273": {
+   "description": "Shoes for the family.",
+   "tags": [
+    "Shoes",
+    "Bags"
+   ],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/shoes.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Tomascastelazo, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Shoes_in_a_spanish_shoe_store.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "4cfae94f-251e-55d7-abdf-4a7a4b758e24": {
+   "description": "Jewellery and watches.",
+   "tags": [
+    "Jewellery",
+    "Watches"
+   ],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/jewellery.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "W.carter, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Interior_of_Sophies_Silver_jewelry_store_at_Sankt_Hansgatan_34,_Visby,_Sweden_2.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "bb952476-eee4-5e5c-8b00-34beb688ab51": {
+   "description": "Homeware, decor and kitchen goods.",
+   "tags": [
+    "Homeware",
+    "Decor",
+    "Kitchen"
+   ],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/home.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Downtowngal, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Furniture_store_interior.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "3cdb3085-d746-528f-8196-4db18f053b53": {
+   "unnamed": true,
+   "feature": "F1 unit-031",
+   "flags": [
+    "name-unreadable"
+   ]
+  },
+  "d2c72b72-e5e4-5f27-aa05-fac6b608da52": {
+   "unnamed": true,
+   "feature": "F1 unit-032",
+   "flags": [
+    "name-unreadable"
+   ]
+  },
+  "5b0b5e49-3c84-58eb-80b7-15861a6f046b": {
+   "description": "Make-up, skincare and beauty products.",
+   "tags": [
+    "Make-up",
+    "Skincare",
+    "Fragrance"
+   ],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/beauty.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "BASUWT 22 law AONGo, CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:HK_%E4%B8%AD%E7%92%B0_Central_%E7%9A%87%E5%90%8E%E5%A4%A7%E9%81%93%E4%B8%AD_88_Queen%27s_Road_%E5%8B%B5%E7%B2%BE%E4%B8%AD%E5%BF%83_Regent_Centre_shop_Mannings_Store_%E5%8C%96%E5%A6%9D%E5%B7%A5%E5%85%B7%E5%88%B7_makeup_brush_April_2024_R12S_01.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "7d263ca6-e897-5962-93cb-e2e3155e0821": {
+   "description": "Fashion and accessories.",
+   "tags": [
+    "Clothing",
+    "Accessories"
+   ],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/fashion.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "MAKY.OREL, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Clothing_racks_in_second_hand_shop,_Prague.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "cda663bb-e8da-511a-a1dc-42ea2f592d34": {
+   "unnamed": true,
+   "feature": "F1 unit-035",
+   "flags": [
+    "name-unreadable"
+   ]
+  },
+  "4ed5a0b3-d1bb-5979-b207-624ee1be711b": {
+   "description": "Fashion and accessories.",
+   "tags": [
+    "Clothing",
+    "Accessories"
+   ],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/fashion.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "MAKY.OREL, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Clothing_racks_in_second_hand_shop,_Prague.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "7f6c3894-29ec-57b7-8c2d-a5e2f0ab9d53": {
+   "description": "Restaurant serving sit-down meals and takeaway.",
+   "tags": [
+    "Meals",
+    "Takeaway"
+   ],
+   "hours": "Mo-Su 08:00-22:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/restaurant.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Basile Morin, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Restaurant_room_of_Amantaka_luxury_Resort_%26_Hotel_in_Luang_Prabang_Laos.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed",
+    "name-to-verify"
+   ]
+  },
+  "6e8d5f0a-326c-5a69-b3d7-4898b2dd0eee": {
+   "description": "Fashion and accessories.",
+   "tags": [
+    "Clothing",
+    "Accessories"
+   ],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/fashion.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "MAKY.OREL, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Clothing_racks_in_second_hand_shop,_Prague.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "f1bb70cc-18a3-5751-9a8a-9bdfef2dccd8": {
+   "description": "Pay TV subscriptions and support.",
+   "tags": [
+    "Subscriptions",
+    "Decoders",
+    "Support"
+   ],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/electronics.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Tokyo538, CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:Washing_machine_aisle_in_a_Japanese_electronics_store.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "6434b12c-ec30-5427-9dae-1391b72f5bc5": {
+   "unnamed": true,
+   "feature": "F1 unit-040",
+   "flags": [
+    "name-unreadable"
+   ]
+  },
+  "58f7dbe6-80a4-54af-8513-3cb043c13d70": {
+   "description": "Sportswear, trainers and sports gear.",
+   "tags": [
+    "Trainers",
+    "Sportswear",
+    "Accessories"
+   ],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/sports.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Steffen Mokosch, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Interior_sports_clothing_store_Cala_Millor.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "51b3cfd5-0c14-5b79-ad5b-990a81b46f8e": {
+   "description": "Bank branch for accounts, cards, loans and help with mobile banking.",
+   "tags": [
+    "Accounts",
+    "Cards",
+    "Loans",
+    "Mobile banking"
+   ],
+   "hours": "Mo-Fr 08:30-16:00; Sa 09:00-12:00",
+   "hours_status": "estimate",
+   "website": "https://www.sc.com/ke",
+   "photo": {
+    "src": "photos/mock/bank.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "w_lemay, CC BY-SA 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Banking_Hall,_Guardian_Building,_Griswold_Street,_Detroit,_MI.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "f07ceeb3-e326-5781-a06f-e0fd18f33416": {
+   "description": "Beauty salon for hair, nails and treatments.",
+   "tags": [
+    "Hair",
+    "Nails",
+    "Treatments"
+   ],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/salon.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Tabrus, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Salon_z_perukami_Hair_Lux_%E2%80%93_wn%C4%99trze.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "691a67fb-1b9d-58e9-8497-fe6f1268f43e": {
+   "description": "Mattresses, beds and bedding.",
+   "tags": [
+    "Mattresses",
+    "Beds",
+    "Bedding"
+   ],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/home.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Downtowngal, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Furniture_store_interior.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "6d81b245-6295-52f7-8db6-3350ef71300a": {
+   "description": "Fashion and accessories.",
+   "tags": [
+    "Clothing",
+    "Accessories"
+   ],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/fashion.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "MAKY.OREL, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Clothing_racks_in_second_hand_shop,_Prague.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "a09d2fd2-213c-59ad-8853-c002328c1009": {
+   "description": "Fashion and accessories.",
+   "tags": [
+    "Clothing",
+    "Accessories"
+   ],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/fashion.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "MAKY.OREL, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Clothing_racks_in_second_hand_shop,_Prague.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "2f02d66f-4597-5c76-908e-5df7534c074d": {
+   "description": "School and work uniforms.",
+   "tags": [
+    "School uniforms",
+    "Work wear"
+   ],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/fashion.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "MAKY.OREL, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Clothing_racks_in_second_hand_shop,_Prague.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "27f19a49-36c3-510a-b097-9ec2ab55f23a": {
+   "description": "Perfumes and fragrances.",
+   "tags": [
+    "Perfume",
+    "Oud",
+    "Gift sets"
+   ],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/beauty.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "BASUWT 22 law AONGo, CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:HK_%E4%B8%AD%E7%92%B0_Central_%E7%9A%87%E5%90%8E%E5%A4%A7%E9%81%93%E4%B8%AD_88_Queen%27s_Road_%E5%8B%B5%E7%B2%BE%E4%B8%AD%E5%BF%83_Regent_Centre_shop_Mannings_Store_%E5%8C%96%E5%A6%9D%E5%B7%A5%E5%85%B7%E5%88%B7_makeup_brush_April_2024_R12S_01.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "bf7f7a66-6760-57f9-9d96-17bc33bb9799": {
+   "description": "Fashion and accessories.",
+   "tags": [
+    "Clothing",
+    "Accessories"
+   ],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/fashion.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "MAKY.OREL, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Clothing_racks_in_second_hand_shop,_Prague.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "9e46587c-1b50-5fa8-88fe-c9e111e985f4": {
+   "description": "Fashion and accessories.",
+   "tags": [
+    "Clothing",
+    "Accessories"
+   ],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/fashion.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "MAKY.OREL, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Clothing_racks_in_second_hand_shop,_Prague.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed",
+    "name-to-verify"
+   ]
+  },
+  "dffed2e3-ed3d-5e69-b0b8-9901d6d450b1": {
+   "unnamed": true,
+   "feature": "F1 unit-051",
+   "flags": [
+    "name-unreadable"
+   ]
+  },
+  "a562ed11-6ad4-5691-a67a-ba4c62af5240": {
+   "description": "Department store with clothing, home and beauty.",
+   "tags": [
+    "Clothing",
+    "Home",
+    "Beauty"
+   ],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/fashion.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "MAKY.OREL, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Clothing_racks_in_second_hand_shop,_Prague.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "e0b0059d-54d6-5305-a73c-89c9acb43402": {
+   "description": "Bank branch for accounts, cards, loans and help with mobile banking.",
+   "tags": [
+    "Accounts",
+    "Cards",
+    "Loans",
+    "Mobile banking"
+   ],
+   "hours": "Mo-Fr 08:30-16:00; Sa 09:00-12:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/bank.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "w_lemay, CC BY-SA 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Banking_Hall,_Guardian_Building,_Griswold_Street,_Detroit,_MI.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "d155805a-ff8b-5087-ac01-c4771493b3ce": {
+   "description": "Bank branch for accounts, cards, loans and help with mobile banking.",
+   "tags": [
+    "Accounts",
+    "Cards",
+    "Loans",
+    "Mobile banking"
+   ],
+   "hours": "Mo-Fr 08:30-16:00; Sa 09:00-12:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/bank.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "w_lemay, CC BY-SA 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Banking_Hall,_Guardian_Building,_Griswold_Street,_Detroit,_MI.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "793d1c51-b40d-5635-a4b3-0feb4c9cc2c5": {
+   "description": "Cafe serving coffee, breakfast and light meals.",
+   "tags": [
+    "Coffee",
+    "Breakfast",
+    "Light meals"
+   ],
+   "hours": "Mo-Su 08:00-22:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/cafe.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Andy Li, CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:Interior_of_Floral_Cafe_2026-02-25.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "cce54182-7db6-511f-bb4b-a9af925cab06": {
+   "description": "Washrooms.",
+   "tags": [
+    "Washrooms"
+   ],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  },
+  "7031cd6d-9d73-56dc-995d-2d2a3e12584a": {
+   "description": "Washrooms.",
+   "tags": [
+    "Washrooms"
+   ],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  },
+  "cfb0988e-df49-5c63-8802-9125f7ceb9a9": {
+   "description": "Escalator between floors.",
+   "tags": [],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  },
+  "8ae7e59a-aa22-5b8a-8e52-0af6e966ef03": {
+   "description": "Escalator between floors.",
+   "tags": [],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  },
+  "76199f11-0420-556d-b73f-ce5fa909132e": {
+   "description": "Escalator between floors.",
+   "tags": [],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  },
+  "4de39dac-6f43-50f5-af69-da527570a567": {
+   "description": "Escalator between floors.",
+   "tags": [],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  },
+  "6c0fecda-cacf-53c1-adc9-4f38fb6c34dd": {
+   "description": "Stairs between floors.",
+   "tags": [],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  },
+  "d2b9a2bf-7853-5fee-8a4d-c3f28f2fb361": {
+   "description": "Stairs between floors.",
+   "tags": [],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  },
+  "73023e0e-fcec-5d28-a5d6-02ea229d3c59": {
+   "description": "Stairs between floors.",
+   "tags": [],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  },
+  "170a0496-b65e-56f2-9d87-67cb60bbc1be": {
+   "description": "Lift between floors, step free.",
+   "tags": [
+    "Step free"
+   ],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  },
+  "83e21ca3-05ac-5518-9cc0-c049743e60c2": {
+   "description": "Lift between floors, step free.",
+   "tags": [
+    "Step free"
+   ],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  },
+  "32b94594-69a0-58f4-aad9-ed4f852fac35": {
+   "description": "Lift between floors, step free.",
+   "tags": [
+    "Step free"
+   ],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  },
+  "c325d1d1-b67a-5b52-b42b-0498fe5f6a61": {
+   "description": "Lift between floors, step free.",
+   "tags": [
+    "Step free"
+   ],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  },
+  "b9ecf36b-70dd-5294-83f9-e142ef9e685f": {
+   "description": "Lift between floors, step free.",
+   "tags": [
+    "Step free"
+   ],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  },
+  "b4593ae5-2a62-5572-9332-fd40e010dc80": {
+   "description": "Cash machine.",
+   "tags": [
+    "Cash"
+   ],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  },
+  "89071e69-69b4-5862-b4b9-60c20299897e": {
+   "description": "Pedestrian entrance.",
+   "tags": [],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  },
+  "f7b9c8fc-2dc1-5c8a-998c-0e4125572f49": {
+   "unnamed": true,
+   "feature": "F2 unit-001",
+   "flags": [
+    "name-unreadable"
+   ]
+  },
+  "e5f07bc4-4c79-5527-89df-6d8340819be6": {
+   "description": "Trampoline park for kids and adults.",
+   "tags": [
+    "Trampolines",
+    "Parties"
+   ],
+   "hours": "Mo-Su 10:00-23:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/fun.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Acroterion, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Terrace_Lanes_Frederick_MD2.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "7950f65c-7a1c-5ef7-b84b-cfc3323e14df": {
+   "description": "Cinema showing the latest local and international films.",
+   "tags": [
+    "Films",
+    "Snacks"
+   ],
+   "hours": "Mo-Su 10:00-23:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/cinema.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Wolfmann, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:4DX_seats_in_cinema_(motion_and_environmental_effects_synced_with_the_on-screen_action)_bench_rows_in_a_movie_theater_hall_Kinostoler_kinosal_Kilden_kino_T%C3%B8nsberg,_Norway_2023_IMG_7849.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "6c1346bc-6ea1-5486-b342-bdc8a26c562a": {
+   "description": "Lounge with drinks and food.",
+   "tags": [
+    "Drinks",
+    "Food",
+    "Lounge"
+   ],
+   "hours": "Mo-Su 08:00-22:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/lounge.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Roger Advertising Specialty Co., New Orleans La., Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:New_Hotel_Monteleone_Revolving_Bar,_Lounge_And_Carousel_-_New_Orleans_Postcard.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed",
+    "name-to-verify"
+   ]
+  },
+  "e3124bdf-cc64-5604-bfb2-835e537b0805": {
+   "description": "Indian food, from curries to grills and snacks.",
+   "tags": [
+    "Indian",
+    "Curries",
+    "Takeaway"
+   ],
+   "hours": "Mo-Su 08:00-22:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/restaurant.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Basile Morin, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Restaurant_room_of_Amantaka_luxury_Resort_%26_Hotel_in_Luang_Prabang_Laos.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "f9311b89-3ec8-5ef9-99c9-df349e99446e": {
+   "description": "Speciality food and snacks.",
+   "tags": [
+    "Snacks",
+    "Speciality food"
+   ],
+   "hours": "Mo-Su 08:00-22:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/restaurant.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Basile Morin, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Restaurant_room_of_Amantaka_luxury_Resort_%26_Hotel_in_Luang_Prabang_Laos.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "009afc19-3796-59de-9a84-8d7e58db867c": {
+   "description": "Fried chicken meals and sides.",
+   "tags": [
+    "Fried chicken",
+    "Takeaway"
+   ],
+   "hours": "Mo-Su 08:00-22:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/fastfood.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Linux rules, Windows drools, Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Burger_and_fries_2.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "61e46ce3-d11a-53a2-83f1-3f9c485666ff": {
+   "description": "Mexican street food: tacos, burritos and more.",
+   "tags": [
+    "Tacos",
+    "Mexican"
+   ],
+   "hours": "Mo-Su 08:00-22:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/restaurant.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Basile Morin, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Restaurant_room_of_Amantaka_luxury_Resort_%26_Hotel_in_Luang_Prabang_Laos.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "20952c36-b1c5-524f-bdc5-9b2c41ece499": {
+   "description": "Chinese food to eat in or take away.",
+   "tags": [
+    "Chinese",
+    "Takeaway"
+   ],
+   "hours": "Mo-Su 08:00-22:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/restaurant.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Basile Morin, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Restaurant_room_of_Amantaka_luxury_Resort_%26_Hotel_in_Luang_Prabang_Laos.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "70ac9f1c-38b9-5596-846c-6cc7b57473a9": {
+   "description": "Restaurant serving sit-down meals and takeaway.",
+   "tags": [
+    "Meals",
+    "Takeaway"
+   ],
+   "hours": "Mo-Su 08:00-22:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/restaurant.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Basile Morin, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Restaurant_room_of_Amantaka_luxury_Resort_%26_Hotel_in_Luang_Prabang_Laos.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed",
+    "name-to-verify"
+   ]
+  },
+  "dbdf1114-4e94-51b6-856e-87f0ec17ed9e": {
+   "description": "Restaurant serving sit-down meals and takeaway.",
+   "tags": [
+    "Meals",
+    "Takeaway"
+   ],
+   "hours": "Mo-Su 08:00-22:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/restaurant.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Basile Morin, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Restaurant_room_of_Amantaka_luxury_Resort_%26_Hotel_in_Luang_Prabang_Laos.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "d24cd26b-c5da-54e7-bd19-132a8b371787": {
+   "unnamed": true,
+   "feature": "F2 unit-012",
+   "flags": [
+    "name-unreadable"
+   ]
+  },
+  "5a156241-fb29-5f30-a20f-9f6fd65790fb": {
+   "unnamed": true,
+   "feature": "F2 unit-013",
+   "flags": [
+    "name-unreadable"
+   ]
+  },
+  "43aef9d1-0fde-5c1b-83f0-30c984950d4d": {
+   "unnamed": true,
+   "feature": "F2 unit-014",
+   "flags": [
+    "name-unreadable"
+   ]
+  },
+  "ed671a14-b0bf-5c67-94b9-08e5e4e336fd": {
+   "description": "Wine bar serving tapas and small plates.",
+   "tags": [
+    "Wine",
+    "Tapas"
+   ],
+   "hours": "Mo-Su 08:00-22:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/lounge.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Roger Advertising Specialty Co., New Orleans La., Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:New_Hotel_Monteleone_Revolving_Bar,_Lounge_And_Carousel_-_New_Orleans_Postcard.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "0db73086-85d6-5778-8d77-c5a7baa8107e": {
+   "description": "Italian-style gelato and sorbet.",
+   "tags": [
+    "Gelato",
+    "Sorbet"
+   ],
+   "hours": "Mo-Su 08:00-22:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/dessert.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Infrogmation of New Orleans, CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Gelato_Pazzo_New_Orleans_Interior_August_2008_B.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "126ee47a-2cf6-5e03-9b52-6493573178c3": {
+   "unnamed": true,
+   "feature": "F2 unit-017",
+   "flags": [
+    "name-unreadable"
+   ]
+  },
+  "14f458a0-72ed-5e20-92cb-9548cb898de5": {
+   "description": "Italian-style gelato and sorbet.",
+   "tags": [
+    "Gelato",
+    "Sorbet"
+   ],
+   "hours": "Mo-Su 08:00-22:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/dessert.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Infrogmation of New Orleans, CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Gelato_Pazzo_New_Orleans_Interior_August_2008_B.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "fcb14a22-2f5f-5ea6-9ec1-f082932de951": {
+   "description": "Burgers, ribs and shakes.",
+   "tags": [
+    "Burgers",
+    "Grills",
+    "Shakes"
+   ],
+   "hours": "Mo-Su 08:00-22:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/fastfood.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Linux rules, Windows drools, Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Burger_and_fries_2.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "8a685d01-74cf-5773-b467-5e1ae8aea642": {
+   "description": "Coffee shop with espresso drinks, tea and pastries.",
+   "tags": [
+    "Coffee",
+    "Tea",
+    "Pastries"
+   ],
+   "hours": "Mo-Su 08:00-22:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/cafe.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Andy Li, CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:Interior_of_Floral_Cafe_2026-02-25.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "9f41b08a-e21f-5b45-8c31-a1230f6b44ae": {
+   "description": "Indian food, from curries to grills and snacks.",
+   "tags": [
+    "Indian",
+    "Curries",
+    "Takeaway"
+   ],
+   "hours": "Mo-Su 08:00-22:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/restaurant.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Basile Morin, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Restaurant_room_of_Amantaka_luxury_Resort_%26_Hotel_in_Luang_Prabang_Laos.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "a0e550ac-1f67-5a40-b1af-bb1ec2fdac77": {
+   "unnamed": true,
+   "feature": "F2 unit-022",
+   "flags": [
+    "name-unreadable"
+   ]
+  },
+  "6a632e53-308f-5f78-bd73-fd78b859cf42": {
+   "unnamed": true,
+   "feature": "F2 unit-023",
+   "flags": [
+    "name-unreadable"
+   ]
+  },
+  "190fcbc5-961d-5020-9ccd-ddf0b1cd32cc": {
+   "description": "Beauty salon for hair, nails and treatments.",
+   "tags": [
+    "Hair",
+    "Nails",
+    "Treatments"
+   ],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/salon.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Tabrus, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Salon_z_perukami_Hair_Lux_%E2%80%93_wn%C4%99trze.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "1537b5a5-e366-5970-aaea-f218eb42d5da": {
+   "description": "Dental clinic for check-ups and treatment.",
+   "tags": [
+    "Check-ups",
+    "Treatment"
+   ],
+   "hours": "Mo-Sa 08:00-18:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/clinic.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Helene.3160, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Childrens_dental_clinic_interior_sign.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "d8e3ef26-1e8c-5cc2-a701-5d99cc4f0c8d": {
+   "unnamed": true,
+   "feature": "F2 unit-026",
+   "flags": [
+    "name-unreadable"
+   ]
+  },
+  "9ae3f507-b2db-5432-a3bc-dc82ae1cfa94": {
+   "unnamed": true,
+   "feature": "F2 unit-027",
+   "flags": [
+    "name-unreadable"
+   ]
+  },
+  "dde7d5cd-0660-5339-b984-63cb7236ee76": {
+   "unnamed": true,
+   "feature": "F2 unit-028",
+   "flags": [
+    "name-unreadable"
+   ]
+  },
+  "0cc28d0c-b041-578e-91f4-1a5db89937f4": {
+   "description": "Law firm.",
+   "tags": [
+    "Legal services"
+   ],
+   "hours": "Mo-Fr 08:00-17:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/office.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Shixart1985, CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Modern_medical_office_interior_design.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "b9825a28-eb3f-5b34-b990-ef380788ab14": {
+   "unnamed": true,
+   "feature": "F2 unit-030",
+   "flags": [
+    "name-unreadable"
+   ]
+  },
+  "ffb01ee4-7496-59a3-863b-a86f98b5d3a0": {
+   "unnamed": true,
+   "feature": "F2 unit-031",
+   "flags": [
+    "name-unreadable"
+   ]
+  },
+  "7a09bebb-937b-5327-9fa0-022cfeaf69e7": {
+   "description": "Children's health clinic.",
+   "tags": [
+    "Children's health",
+    "Consultations"
+   ],
+   "hours": "Mo-Sa 08:00-18:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/clinic.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Helene.3160, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Childrens_dental_clinic_interior_sign.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "53cfd3d7-a919-5edf-aaec-c18cce365197": {
+   "unnamed": true,
+   "feature": "F2 unit-033",
+   "flags": [
+    "name-unreadable"
+   ]
+  },
+  "6ca587da-af46-5f5b-9727-28c3bc12019f": {
+   "unnamed": true,
+   "feature": "F2 unit-034",
+   "flags": [
+    "name-unreadable"
+   ]
+  },
+  "4555c44d-3d1b-5619-b732-36e1d7918889": {
+   "unnamed": true,
+   "feature": "F2 unit-035",
+   "flags": [
+    "name-unreadable"
+   ]
+  },
+  "171c4895-36a6-575a-a0e5-8bf7b9a9ffce": {
+   "description": "Children's health clinic.",
+   "tags": [
+    "Children's health",
+    "Consultations"
+   ],
+   "hours": "Mo-Sa 08:00-18:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/clinic.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Helene.3160, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Childrens_dental_clinic_interior_sign.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "38451d78-cf8f-52a6-a93c-e5475f070717": {
+   "description": "Motoring services.",
+   "tags": [
+    "Motoring",
+    "Driving"
+   ],
+   "hours": "Mo-Fr 08:00-17:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/office.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Shixart1985, CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Modern_medical_office_interior_design.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "c9710b3a-3b4b-5d74-9571-c26c6451b77d": {
+   "description": "Immigration and visa consultancy.",
+   "tags": [
+    "Visas",
+    "Immigration"
+   ],
+   "hours": "Mo-Fr 08:00-17:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/office.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Shixart1985, CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Modern_medical_office_interior_design.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "dc6fd77d-51ea-56c7-9698-44dc581aa1c0": {
+   "description": "Sarit Centre's exhibition hall, used for trade fairs, expos and events.",
+   "tags": [
+    "Exhibitions",
+    "Events"
+   ],
+   "hours": "Mo-Su 10:00-23:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/expo.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "玄史生, CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:TIBS_South_Hall_South_Coast_Marine_Booth_Birdview_20140508.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "27c8a171-7a7a-531b-adf3-d76ef62d8498": {
+   "description": "Property management office.",
+   "tags": [
+    "Management office"
+   ],
+   "hours": "Mo-Fr 08:00-17:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/office.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Shixart1985, CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Modern_medical_office_interior_design.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "d73399fd-f6ec-5fbe-8521-622e0052a961": {
+   "description": "Business consultancy office.",
+   "tags": [
+    "Consulting"
+   ],
+   "hours": "Mo-Fr 08:00-17:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/office.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Shixart1985, CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Modern_medical_office_interior_design.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "ab028678-1c3f-57f9-9508-502d926b7fb0": {
+   "description": "Business consultancy office.",
+   "tags": [
+    "Consulting"
+   ],
+   "hours": "Mo-Fr 08:00-17:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/office.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Shixart1985, CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Modern_medical_office_interior_design.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "53756c9a-10a7-5ab3-b305-eef6bb622112": {
+   "description": "Washrooms.",
+   "tags": [
+    "Washrooms"
+   ],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  },
+  "8c116772-022a-5e27-bbe8-239b2c43a20b": {
+   "description": "Washrooms.",
+   "tags": [
+    "Washrooms"
+   ],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  },
+  "48aa207c-62b4-58d5-afc1-141b558f74f2": {
+   "description": "Escalator between floors.",
+   "tags": [],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  },
+  "73c5d83e-cdec-5668-9739-c1e29d1b1389": {
+   "description": "Escalator between floors.",
+   "tags": [],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  },
+  "3454db19-98ea-5b25-ab35-9f82e81af7b0": {
+   "description": "Escalator between floors.",
+   "tags": [],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  },
+  "305f8747-946f-5db1-84c4-42fd41cbf266": {
+   "description": "Stairs between floors.",
+   "tags": [],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  },
+  "29ffd0c8-652c-5fad-a81a-f7ef1049db8e": {
+   "description": "Stairs between floors.",
+   "tags": [],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  },
+  "4f4bfe2b-ee96-53c5-8af5-1cb29a0c235d": {
+   "description": "Stairs between floors.",
+   "tags": [],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  },
+  "668bedee-54ef-5175-b245-1301add02b6e": {
+   "description": "Lift between floors, step free.",
+   "tags": [
+    "Step free"
+   ],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  },
+  "366c92e8-e967-5b3d-a70e-d268701fbf8b": {
+   "description": "Lift between floors, step free.",
+   "tags": [
+    "Step free"
+   ],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  },
+  "3c5c86d9-1e10-5b3b-9554-0e48d8145447": {
+   "description": "Lift between floors, step free.",
+   "tags": [
+    "Step free"
+   ],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  },
+  "95e3fb0d-2cda-5462-a3f4-a9e1d77acb1c": {
+   "description": "Lift between floors, step free.",
+   "tags": [
+    "Step free"
+   ],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  },
+  "5526b39a-aa97-501c-9686-2a7b66c2a61e": {
+   "description": "Lift between floors, step free.",
+   "tags": [
+    "Step free"
+   ],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  },
+  "feb26191-26aa-57ee-ad3c-b1ebcb4cf6ac": {
+   "description": "Lift between floors, step free.",
+   "tags": [
+    "Step free"
+   ],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  },
+  "3b91dea8-e969-5ccb-953a-39f048dfb003": {
+   "description": "Pedestrian entrance.",
+   "tags": [],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  },
+  "1487ed05-92c8-5896-8f71-36e0c0a75f03": {
+   "description": "Optician for eye tests, glasses and contact lenses.",
+   "tags": [
+    "Eye tests",
+    "Glasses",
+    "Contact lenses"
+   ],
+   "hours": "Mo-Sa 08:00-18:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/optician.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Barebibotra, CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:HK_TST_Chung_King_%E6%B4%BB%E6%96%B9%E5%95%86%E5%A0%B4_Woodhouse_optician_shop_interior_display_on_sale.JPG",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "2b750d40-9fd0-5fc5-8cda-a79bdb73909d": {
+   "description": "Insurance agency.",
+   "tags": [
+    "Insurance"
+   ],
+   "hours": "Mo-Fr 08:00-17:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/bank.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "w_lemay, CC BY-SA 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Banking_Hall,_Guardian_Building,_Griswold_Street,_Detroit,_MI.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "606fdb41-6d30-5673-8398-497434461e55": {
+   "description": "Doctor's clinic for consultations.",
+   "tags": [
+    "Consultations"
+   ],
+   "hours": "Mo-Sa 08:00-18:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/clinic.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Helene.3160, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Childrens_dental_clinic_interior_sign.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "a27d00a2-e3ad-5e5e-9816-ea4ce6bf0841": {
+   "description": "Office.",
+   "tags": [
+    "Office"
+   ],
+   "hours": "Mo-Fr 08:00-17:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/office.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Shixart1985, CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Modern_medical_office_interior_design.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "931114fe-f879-50e2-849f-24e9c27b628a": {
+   "unnamed": true,
+   "feature": "F3 unit-005",
+   "flags": [
+    "name-unreadable"
+   ]
+  },
+  "1faf9a3e-ad63-5875-9aa3-205e3c332baa": {
+   "description": "Architecture and design office.",
+   "tags": [
+    "Architecture"
+   ],
+   "hours": "Mo-Fr 08:00-17:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/office.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Shixart1985, CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Modern_medical_office_interior_design.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed",
+    "name-to-verify"
+   ]
+  },
+  "448ed034-db4b-56d8-a010-96a71f89fa75": {
+   "description": "Phones, tablets and accessories.",
+   "tags": [
+    "Phones",
+    "Accessories",
+    "Repairs"
+   ],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/phones.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Maksym Kozlenko, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Mobile_phone_shop_in_Singapore.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "58b41d3e-87ad-580e-824a-8434910c578f": {
+   "description": "Motoring services.",
+   "tags": [
+    "Motoring",
+    "Driving"
+   ],
+   "hours": "Mo-Fr 08:00-17:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/office.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Shixart1985, CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Modern_medical_office_interior_design.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "b52c6164-92ea-512d-ace5-d67fd6992fb8": {
+   "description": "Office.",
+   "tags": [
+    "Office"
+   ],
+   "hours": "Mo-Fr 08:00-17:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/office.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Shixart1985, CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Modern_medical_office_interior_design.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "e03998ce-4d30-5415-85cc-87f82c1a7a34": {
+   "description": "Interior design and furnishing.",
+   "tags": [
+    "Interior design"
+   ],
+   "hours": "Mo-Su 09:00-20:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/home.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Downtowngal, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Furniture_store_interior.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "e564936f-e689-56c7-9980-fb79f178c94e": {
+   "description": "Stairs between floors.",
+   "tags": [],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  },
+  "bc076aa1-b29b-5b12-b42c-344afa63560c": {
+   "description": "Lift between floors, step free.",
+   "tags": [
+    "Step free"
+   ],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  },
+  "8ec0d977-4882-58eb-bf20-64bff9aed60c": {
+   "description": "Lift between floors, step free.",
+   "tags": [
+    "Step free"
+   ],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  },
+  "a15f5879-e9a0-5bbf-be04-fadc836e263e": {
+   "description": "Office.",
+   "tags": [
+    "Office"
+   ],
+   "hours": "Mo-Fr 08:00-17:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/office.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Shixart1985, CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Modern_medical_office_interior_design.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "0dd398d0-ddb3-5428-a295-4239cf60d10e": {
+   "description": "Office.",
+   "tags": [
+    "Office"
+   ],
+   "hours": "Mo-Fr 08:00-17:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/office.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Shixart1985, CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Modern_medical_office_interior_design.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "92cc8c0a-2215-5b80-8e10-613789027eab": {
+   "description": "Accountants and auditors.",
+   "tags": [
+    "Accounting",
+    "Audit"
+   ],
+   "hours": "Mo-Fr 08:00-17:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/office.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Shixart1985, CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Modern_medical_office_interior_design.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "1c9c18d1-c4b9-56b6-a317-f476d1ce3c83": {
+   "description": "Dental clinic for check-ups and treatment.",
+   "tags": [
+    "Check-ups",
+    "Treatment"
+   ],
+   "hours": "Mo-Sa 08:00-18:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/clinic.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Helene.3160, CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Childrens_dental_clinic_interior_sign.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "6fb9a76a-9969-5007-96ec-4999b57da94a": {
+   "description": "Health insurance and medical cover.",
+   "tags": [
+    "Medical cover"
+   ],
+   "hours": "Mo-Fr 08:00-17:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/bank.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "w_lemay, CC BY-SA 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Banking_Hall,_Guardian_Building,_Griswold_Street,_Detroit,_MI.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "ef18409f-f431-5911-9acf-362d1b05b0ee": {
+   "description": "Stairs between floors.",
+   "tags": [],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  },
+  "4d8567a6-166a-54d2-a647-53c119369f03": {
+   "description": "Lift between floors, step free.",
+   "tags": [
+    "Step free"
+   ],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  },
+  "4dc07a7a-814a-50df-8ad9-111c81752a08": {
+   "description": "Lift between floors, step free.",
+   "tags": [
+    "Step free"
+   ],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  },
+  "5db326e1-a3a7-594d-98f5-b3993c11e29b": {
+   "description": "Padel courts and coaching.",
+   "tags": [
+    "Padel",
+    "Coaching"
+   ],
+   "hours": "Mo-Su 06:00-21:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/gym.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Shixart1985, CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Interior_of_new_modern_gym_with_equipment.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "8df440a7-5799-5937-b7d2-856f13b3145b": {
+   "description": "Stairs between floors.",
+   "tags": [],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  },
+  "504158cb-f47c-5f25-ba7f-5b792d7238cc": {
+   "description": "Lift between floors, step free.",
+   "tags": [
+    "Step free"
+   ],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  },
+  "2fd4054a-9813-5c80-ad53-a9c27c408b2f": {
+   "description": "Float therapy and relaxation.",
+   "tags": [
+    "Float therapy",
+    "Wellness"
+   ],
+   "hours": "Mo-Su 06:00-21:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/gym.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Shixart1985, CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Interior_of_new_modern_gym_with_equipment.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "04d5bd8d-a6f3-504b-ae49-75c0ec31af6d": {
+   "description": "Gym and fitness classes.",
+   "tags": [
+    "Gym",
+    "Classes"
+   ],
+   "hours": "Mo-Su 06:00-21:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/gym.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Shixart1985, CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Interior_of_new_modern_gym_with_equipment.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "6b07eecf-d641-5df3-8c86-232124d8940e": {
+   "description": "Lounge with drinks and food.",
+   "tags": [
+    "Drinks",
+    "Food",
+    "Lounge"
+   ],
+   "hours": "Mo-Su 08:00-22:00",
+   "hours_status": "estimate",
+   "website": null,
+   "photo": {
+    "src": "photos/mock/lounge.jpg",
+    "caption": "Sample photo for the demo, not this store",
+    "credit": "Roger Advertising Specialty Co., New Orleans La., Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:New_Hotel_Monteleone_Revolving_Bar,_Lounge_And_Carousel_-_New_Orleans_Postcard.jpg",
+    "sample": true
+   },
+   "flags": [
+    "photo-needed"
+   ]
+  },
+  "f9174a22-0bb3-5284-b574-510a5b854124": {
+   "description": "Stairs between floors.",
+   "tags": [],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  },
+  "93b364be-3a5a-5f77-8168-5f1bdc0cbfe6": {
+   "description": "Lift between floors, step free.",
+   "tags": [
+    "Step free"
+   ],
+   "hours": null,
+   "hours_status": null,
+   "website": null,
+   "photo": null,
+   "flags": []
+  }
+ },
+ "levels": {
+  "LG": {
+   "id": "add76c5c-c89e-50f1-8985-fefeef905768",
+   "name": "Lower Ground",
+   "short": "LG",
+   "ordinal": -1,
+   "approximate": false,
+   "note": null
+  },
+  "G": {
+   "id": "5cd89834-e19c-5e89-b7ef-9a627cdce5c9",
+   "name": "Ground floor",
+   "short": "G",
+   "ordinal": 0,
+   "approximate": false,
+   "note": null
+  },
+  "F1": {
+   "id": "7a24cfcd-d76e-5ccd-baf9-aa4b75dcd38a",
+   "name": "First floor",
+   "short": "1",
+   "ordinal": 1,
+   "approximate": false,
+   "note": null
+  },
+  "F2": {
+   "id": "4b5359cc-9543-5a6b-b97c-b07d55451135",
+   "name": "Second floor",
+   "short": "2",
+   "ordinal": 2,
+   "approximate": false,
+   "note": null
+  },
+  "F3": {
+   "id": "d79fb772-0ccb-5492-b5e0-f8367ed191b8",
+   "name": "Third floor",
+   "short": "3",
+   "ordinal": 3,
+   "approximate": true,
+   "note": "Position and zoom from stacking the two lifts on the Second floor tower lifts, no rotation. Check on site."
+  },
+  "F4": {
+   "id": "79e0a458-e102-51a0-992d-0142c107f5b5",
+   "name": "Fourth floor",
+   "short": "4",
+   "ordinal": 4,
+   "approximate": true,
+   "note": "Position and zoom from stacking the two lifts on the Second floor tower lifts, no rotation. Check on site."
+  },
+  "F5": {
+   "id": "49ba1e0b-c669-5535-8773-1f3e8b18bd3a",
+   "name": "Fifth floor",
+   "short": "5",
+   "ordinal": 5,
+   "approximate": true,
+   "note": "Only one lift on this page and no shared outline; placed over the tower lifts with the third floor's zoom as a guess. Real position unknown."
+  },
+  "F6": {
+   "id": "76bde797-29f7-58a4-8d09-51c5df9813dd",
+   "name": "Sixth floor",
+   "short": "6",
+   "ordinal": 6,
+   "approximate": true,
+   "note": "Only one lift on this page and no shared outline; placed over the tower lifts with the third floor's zoom as a guess. Real position unknown."
+  }
+ }
+}
