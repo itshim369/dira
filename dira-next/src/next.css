@@ -1146,3 +1146,107 @@ a.social:hover small {
   overflow: visible;
   padding-right: 0;
 }
+
+/* ---------- "Zoom in to see nearby shops" ---------- */
+.zoom-hint {
+  position: absolute;
+  left: 12px;
+  bottom: 16px;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  max-width: min(420px, calc(100% - 24px));
+  padding: 8px 4px 8px 14px;
+  border-radius: 16px;
+  background: var(--white);
+  box-shadow: 0 8px 24px rgba(59, 36, 24, 0.18);
+  animation: hint-in 0.3s ease-out;
+}
+.zoom-hint > svg {
+  flex: none;
+  width: 20px;
+  height: 20px;
+  color: var(--terracotta);
+}
+.zoom-hint p {
+  display: grid;
+  min-width: 0;
+  line-height: 1.25;
+}
+.zoom-hint strong {
+  font-size: 14px;
+}
+.zoom-hint span {
+  color: var(--muted);
+  font-size: 13px;
+}
+.zoom-hint .btn {
+  flex: none;
+  min-height: 36px;
+  padding: 0 14px;
+  font-size: 14px;
+}
+.zoom-hint .icon-btn {
+  flex: none;
+  width: 36px;
+  height: 36px;
+  min-height: 36px;
+}
+.indoor-map:has(.approx-note) .zoom-hint {
+  bottom: 60px;
+}
+@media (max-width: 959px) {
+  /* Above the view stick in the bottom right corner, across the map. */
+  .zoom-hint {
+    right: 12px;
+    bottom: 120px;
+    max-width: none;
+  }
+  .indoor-map:has(.approx-note) .zoom-hint {
+    bottom: 120px;
+  }
+  .zoom-hint > svg,
+  .zoom-hint span {
+    display: none;
+  }
+  .zoom-hint p {
+    flex: 1;
+  }
+}
+@keyframes hint-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .zoom-hint {
+    animation: none;
+  }
+}
+
+/* ---------- Map button (venues whose map waits for a route) ---------- */
+.map-toggle {
+  min-height: 40px;
+  padding: 0 14px;
+  border: 1.5px solid var(--espresso);
+  background: transparent;
+  color: var(--espresso);
+  font-size: 15px;
+}
+.map-toggle svg {
+  width: 18px;
+  height: 18px;
+}
+.map-toggle[aria-pressed='true'] {
+  background: var(--espresso);
+  color: var(--cream);
+}
+
+/* At a zoom limit the button greys out. */
+.zoom .icon-btn:disabled {
+  opacity: 0.4;
+  cursor: default;
+  box-shadow: none;
+}

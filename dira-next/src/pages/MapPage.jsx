@@ -63,14 +63,14 @@ export default function MapPage({ venue, params }) {
 
   const update = useCallback(
     (changes) => {
-      const next = { from: fromPoi?.id, to: toPoi?.id, mode, floor: params.floor, ...changes };
+      const next = { from: fromPoi?.id, to: toPoi?.id, mode, floor: params.floor, map: params.map, ...changes };
       if (('from' in changes || 'to' in changes || 'mode' in changes) && !('floor' in changes)) delete next.floor;
       if (next.mode === 'fastest') delete next.mode;
       delete next.focus;
       if ('focus' in changes) next.focus = changes.focus;
       navigate(`/venue/${venue.id}`, next, { replace: true });
     },
-    [venue, fromPoi, toPoi, mode, params.floor],
+    [venue, fromPoi, toPoi, mode, params.floor, params.map],
   );
 
   if (!venue || venue.status !== 'live') return <NotFound />;
@@ -145,8 +145,23 @@ export default function MapPage({ venue, params }) {
     const to = 'to' in changes ? changes.to : toPoi?.id;
     return from && to ? changes : { ...changes, floor: levelId };
   };
-  // The map waits for a route, except at venues with a 3D building view (Nisake), whose map always shows.
-  const showMap = !!route || !!venue.building3d;
+  // The map waits for a route, except at venues with a 3D building view (Nisake), whose map always
+  // shows, or when the visitor opens it with the Map button.
+  const browsing = params.map === '1';
+  const showMap = !!route || !!venue.building3d || browsing;
+  const mapButton = !route && !venue.building3d;
+  const toggleMap = () => {
+    update({ map: browsing ? undefined : '1' });
+    // On a phone the map opens under the panel: bring it into view.
+    if (!browsing) setTimeout(() => document.querySelector('.indoor-map')?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
+  };
+  // Arrived: clear the route and go back to the two empty questions.
+  const finishWalk = () => {
+    setGuide(null);
+    setSelectedId(null);
+    update({ from: undefined, to: undefined, map: undefined });
+    window.scrollTo({ top: 0 });
+  };
   const floorPicker = <FloorPicker imdf={imdf} value={levelId} overview={!!buildingView} onChange={(f) => update({ floor: f })} route={route} from={fromPoi} to={toPoi} />;
 
   return (
@@ -166,6 +181,11 @@ export default function MapPage({ venue, params }) {
           </div>
         </div>
         <div className="map-header-end">
+          {mapButton && (
+            <button className="btn map-toggle" type="button" onClick={toggleMap} aria-pressed={browsing}>
+              <Icon name={browsing ? 'close' : 'layers'} /> {browsing ? t('Hide map') : t('Map')}
+            </button>
+          )}
           <PrefsControls compact />
           <button className="icon-btn plain search-btn" type="button" onClick={() => setPicker({ role: 'to' })} aria-label={t('Search places')}>
             <Icon name="search" strokeWidth={2.75} />
@@ -347,7 +367,7 @@ export default function MapPage({ venue, params }) {
                     {t('Next')} <Icon name="arrowRight" />
                   </button>
                 ) : (
-                  <button className="btn btn-primary guide-next" type="button" onClick={() => setGuide(null)}>
+                  <button className="btn btn-primary guide-next" type="button" onClick={finishWalk}>
                     {t('Done')} <Icon name="check" />
                   </button>
                 )}

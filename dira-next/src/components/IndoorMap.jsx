@@ -57,6 +57,10 @@ const FLOOR_LAYERS = ['level-fill', 'unit-floor', 'unit-selected', 'walls', 'rou
 // Whole-building cameras: a bird's-eye three-quarter view and a street-level side view.
 const BUILDING_CAMERA = { aerial: { pitch: 56, bearing: -32 }, side: { pitch: 78, bearing: -12 } };
 const ARRIVAL_ZOOM = 20.1;
+// How far past "whole venue fills the screen" the visitor may zoom out, in zoom levels (1 = half size).
+const MIN_ZOOM_MARGIN = 0.4;
+// Closest zoom: one shop and its neighbours fill a phone screen.
+const MAX_ZOOM = 21;
 // The guided walk's follow camera: behind and above the walking figure, facing where it walks.
 const FOLLOW = { zoom: 20.55, pitch: 60, wideAtCorner: 0.45 };
 const WALK_SPEED = 5; // metres a second on screen
@@ -80,11 +84,18 @@ export default function IndoorMap({ imdf, levelId, route, steps = [], guideStep 
   const extras = useRef({ dest: null, callouts: [], walker: null, arrival: null, figure: null, floorArrow: null });
   const [ready, setReady] = useState(false);
   const [pitched, setPitched] = useState(true);
+  // "Zoom in to see shops": shown each time the map opens while it is too far out for shop markers,
+  // until the visitor zooms in or closes it.
+  const [zoomHint, setZoomHint] = useState(false);
+  const hintSeen = useRef(false);
+  const baseMinZoom = useRef(0);
+  // At a zoom limit, its button greys out: 'in' (closest), 'out' (furthest) or null.
+  const [zoomEdge, setZoomEdge] = useState(null);
   const { lang, theme } = usePrefs();
   const state = useRef({});
   const guiding = guideStep != null && !!route;
   const landmarkId = guiding ? steps[guideStep]?.landmarkId || null : null;
-  state.current = { levelId, startId, destId, selectedId, group, route, buildingView, landmarkId };
+  state.current = { levelId, startId, destId, selectedId, group, route, buildingView, landmarkId, guiding };
   const handlers = useRef({});
   handlers.current = { onSelect, onLevel, onPickFloor };
 
@@ -92,7 +103,13 @@ export default function IndoorMap({ imdf, levelId, route, steps = [], guideStep 
     const map = mapRef.current;
     if (!map) return;
     const z = map.getZoom();
-    const { levelId: lv, startId: s, destId: d, selectedId: sel, group: g, route: r, buildingView: bv, landmarkId: lm } = state.current;
+    const { levelId: lv, startId: s, destId: d, selectedId: sel, group: g, route: r, buildingView: bv, landmarkId: lm, guiding: gd } = state.current;
+    const shopZoom = shopZoomFor(r);
+    setZoomEdge(z >= map.getMaxZoom() - 0.01 ? 'in' : z <= map.getMinZoom() + 0.01 ? 'out' : null);
+    if (!hintSeen.current && !bv && !gd) {
+      if (z > shopZoom) hintSeen.current = true;
+      setZoomHint(z <= shopZoom);
+    } else setZoomHint(false);
     const items = [];
     for (const { poi, node } of markers.current.values()) {
       if (poi.levelId !== lv || bv) {
@@ -103,7 +120,7 @@ export default function IndoorMap({ imdf, levelId, route, steps = [], guideStep 
       let want;
       if (pinned) want = 3;
       else if (g) want = poi.group === g ? 2 : 0;
-      else if (r) want = poi.kind === 'amenity' ? (z > 18.6 ? 1 : 0) : z > 18.9 ? 1 : 0;
+      else if (r) want = poi.kind === 'amenity' ? (z > 18.6 ? 1 : 0) : z > shopZoom ? 1 : 0;
       else if (poi.kind === 'unnamed') want = 0;
       else if (poi.kind === 'amenity') want = poi.category === 'entry' || poi.category === 'parking' ? (z > 16.8 ? 1 : 0) : z > 17.8 ? 1 : 0;
       else want = poi.area > 450 ? 1 : z > 17.9 ? 1 : 0;
@@ -132,6 +149,8 @@ export default function IndoorMap({ imdf, levelId, route, steps = [], guideStep 
   useEffect(() => {
     const level = imdf.levelById.get(levelId) || imdf.levels[0];
     const bounds = bboxOf(imdf.venue.geometry.coordinates[0]);
+    // The floors themselves, not the whole site: Sarit's site takes in its car parks.
+    const keepIn = bboxOf(imdf.levels.flatMap((l) => l.feature.geometry.coordinates[0]));
     const map = new maplibregl.Map({
       container: el.current,
       style: baseStyle(),
@@ -141,11 +160,10 @@ export default function IndoorMap({ imdf, levelId, route, steps = [], guideStep 
       bearing: -14,
       maxPitch: buildingEnabled ? 85 : 65,
       minZoom: 15.5,
-      maxZoom: 21.5,
-      maxBounds: [
-        [bounds[0][0] - 0.003, bounds[0][1] - 0.003],
-        [bounds[1][0] + 0.003, bounds[1][1] + 0.003],
-      ],
+      maxZoom: MAX_ZOOM,
+      // Keep the venue in view while browsing: the camera centre stays over the venue, so a stray
+      // swipe cannot fling the map off into empty ground.
+      transformCameraUpdate: ({ center }) => ({ center: clampToBox(center, keepIn) }),
       attributionControl: false,
     });
     mapRef.current = map;
@@ -201,7 +219,19 @@ export default function IndoorMap({ imdf, levelId, route, steps = [], guideStep 
       cancelAnimationFrame(frame);
       frame = requestAnimationFrame(layout);
     });
-    const ro = new ResizeObserver(() => map.resize());
+    // No zooming out further than the whole venue with a margin round it (worked out for this screen size).
+    // The whole-building view steps back further; it lowers the limit while it is open.
+    const limitZoom = () => {
+      const fit = map.cameraForBounds(bounds, { padding: 0, bearing: 0 });
+      if (!fit) return;
+      baseMinZoom.current = fit.zoom - MIN_ZOOM_MARGIN;
+      if (!state.current.buildingView) map.setMinZoom(baseMinZoom.current);
+    };
+    limitZoom();
+    const ro = new ResizeObserver(() => {
+      map.resize();
+      limitZoom();
+    });
     ro.observe(el.current);
     return () => {
       ro.disconnect();
@@ -309,6 +339,8 @@ export default function IndoorMap({ imdf, levelId, route, steps = [], guideStep 
     const map = mapRef.current;
     if (!ready || !map || !buildingEnabled) return;
     if (!buildingView) {
+      // Back to one floor: restore the zoom-out limit once the camera has closed in.
+      if (map.getMinZoom() < baseMinZoom.current) map.once('moveend', () => map.setMinZoom(baseMinZoom.current));
       showBuilding(map, false, FLOOR_LAYERS);
       showFloorLabels(map, false);
       wasBuilding.current = null;
@@ -326,6 +358,7 @@ export default function IndoorMap({ imdf, levelId, route, steps = [], guideStep 
     const fit = map.cameraForBounds(bboxOf(imdf.levels.at(-1).feature.geometry.coordinates[0]), { padding: 90 });
     const narrow = map.getContainer().clientWidth < 600;
     const zoom = (fit?.zoom ?? 18.5) - (buildingView === 'side' ? 0.15 + stack / 110 : narrow ? 0.1 : 0.7) + (narrow ? 0.35 : 0);
+    map.setMinZoom(Math.min(baseMinZoom.current, zoom - 0.3));
     map.easeTo({
       center: imdf.venue.properties.display_point.coordinates,
       zoom,
@@ -485,6 +518,11 @@ export default function IndoorMap({ imdf, levelId, route, steps = [], guideStep 
   }, [ready, guiding, route]);
 
   const zoom = (d) => (d > 0 ? mapRef.current?.zoomIn() : mapRef.current?.zoomOut());
+  const zoomToShops = () => mapRef.current?.easeTo({ zoom: shopZoomFor(route) + 0.6, duration: 600 });
+  const closeHint = () => {
+    hintSeen.current = true;
+    setZoomHint(false);
+  };
   const togglePitch = () => {
     const next = !pitched;
     setPitched(next);
@@ -506,10 +544,10 @@ export default function IndoorMap({ imdf, levelId, route, steps = [], guideStep 
     <div className="map-card indoor-map">
       <div ref={el} className="map-canvas" />
       <div className="zoom">
-        <button className="icon-btn" type="button" onClick={() => zoom(1)} aria-label={tr('Zoom in')}>
+        <button className="icon-btn" type="button" onClick={() => zoom(1)} disabled={zoomEdge === 'in'} aria-label={tr('Zoom in')}>
           <Icon name="plus" />
         </button>
-        <button className="icon-btn" type="button" onClick={() => zoom(-1)} aria-label={tr('Zoom out')}>
+        <button className="icon-btn" type="button" onClick={() => zoom(-1)} disabled={zoomEdge === 'out'} aria-label={tr('Zoom out')}>
           <Icon name="minus" />
         </button>
         <button className="icon-btn" type="button" onClick={fitAll} aria-label={route ? tr('Show the route on this floor') : tr('Show the whole floor')}>
@@ -533,8 +571,34 @@ export default function IndoorMap({ imdf, levelId, route, steps = [], guideStep 
           className={buildingView ? 'is-raised' : ''}
         />
       )}
+      {ready && zoomHint && (
+        <div className="zoom-hint" role="status">
+          <Icon name="search" />
+          <p>
+            <strong>{tr('Zoom in to see nearby shops')}</strong>
+            <span>{tr('Pinch out or tap +')}</span>
+          </p>
+          <button className="btn btn-primary" type="button" onClick={zoomToShops}>
+            {tr('Zoom in')}
+          </button>
+          <button className="icon-btn plain" type="button" onClick={closeHint} aria-label={tr('Close')}>
+            <Icon name="close" strokeWidth={2.6} />
+          </button>
+        </div>
+      )}
       {!ready && <div className="map-loading">{tr('Loading the map…')}</div>}
       {children}
     </div>
   );
+}
+
+// Shop markers appear above this zoom (see layout): closer in while a route is drawn.
+function shopZoomFor(route) {
+  return route ? 18.9 : 17.9;
+}
+
+function clampToBox(center, [[w, so], [e, n]]) {
+  const lng = Math.min(e, Math.max(w, center.lng));
+  const lat = Math.min(n, Math.max(so, center.lat));
+  return lng === center.lng && lat === center.lat ? center : new maplibregl.LngLat(lng, lat);
 }
