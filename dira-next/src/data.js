@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { loadImdf } from '@imdf/imdf.js';
 import { createRouter } from '@imdf/route.js';
+import { corridorNetwork } from './network.js';
 
 // One load per venue per session: the IMDF archive, card content and a router built on them.
 const cache = new Map();
@@ -42,4 +43,12 @@ export function useVenueData(venue) {
 export function findPoi(imdf, key) {
   if (!key) return null;
   return imdf.pois.find((p) => p.id === key) || imdf.pois.find((p) => p.name === key) || null;
+}
+
+/** The corridor network of a venue's floors, worked out once per session (about 0.1 s). */
+const networks = new WeakMap();
+export function networkOf(data) {
+  if (!data) return null;
+  if (!networks.has(data)) networks.set(data, corridorNetwork(data.router));
+  return networks.get(data);
 }

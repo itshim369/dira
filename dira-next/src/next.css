@@ -951,16 +951,88 @@ a.social:hover small {
   margin: 4px 0 12px;
 }
 .guide-figure {
+  position: relative;
   display: grid;
-  place-items: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: var(--terracotta);
-  border: 3px solid #fff;
-  color: #fff;
-  box-shadow: 0 6px 14px rgba(59, 36, 24, 0.35);
+  justify-items: center;
   pointer-events: none;
+  filter: drop-shadow(0 4px 6px rgba(59, 36, 24, 0.35));
+}
+.guide-figure .fig-body {
+  display: block;
+  overflow: visible;
+}
+.fig-leg,
+.fig-arm {
+  transform-box: fill-box;
+}
+.fig-leg {
+  transform-origin: 50% 0;
+}
+.fig-arm {
+  transform-origin: 50% 0;
+}
+.guide-figure.is-walking .fig-leg-l,
+.guide-figure.is-walking .fig-arm-r {
+  animation: fig-swing 0.62s ease-in-out infinite alternate;
+}
+.guide-figure.is-walking .fig-leg-r,
+.guide-figure.is-walking .fig-arm-l {
+  animation: fig-swing 0.62s ease-in-out infinite alternate-reverse;
+}
+.guide-figure.is-walking .fig-body {
+  animation: fig-bob 0.31s ease-in-out infinite alternate;
+}
+@keyframes fig-swing {
+  from {
+    transform: rotate(-22deg);
+  }
+  to {
+    transform: rotate(22deg);
+  }
+}
+@keyframes fig-bob {
+  to {
+    transform: translateY(-2px);
+  }
+}
+.fig-badge {
+  display: none;
+  margin-bottom: 4px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--espresso);
+  border: 2px solid #fff;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+.guide-figure.is-riding .fig-badge {
+  display: block;
+  animation: fig-badge 1.4s ease-in-out infinite;
+}
+@keyframes fig-badge {
+  50% {
+    transform: translateY(-3px);
+  }
+}
+.guide-figure.is-arriving .fig-body {
+  animation: fig-hop 0.6s cubic-bezier(0.3, 1.6, 0.5, 1);
+}
+@keyframes fig-hop {
+  0% {
+    transform: translateY(-14px) scale(0.85);
+    opacity: 0;
+  }
+  100% {
+    transform: none;
+    opacity: 1;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .guide-figure * {
+    animation: none !important;
+  }
 }
 .guide-floor {
   pointer-events: none;
@@ -1465,5 +1537,50 @@ a.social:hover small {
   .blueprint-home {
     bottom: auto;
     top: calc(max(12px, env(safe-area-inset-top)) + 60px);
+  }
+}
+
+/* Guide card: progress through the steps, and the next move previewed. */
+.guide-bar {
+  overflow: hidden;
+}
+.guide-progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  gap: 3px;
+  height: 5px;
+}
+.guide-progress span {
+  flex: 1;
+  background: var(--line);
+  transition: background 0.4s;
+}
+.guide-progress .is-done {
+  background: var(--terracotta);
+}
+.guide-progress .is-now {
+  background: linear-gradient(90deg, var(--terracotta), #ff8a4c);
+  animation: guide-now 1.6s ease-in-out infinite;
+}
+@keyframes guide-now {
+  50% {
+    opacity: 0.55;
+  }
+}
+.guide-step .guide-then {
+  margin-top: 4px;
+  padding-top: 6px;
+  border-top: 1px dashed var(--line);
+  color: var(--espresso);
+  font-size: 13px;
+  font-weight: 600;
+  opacity: 0.75;
+}
+@media (prefers-reduced-motion: reduce) {
+  .guide-progress .is-now {
+    animation: none;
   }
 }

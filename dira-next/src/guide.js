@@ -9,6 +9,9 @@ const COLOR = {
   walkedDark: '#5E4D43',
   beam: '#C8553D',
   landmark: '#F0A58F',
+  arrow: '#E0673F',
+  arrowLit: '#FF8A4C',
+  keep: '#E9C9A8',
 };
 
 // ---------- Track ----------
@@ -138,15 +141,119 @@ export function splitRoute(track, at) {
 }
 
 /** A painted arrow where each turn step turns, facing the way you arrive. */
-export function turnFeatures(track, steps) {
+// ---------- Floor arrows ----------
+// Arrows painted on the floor where a person has to decide: at every turn, a ribbon that follows
+// the real bend (from a few metres before the corner to a few metres past it, ending in a head),
+// and at junctions the route goes straight through, a short "keep straight" arrow.
+
+const ARROW = { before: 5, after: 5.5, width: 1.3, head: 2.4, headLen: 2 };
+const KEEP = { before: 1.5, after: 3, width: 0.9, head: 1.8, headLen: 1.5 };
+
+/** Points every `step` metres along leg li between s0 and s1, rounded off at corners. */
+function sampleLeg(track, li, s0, s1, step = 0.5) {
   const out = [];
+  for (let s = s0; s < s1; s += step) out.push(poseAtM(track, li, s));
+  out.push(poseAtM(track, li, s1));
+  // Round the corner the way a person walks it: average each point with its neighbours.
+  for (let pass = 0; pass < 3; pass++)
+    for (let k = 1; k < out.length - 1; k++) out[k] = [(out[k - 1][0] + 2 * out[k][0] + out[k + 1][0]) / 4, (out[k - 1][1] + 2 * out[k][1] + out[k + 1][1]) / 4];
+  return out;
+}
+
+function poseAtM(track, li, d) {
+  const leg = track.legs[li];
+  const x = Math.max(0, Math.min(leg.total, d));
+  let k = 1;
+  while (k < leg.pts.length - 1 && leg.cum[k] < x) k++;
+  const a = leg.pts[k - 1];
+  const b = leg.pts[k] || a;
+  const t = Math.max(0, Math.min(1, (x - leg.cum[k - 1]) / (leg.cum[k] - leg.cum[k - 1] || 1)));
+  return [a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t];
+}
+
+/** A ribbon along pts (metres) with an arrow head at the end, as a lon/lat ring. */
+function ribbon(track, pts, { width, head, headLen }) {
+  if (pts.length < 2) return null;
+  const n = (k) => {
+    const a = pts[Math.max(0, k - 1)];
+    const b = pts[Math.min(pts.length - 1, k + 1)];
+    const L = Math.hypot(b[0] - a[0], b[1] - a[1]) || 1;
+    return [-(b[1] - a[1]) / L, (b[0] - a[0]) / L];
+  };
+  // The shaft stops where the head begins.
+  let body = pts.length - 1;
+  let back = 0;
+  while (body > 1 && back < headLen) {
+    back += Math.hypot(pts[body][0] - pts[body - 1][0], pts[body][1] - pts[body - 1][1]);
+    body--;
+  }
+  const left = [];
+  const right = [];
+  for (let k = 0; k <= body; k++) {
+    const [nx, ny] = n(k);
+    left.push([pts[k][0] + (nx * width) / 2, pts[k][1] + (ny * width) / 2]);
+    right.push([pts[k][0] - (nx * width) / 2, pts[k][1] - (ny * width) / 2]);
+  }
+  const [nx, ny] = n(body);
+  const base = pts[body];
+  const tip = pts[pts.length - 1];
+  const ring = [...left, [base[0] + (nx * head) / 2, base[1] + (ny * head) / 2], tip, [base[0] - (nx * head) / 2, base[1] - (ny * head) / 2], ...right.reverse()];
+  ring.push(ring[0]);
+  return ring.map(track.P.toLL);
+}
+
+/**
+ * Floor arrows for the route. `network` (from corridorNetwork) adds "keep straight" arrows at
+ * junctions; `current` is the step being walked, whose arrow is lit.
+ */
+export function turnFeatures(track, steps, network = null, current = null) {
+  const out = [];
+  const turnsAt = track.legs.map(() => []);
   steps.forEach((step, i) => {
     if (!['left', 'right', 'around'].includes(step.kind) || i === 0) return;
     const at = track.stops[i - 1];
-    const pose = poseAt(track, at.leg, Math.max(0, at.s - 1.5), 1.5);
-    out.push({ type: 'Feature', properties: { level: track.legs[at.leg].levelId, icon: `guide-turn-${step.kind}`, heading: pose.heading }, geometry: { type: 'Point', coordinates: poseAt(track, at.leg, at.s, 0).ll } });
+    const leg = track.legs[at.leg];
+    turnsAt[at.leg].push(at.s);
+    const pts = sampleLeg(track, at.leg, Math.max(0, at.s - ARROW.before), Math.min(leg.total, at.s + ARROW.after));
+    const ring = ribbon(track, pts, ARROW);
+    if (ring) out.push({ type: 'Feature', properties: { level: leg.levelId, kind: 'turn', current: current === i || current === i - 1 }, geometry: { type: 'Polygon', coordinates: [ring] } });
   });
+  // Junctions the route goes straight through: a short arrow, so you know not to turn.
+  if (network) {
+    track.legs.forEach((leg, li) => {
+      const net = network.find((n) => n.levelId === leg.levelId);
+      if (!net) return;
+      const placed = [];
+      for (const node of net.nodes) {
+        if (node.degree < 3) continue;
+        const p = track.P.toM(node.at);
+        const s = projectS(leg, p);
+        if (s == null || s < 6 || s > leg.total - 6) continue;
+        if (turnsAt[li].some((t) => Math.abs(t - s) < 9) || placed.some((t) => Math.abs(t - s) < 10)) continue;
+        const q = poseAtM(track, li, s);
+        if (Math.hypot(q[0] - p[0], q[1] - p[1]) > 2.5) continue;
+        placed.push(s);
+        const ring = ribbon(track, sampleLeg(track, li, s - KEEP.before, s + KEEP.after), KEEP);
+        if (ring) out.push({ type: 'Feature', properties: { level: leg.levelId, kind: 'keep', current: false }, geometry: { type: 'Polygon', coordinates: [ring] } });
+      }
+    });
+  }
   return fc(out);
+}
+
+function projectS(leg, p) {
+  let best = null;
+  for (let k = 1; k < leg.pts.length; k++) {
+    const a = leg.pts[k - 1];
+    const b = leg.pts[k];
+    const dx = b[0] - a[0];
+    const dy = b[1] - a[1];
+    const L = dx * dx + dy * dy;
+    const t = L ? Math.max(0, Math.min(1, ((p[0] - a[0]) * dx + (p[1] - a[1]) * dy) / L)) : 0;
+    const d = Math.hypot(p[0] - (a[0] + t * dx), p[1] - (a[1] + t * dy));
+    if (!best || d < best.d) best = { d, s: leg.cum[k - 1] + t * Math.sqrt(L) };
+  }
+  return best ? best.s : null;
 }
 
 /** A ring of `n` points, radius r metres, around a lon/lat. */
@@ -197,59 +304,7 @@ const chevron = (ctx, s) => {
   ctx.stroke();
 };
 
-/** A floor arrow: up the image is the way you arrive; it bends left, right or back. */
-function turnArrow(kind) {
-  return (ctx, s) => {
-    const path = () => {
-      ctx.beginPath();
-      ctx.moveTo(s * 0.5, s * 0.94);
-      if (kind === 'around') {
-        ctx.lineTo(s * 0.5, s * 0.42);
-        ctx.arc(s * 0.36, s * 0.42, s * 0.14, 0, Math.PI, true);
-        ctx.lineTo(s * 0.22, s * 0.62);
-      } else {
-        const dir = kind === 'left' ? -1 : 1;
-        ctx.lineTo(s * 0.5, s * 0.5);
-        ctx.quadraticCurveTo(s * 0.5, s * 0.3, s * (0.5 + dir * 0.22), s * 0.3);
-      }
-    };
-    const head = () => {
-      ctx.beginPath();
-      if (kind === 'around') {
-        ctx.moveTo(s * 0.1, s * 0.6);
-        ctx.lineTo(s * 0.34, s * 0.6);
-        ctx.lineTo(s * 0.22, s * 0.8);
-      } else {
-        const dir = kind === 'left' ? -1 : 1;
-        ctx.moveTo(s * (0.5 + dir * 0.2), s * 0.15);
-        ctx.lineTo(s * (0.5 + dir * 0.42), s * 0.3);
-        ctx.lineTo(s * (0.5 + dir * 0.2), s * 0.45);
-      }
-      ctx.closePath();
-    };
-    ctx.lineCap = 'round';
-    ctx.lineJoin = 'round';
-    // White outline, then the terracotta arrow on top.
-    ctx.strokeStyle = '#FFFFFF';
-    ctx.fillStyle = '#FFFFFF';
-    ctx.lineWidth = s * 0.2;
-    path();
-    ctx.stroke();
-    head();
-    ctx.lineWidth = s * 0.08;
-    ctx.stroke();
-    ctx.fill();
-    ctx.strokeStyle = COLOR.route;
-    ctx.fillStyle = COLOR.route;
-    ctx.lineWidth = s * 0.12;
-    path();
-    ctx.stroke();
-    head();
-    ctx.fill();
-  };
-}
-
-export const GUIDE_LAYERS = ['guide-done', 'guide-chevrons', 'guide-turns', 'guide-landmark', 'guide-ring', 'guide-beam'];
+export const GUIDE_LAYERS = ['guide-done', 'guide-chevrons', 'guide-turns', 'guide-turn-edge', 'guide-landmark', 'guide-ring', 'guide-beam'];
 
 /** Adds the guide's sources and layers; the floor-level ones go under `beforeId` (the walls). */
 export function addGuideLayers(map, beforeId) {
@@ -259,7 +314,6 @@ export function addGuideLayers(map, beforeId) {
     map.addImage(id, image, { pixelRatio });
   };
   add('guide-chevron', 24, chevron);
-  for (const k of ['left', 'right', 'around']) add(`guide-turn-${k}`, 96, turnArrow(k));
   const empty = fc([]);
   for (const id of ['guide-done', 'guide-ahead', 'guide-turns', 'guide-landmark', 'guide-beam']) map.addSource(id, { type: 'geojson', data: empty });
   const none = ['==', ['get', 'level'], ''];
@@ -289,18 +343,23 @@ export function addGuideLayers(map, beforeId) {
   }, beforeId);
   map.addLayer({
     id: 'guide-turns',
-    type: 'symbol',
+    type: 'fill-extrusion',
     source: 'guide-turns',
     filter: none,
-    layout: {
-      'icon-image': ['get', 'icon'],
-      'icon-rotate': ['get', 'heading'],
-      'icon-size': ['interpolate', ['linear'], ['zoom'], 17, 0.4, 20, 1.15, 21.5, 1.7],
-      'icon-allow-overlap': true,
-      'icon-ignore-placement': true,
-      'icon-rotation-alignment': 'map',
-      'icon-pitch-alignment': 'map',
+    paint: {
+      'fill-extrusion-color': ['case', ['get', 'current'], COLOR.arrowLit, ['==', ['get', 'kind'], 'keep'], COLOR.keep, COLOR.arrow],
+      'fill-extrusion-height': ['case', ['get', 'current'], 0.14, 0.06],
+      'fill-extrusion-base': 0.02,
+      'fill-extrusion-opacity': 0.95,
     },
+  }, beforeId);
+  map.addLayer({
+    id: 'guide-turn-edge',
+    type: 'line',
+    source: 'guide-turns',
+    filter: none,
+    layout: { 'line-join': 'round' },
+    paint: { 'line-color': '#FFFFFF', 'line-width': ['interpolate', ['linear'], ['zoom'], 18, 0.6, 21, 2.2], 'line-opacity': ['case', ['==', ['get', 'kind'], 'keep'], 0.5, 0.9] },
   }, beforeId);
   map.addLayer({
     id: 'guide-landmark',

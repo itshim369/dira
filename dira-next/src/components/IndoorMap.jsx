@@ -57,6 +57,7 @@ const FLOOR_LAYERS = ['level-fill', 'unit-floor', 'unit-selected', 'walls', 'rou
 // Whole-building cameras: a bird's-eye three-quarter view and a street-level side view.
 const BUILDING_CAMERA = { aerial: { pitch: 56, bearing: -32 }, side: { pitch: 78, bearing: -12 } };
 const ARRIVAL_ZOOM = 20.1;
+const RIDE_LABEL = { elevator: 'Lift', escalator: 'Escalator', stairs: 'Stairs' };
 // How far past "whole venue fills the screen" the visitor may zoom out, in zoom levels (1 = half size).
 const MIN_ZOOM_MARGIN = 0.4;
 // Closest zoom: one shop and its neighbours fill a phone screen.
@@ -66,10 +67,26 @@ const FOLLOW = { zoom: 20.55, pitch: 60, wideAtCorner: 0.45 };
 const WALK_SPEED = 5; // metres a second on screen
 const reducedMotion = () => window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
 const turnToward = (from, to, k) => from + (((to - from + 540) % 360) - 180) * k;
+// The little person who walks the route: standing upright over the floor, arms and legs swinging
+// while walking (CSS), a badge over the head while waiting for a lift or escalator.
 const FIGURE =
-  '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="13" cy="4.5" r="1.8"/><path d="m9 21 2.5-7 2.5 3v4M8 11l3-3.5 3.5 1L17 12M11 7.5 9.5 13"/></svg>';
+  '<span class="fig-badge" aria-hidden="true"></span>' +
+  '<svg class="fig-body" viewBox="0 0 40 64" width="34" height="54" aria-hidden="true">' +
+  '<g stroke="#FAF3EC" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round">' +
+  '<path class="fig-leg fig-leg-l" d="M17 38 15 58" stroke="#3B2418" stroke-width="6"/>' +
+  '<path class="fig-leg fig-leg-r" d="M23 38 25 58" stroke="#3B2418" stroke-width="6"/>' +
+  '<path class="fig-arm fig-arm-l" d="M12 24 9 37" stroke="#A8432E" stroke-width="5"/>' +
+  '<path class="fig-arm fig-arm-r" d="M28 24 31 37" stroke="#A8432E" stroke-width="5"/>' +
+  '<path d="M11 22c0-4 4-6 9-6s9 2 9 6v15c0 2-2 3-4 3H15c-2 0-4-1-4-3Z" fill="#C8553D"/>' +
+  '<circle cx="20" cy="9.5" r="6.5" fill="#7A4A32"/>' +
+  '</g></svg>';
+// On the floor under the figure: where it stands, and a cone of the way it faces.
 const FLOOR_ARROW =
-  '<svg viewBox="0 0 60 60" width="60" height="60" aria-hidden="true"><ellipse cx="30" cy="30" rx="22" ry="22" fill="rgba(59,36,24,.22)"/><path d="M30 9 44 34H16Z" fill="#C8553D" stroke="#fff" stroke-width="3" stroke-linejoin="round"/></svg>';
+  '<svg viewBox="0 0 120 120" width="120" height="120" aria-hidden="true"><defs>' +
+  '<radialGradient id="fig-cone" cx="60" cy="60" r="58" gradientUnits="userSpaceOnUse"><stop offset="0.15" stop-color="#FF8A4C" stop-opacity="0.75"/><stop offset="1" stop-color="#FF8A4C" stop-opacity="0"/></radialGradient></defs>' +
+  '<path d="M60 60 L33 6 A58 58 0 0 1 87 6 Z" fill="url(#fig-cone)"/>' +
+  '<ellipse cx="60" cy="60" rx="13" ry="13" fill="rgba(59,36,24,.28)"/>' +
+  '<circle cx="60" cy="60" r="9" fill="none" stroke="#FFFFFF" stroke-width="3"/></svg>';
 
 /**
  * The 3D indoor map of one venue, one floor at a time.
@@ -77,7 +94,7 @@ const FLOOR_ARROW =
  * With `buildingView` ('aerial' or 'side') it shows the whole building, floors stacked; picking
  * a floor (`onPickFloor`) flies in to that floor, arriving at its stairs and lift.
  */
-export default function IndoorMap({ imdf, levelId, route, steps = [], guideStep = null, startId, destId, selectedId, group, focus, fitKey, walker = true, buildingEnabled = false, buildingView = null, onBuilding, onPickFloor, onSelect, onLevel, children }) {
+export default function IndoorMap({ imdf, network = null, levelId, route, steps = [], guideStep = null, startId, destId, selectedId, group, focus, fitKey, walker = true, buildingEnabled = false, buildingView = null, onBuilding, onPickFloor, onSelect, onLevel, children }) {
   const el = useRef(null);
   const mapRef = useRef(null);
   const markers = useRef(new Map());
@@ -418,7 +435,7 @@ export default function IndoorMap({ imdf, levelId, route, steps = [], guideStep 
     const map = mapRef.current;
     if (!ready || !map) return;
     const empty = { type: 'FeatureCollection', features: [] };
-    map.getSource('guide-turns').setData(track ? turnFeatures(track, steps) : empty);
+    map.getSource('guide-turns').setData(track ? turnFeatures(track, steps, network, guiding ? guideStep : null) : empty);
     map.getSource('guide-beam').setData(track && dest ? beamFeatures(track, dest.point) : empty);
     if (!guiding) {
       const parts = track ? splitRoute(track, null) : { done: empty, ahead: empty };
@@ -430,7 +447,7 @@ export default function IndoorMap({ imdf, levelId, route, steps = [], guideStep 
     map.getSource('guide-landmark').setData(unit ? { type: 'FeatureCollection', features: [{ type: 'Feature', properties: { level: unit.properties.level_id }, geometry: unit.geometry }] } : empty);
     showGuideLevel(map, levelId);
     layout();
-  }, [ready, track, steps, dest, guiding, landmarkId, levelId, imdf, layout]);
+  }, [ready, track, steps, network, guideStep, dest, guiding, landmarkId, levelId, imdf, layout]);
 
   // ---------- The guided walk: the figure walks each step, the camera follows ----------
   const walkAt = useRef(null); // where the figure stands: { leg, s }
@@ -456,7 +473,7 @@ export default function IndoorMap({ imdf, levelId, route, steps = [], guideStep 
       floor.className = 'guide-floor';
       floor.innerHTML = FLOOR_ARROW;
       ex.floorArrow = new maplibregl.Marker({ element: floor, rotationAlignment: 'map', pitchAlignment: 'map' }).setLngLat(route.legs[0].coordinates[0]).addTo(map);
-      ex.figure = new maplibregl.Marker({ element: fig, anchor: 'bottom', offset: [0, -6] }).setLngLat(route.legs[0].coordinates[0]).addTo(map);
+      ex.figure = new maplibregl.Marker({ element: fig, anchor: 'bottom', offset: [0, 4] }).setLngLat(route.legs[0].coordinates[0]).addTo(map);
     }
     // The figure waits at the start of the step being read (at the corner, at the lift), and
     // walks that stretch when the visitor moves on. A step on a new floor starts where the ride
@@ -467,6 +484,15 @@ export default function IndoorMap({ imdf, levelId, route, steps = [], guideStep 
     if (g > 0 && ['left', 'right', 'around'].includes(steps[g]?.kind)) {
       const floorStart = g > 1 && track.stops[g - 2].leg === target.leg ? track.stops[g - 2].s : 0;
       target = { leg: target.leg, s: Math.max(floorStart, target.s - 6) };
+    }
+    // Waiting at a lift, escalator or stairs: say which way and to which floor.
+    const fig = ex.figure.getElement();
+    const ride = RIDE_LABEL[steps[g]?.kind];
+    fig.classList.toggle('is-riding', !!ride);
+    if (ride) {
+      const to = imdf.levelById.get(steps[g].toLevelId);
+      const up = to && to.ordinal > imdf.levelById.get(steps[g].levelId).ordinal;
+      fig.querySelector('.fig-badge').textContent = `${up ? '▲' : '▼'} ${to?.short ?? ''} · ${tr(ride)}`;
     }
     const prev = walkAt.current;
     const card = map.getContainer().parentElement?.querySelector('.guide-bar');
@@ -491,6 +517,12 @@ export default function IndoorMap({ imdf, levelId, route, steps = [], guideStep 
     if (!sameLeg || target.s <= prev.s + 0.05) {
       // First step, a new floor, going back, or reduced motion: fly (or cut) straight there.
       const cam = place(target.leg, target.s, false, 0);
+      // Landing on a new floor: a little hop off the ride.
+      if (prev && prev.leg !== target.leg && !reducedMotion()) {
+        fig.classList.remove('is-arriving');
+        void fig.offsetWidth;
+        fig.classList.add('is-arriving');
+      }
       if (reducedMotion()) map.jumpTo(cam);
       else map.flyTo({ ...cam, duration: prev ? 900 : 1600, essential: true });
       return undefined;
@@ -499,15 +531,20 @@ export default function IndoorMap({ imdf, levelId, route, steps = [], guideStep 
     const dur = Math.max(900, Math.min(4500, ((target.s - from) / WALK_SPEED) * 1000));
     const t0 = performance.now();
     let last = t0;
+    fig.classList.add('is-walking');
     const tick = (now) => {
       const k = Math.min(1, (now - t0) / dur);
       const ease = k < 0.5 ? 2 * k * k : 1 - (-2 * k + 2) ** 2 / 2;
       map.jumpTo(place(target.leg, from + (target.s - from) * ease, true, (now - last) / 1000));
       last = now;
       if (k < 1) raf = requestAnimationFrame(tick);
+      else fig.classList.remove('is-walking');
     };
     raf = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(raf);
+    return () => {
+      cancelAnimationFrame(raf);
+      fig.classList.remove('is-walking');
+    };
   }, [ready, guiding, guideStep, track]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // Leaving the guide: back to the usual framing.

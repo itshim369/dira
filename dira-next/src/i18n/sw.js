@@ -32,6 +32,7 @@ export default {
   'Route': 'Njia',
   'Spread the floors': 'Tenganisha ghorofa',
   'Drag to turn · pinch or scroll to zoom · two fingers to move': 'Buruta kuzungusha · bana au sogeza kukuza · vidole viwili kusogeza',
+  'Then': 'Kisha',
   ' and ': ' na ',
   '* Required. Viewings are free and take about 45 minutes.': '* Lazima. Maonyesho ni bure na huchukua takriban dakika 45.',
   '1 floor change': 'Badiliko 1 la ghorofa',

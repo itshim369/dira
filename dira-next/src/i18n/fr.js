@@ -32,6 +32,7 @@ export default {
   'Route': 'Itinéraire',
   'Spread the floors': 'Écarter les étages',
   'Drag to turn · pinch or scroll to zoom · two fingers to move': 'Glissez pour tourner · pincez ou faites défiler pour zoomer · deux doigts pour déplacer',
+  'Then': 'Ensuite',
   ' and ': ' et ',
   '* Required. Viewings are free and take about 45 minutes.': '* Obligatoire. Les visites sont gratuites et durent environ 45 minutes.',
   '1 floor change': '1 changement d’étage',

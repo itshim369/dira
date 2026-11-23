@@ -11,6 +11,7 @@ const DOOR_REACH_M = 2.6; // a door cell lies within this distance of the unit's
 const DOOR_BAND_M = 0.9; // ...and within this much of the closest open cell, so routes meet the shopfront
 const MIN_AREA_CELLS = Math.round(30 / (CELL * CELL)); // open areas under 30 m² are trace leftovers
 const WALK_SPEED = 1.2; // m/s
+const HUMAN_CLEAR_CELLS = 3; // straightened lines keep up to this far (about 1.8 m) off walls, as people do
 const SECONDS_PER_LEVEL = { elevator: 45, escalator: 25, stairs: 35 };
 // How to change floors: a weight on each connector's real time; null = not allowed.
 export const MODES = {
@@ -274,27 +275,37 @@ export function createRouter(imdf) {
     return path.reverse();
   }
 
-  function clearLine(G, a, b) {
+  function clearLine(G, a, b, need = 0) {
     const [x0, y0] = a;
     const [x1, y1] = b;
     const n = Math.max(Math.abs(x1 - x0), Math.abs(y1 - y0)) * 2;
     for (let s = 0; s <= n; s++) {
       const i = Math.round(x0 + ((x1 - x0) * s) / n);
       const j = Math.round(y0 + ((y1 - y0) * s) / n);
-      // Every cell the straight line crosses must be open floor (walls are already a cell away).
-      if (!G.walk[j * G.W + i]) return false;
+      // Every cell the straight line crosses must be open floor (walls are already a cell away),
+      // and keep the room from the walls that the walked path had.
+      const k = j * G.W + i;
+      if (!G.walk[k] || G.dist[k] < need) return false;
     }
     return true;
   }
 
+  // Straighten the grid path the way a person walks it: cut across open floor, but keep the
+  // distance from walls and corners the corridor allows (up to HUMAN_CLEAR_CELLS), rather than
+  // grazing every corner.
   function smooth(G, cells) {
     if (cells.length < 3) return cells;
+    const room = cells.map(([i, j]) => G.dist[j * G.W + i]);
     const out = [cells[0]];
     let anchor = 0;
     while (anchor < cells.length - 1) {
+      // The narrowest point of the walked path from the anchor to each later cell.
+      const narrow = new Float32Array(cells.length);
+      narrow[anchor] = room[anchor];
+      for (let k = anchor + 1; k < cells.length; k++) narrow[k] = Math.min(narrow[k - 1], room[k]);
       let far = anchor + 1;
       for (let k = cells.length - 1; k > anchor + 1; k--) {
-        if (clearLine(G, cells[anchor], cells[k])) {
+        if (clearLine(G, cells[anchor], cells[k], Math.min(HUMAN_CLEAR_CELLS, narrow[k]) - 0.5)) {
           far = k;
           break;
         }

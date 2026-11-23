@@ -5,7 +5,7 @@ import PlacePicker from '../components/PlacePicker.jsx';
 import PlaceSheet from '../components/PlaceSheet.jsx';
 import { Icon, StepTile } from '../components/Icons.jsx';
 import { LogoMark } from '../components/Logo.jsx';
-import { findPoi, useVenueData } from '../data.js';
+import { findPoi, networkOf, useVenueData } from '../data.js';
 import { buildSteps } from '../directions.js';
 import { SHORTCUTS, placeName } from '../places.js';
 import { formatMinutes, href, navigate, roundMetres } from '../lib.js';
@@ -330,6 +330,7 @@ export default function MapPage({ venue, params }) {
         {showMap && (
         <IndoorMap
           imdf={imdf}
+          network={route ? networkOf(data) : null}
           levelId={levelId}
           route={route}
           startId={fromPoi?.id}
@@ -353,12 +354,22 @@ export default function MapPage({ venue, params }) {
           <div className="map-overlay-tl mobile-only">{floorPicker}</div>
           {guideStep && (
             <div className="guide-bar" role="region" aria-label={t('Walking directions')} aria-live="polite">
+              <div className="guide-progress" aria-hidden="true">
+                {steps.map((_, i) => (
+                  <span key={i} className={i < guide ? 'is-done' : i === guide ? 'is-now' : ''} />
+                ))}
+              </div>
               <div className="guide-step">
                 <StepTile kind={STEP_KIND[guideStep.kind] || guideStep.kind} emphasis />
                 <div>
                   <span className="guide-count">{t('Step {n} of {total}', { n: guide + 1, total: steps.length })}</span>
                   <strong>{guideStep.title}</strong>
                   <span>{guideStep.detail}</span>
+                  {steps[guide + 1] && (
+                    <span className="guide-then">
+                      {t('Then')}: {steps[guide + 1].title}
+                    </span>
+                  )}
                 </div>
               </div>
               <div className="guide-controls">
