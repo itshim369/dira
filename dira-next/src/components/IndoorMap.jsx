@@ -101,8 +101,8 @@ export default function IndoorMap({ imdf, network = null, plans = null, planBase
   const extras = useRef({ dest: null, callouts: [], walker: null, arrival: null, figure: null, floorArrow: null });
   const [ready, setReady] = useState(false);
   const [pitched, setPitched] = useState(true);
-  // "Zoom in to see shops": shown each time the map opens while it is too far out for shop markers,
-  // until the visitor zooms in or closes it.
+  // "Zoom in to read shop names": shown each time the map opens while it is too far out for most
+  // names (the stores themselves always show), until the visitor zooms in or closes it.
   const [zoomHint, setZoomHint] = useState(false);
   const hintSeen = useRef(false);
   const baseMinZoom = useRef(0);
@@ -137,28 +137,40 @@ export default function IndoorMap({ imdf, network = null, plans = null, planBase
       let want;
       if (pinned) want = 3;
       else if (g) want = poi.group === g ? 2 : 0;
-      else if (r) want = poi.kind === 'amenity' ? (z > 18.6 ? 1 : 0) : z > shopZoom ? 1 : 0;
       else if (poi.kind === 'unnamed') want = 0;
-      else if (poi.kind === 'amenity') want = poi.category === 'entry' || poi.category === 'parking' ? (z > 16.8 ? 1 : 0) : z > 17.8 ? 1 : 0;
-      else want = poi.area > 450 ? 1 : z > 17.9 ? 1 : 0;
+      // Every store is always on the map (as a dot when there is no room); amenities appear
+      // as you zoom in.
+      else if (poi.kind === 'occupant') want = 1;
+      else if (r) want = z > 18.6 ? 1 : 0;
+      else want = poi.category === 'entry' || poi.category === 'parking' ? (z > 16.8 ? 1 : 0) : z > 17.8 ? 1 : 0;
       const withLabel = poi.kind === 'occupant' ? z > 17.2 || poi.area > 450 : z > 19.2 || g === poi.group || pinned;
       items.push({ poi, node, want, withLabel, p: map.project(poi.point) });
     }
     items.sort((a, b) => b.want - a.want || b.poi.area - a.poi.area);
     const placed = [];
+    const free = (box) => !placed.some((b) => box[0] < b[2] && box[2] > b[0] && box[1] < b[3] && box[3] > b[1]);
     for (const it of items) {
+      // Try the tile with its name, then the tile alone; a store with no room for either is
+      // still shown, as a dot on its spot.
       const textW = it.poi.name.length * 6.6;
-      const w = it.withLabel ? Math.max(36, Math.min(148, textW)) : 36;
-      const lines = it.withLabel ? Math.ceil(textW / 140) : 0;
-      const box = [it.p.x - w / 2, it.p.y - 19, it.p.x + w / 2, it.p.y + 19 + lines * 15];
-      const collides = placed.some((b) => box[0] < b[2] && box[2] > b[0] && box[1] < b[3] && box[3] > b[1]);
-      const show = it.want > 0 && (it.want >= 3 || !collides);
+      const w = Math.max(36, Math.min(148, textW));
+      const lines = Math.ceil(textW / 140);
+      const named = [it.p.x - w / 2, it.p.y - 19, it.p.x + w / 2, it.p.y + 19 + lines * 15];
+      const tile = [it.p.x - 18, it.p.y - 19, it.p.x + 18, it.p.y + 19];
+      let form = null;
+      if (it.want >= 3) form = it.withLabel ? 'named' : 'tile';
+      else if (it.want > 0 && it.withLabel && free(named)) form = 'named';
+      else if (it.want > 0 && free(tile)) form = 'tile';
+      else if (it.want > 0 && it.poi.kind === 'occupant') form = 'dot';
+      const show = form !== null;
       it.node.classList.toggle('is-hidden', !show);
-      it.node.classList.toggle('no-label', !it.withLabel);
+      it.node.classList.toggle('no-label', form !== 'named');
+      it.node.classList.toggle('is-dot', form === 'dot');
+      if (form === 'named') placed.push(named);
+      else if (form === 'tile') placed.push(tile);
       it.node.classList.toggle('is-selected', it.poi.id === sel || it.poi.id === d);
       it.node.classList.toggle('is-start', it.poi.id === s);
       it.node.classList.toggle('is-landmark', it.poi.id === lm);
-      if (show) placed.push(box);
     }
   }, []);
 
@@ -630,7 +642,7 @@ export default function IndoorMap({ imdf, network = null, plans = null, planBase
         <div className="zoom-hint" role="status">
           <Icon name="search" />
           <p>
-            <strong>{tr('Zoom in to see nearby shops')}</strong>
+            <strong>{tr('Zoom in to read shop names')}</strong>
             <span>{tr('Pinch out or tap +')}</span>
           </p>
           <button className="btn btn-primary" type="button" onClick={zoomToShops}>
@@ -647,7 +659,7 @@ export default function IndoorMap({ imdf, network = null, plans = null, planBase
   );
 }
 
-// Shop markers appear above this zoom (see layout): closer in while a route is drawn.
+// Shop names have room to show above this zoom: closer in while a route is drawn.
 function shopZoomFor(route) {
   return route ? 18.9 : 17.9;
 }

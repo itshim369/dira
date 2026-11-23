@@ -11,7 +11,7 @@ export default {
   'Done': 'Terminé',
   'Exit the walk': 'Quitter le guidage',
   'Choose the shop or sign in front of you as your start, then where you want to go. The map opens with your route.': 'Choisissez le magasin ou le panneau devant vous comme départ, puis votre destination. La carte s’ouvre avec votre itinéraire.',
-  'Zoom in to see nearby shops': 'Zoomez pour voir les boutiques proches',
+  'Zoom in to read shop names': 'Zoomez pour lire le nom des boutiques',
   'Pinch out or tap +': 'Écartez les doigts ou touchez +',
   'Close': 'Fermer',
   'Map': 'Carte',

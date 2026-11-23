@@ -1622,3 +1622,19 @@ a.social:hover small {
   color: var(--muted);
   opacity: 1;
 }
+
+/* A store with no room for its tile: a dot on its spot, still tappable. */
+.poi.is-dot .poi-tile {
+  width: 12px;
+  height: 12px;
+  margin-top: 11px;
+  border-width: 2px;
+  border-radius: 50%;
+  background: var(--terracotta);
+  border-color: var(--white);
+  font-size: 0;
+  box-shadow: 0 1px 3px var(--shadow);
+}
+.poi.is-dot .poi-tile > * {
+  display: none;
+}

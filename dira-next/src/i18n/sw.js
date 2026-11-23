@@ -11,7 +11,7 @@ export default {
   'Done': 'Umemaliza',
   'Exit the walk': 'Ondoka kwenye matembezi',
   'Choose the shop or sign in front of you as your start, then where you want to go. The map opens with your route.': 'Chagua duka au bango lililo mbele yako kama mwanzo, kisha unakokwenda. Ramani itafunguka na njia yako.',
-  'Zoom in to see nearby shops': 'Kuza ramani uone maduka ya karibu',
+  'Zoom in to read shop names': 'Kuza ramani usome majina ya maduka',
   'Pinch out or tap +': 'Panua kwa vidole au gusa +',
   'Close': 'Funga',
   'Map': 'Ramani',
