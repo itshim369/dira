@@ -973,14 +973,14 @@ a.social:hover small {
 }
 .guide-figure.is-walking .fig-leg-l,
 .guide-figure.is-walking .fig-arm-r {
-  animation: fig-swing 0.62s ease-in-out infinite alternate;
+  animation: fig-swing 0.75s ease-in-out infinite alternate;
 }
 .guide-figure.is-walking .fig-leg-r,
 .guide-figure.is-walking .fig-arm-l {
-  animation: fig-swing 0.62s ease-in-out infinite alternate-reverse;
+  animation: fig-swing 0.75s ease-in-out infinite alternate-reverse;
 }
 .guide-figure.is-walking .fig-body {
-  animation: fig-bob 0.31s ease-in-out infinite alternate;
+  animation: fig-bob 0.375s ease-in-out infinite alternate;
 }
 @keyframes fig-swing {
   from {

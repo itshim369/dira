@@ -66,7 +66,7 @@ const MAX_ZOOM = 21;
 const FOLLOW = { zoom: 20.55, pitch: 60, wideAtCorner: 0.45, ahead: 2.5 };
 // Street view: low behind the figure, looking down the corridor at the storefronts.
 const STREET = { zoom: 20.9, pitch: 72, wideAtCorner: 0.3, ahead: 6 };
-const WALK_SPEED = 5; // metres a second on screen
+const WALK_SPEED = 2; // metres a second on screen: a brisk walk, slow enough to follow
 const reducedMotion = () => window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
 const turnToward = (from, to, k) => from + (((to - from + 540) % 360) - 180) * k;
 // The little person who walks the route: standing upright over the floor, arms and legs swinging
@@ -568,7 +568,7 @@ export default function IndoorMap({ imdf, network = null, passing = null, street
       return undefined;
     }
     const from = prev.s;
-    const dur = Math.max(900, Math.min(4500, ((target.s - from) / WALK_SPEED) * 1000));
+    const dur = Math.max(1400, Math.min(20000, ((target.s - from) / WALK_SPEED) * 1000));
     const t0 = performance.now();
     let last = t0;
     fig.classList.add('is-walking');
