@@ -2,21 +2,22 @@ import { useMemo, useState } from 'react';
 import { categoryText } from '@imdf/imdf.js';
 import { Icon } from './Icons.jsx';
 import { PlaceTile } from './PlacePicker.jsx';
-import { SHORTCUTS, placeName } from '../places.js';
+import { SHORTCUTS, placeName, nearestOf } from '../places.js';
 import { store } from '../lib.js';
 import { useT } from '../prefs.js';
 
-// Choosing a route, one question at a time: "Where are you?", then "Where to?". The first offers
-// recent places, entrances and landmarks and every store by floor; the second offers one-tap
-// tiles that pick the nearest food, bank, washroom or exit, then popular places. Search is there
-// for anything else. Used as the page itself before a route, and over the map to change an end.
+// Choosing a route, one question at a time, destination first as people think of it:
+// "Where to?", then "Where are you?". The first offers one-tap "nearest" tiles (food, bank,
+// washroom, exit), recent and popular places and every store by floor. A "nearest" tile picked
+// before we know where you are is kept as a wish (`want`) and settled once you say where you are.
+// The second question leads with the entrances, for people who have just walked in.
 
-const GROUP_OF = { food: 'food', money: 'money', help: 'help', exits: 'exits' };
 const LANDMARK = new Set(['elevator', 'escalator', 'stairs']);
+const NEAREST = { food: 'Nearest food', money: 'Nearest bank or ATM', help: 'Nearest washroom', exits: 'Nearest exit' };
 
-export default function RoutePlanner({ imdf, venueId, step, from, to, inline = false, onPick, onStep, onClose }) {
+export default function RoutePlanner({ imdf, venueId, step, from, to, want, initialQuery = '', inline = false, onPick, onWant, onStep, onClose }) {
   const t = useT();
-  const [query, setQuery] = useState('');
+  const [query, setQuery] = useState(initialQuery);
   const [floor, setFloor] = useState(from?.levelId || imdf.levels.find((l) => l.ordinal === 0)?.id || imdf.levels[0].id);
   const recentKey = `recent-${venueId}`;
   const recent = (store.get(recentKey, []) || []).map((id) => imdf.pois.find((p) => p.id === id)).filter(Boolean);
@@ -24,26 +25,12 @@ export default function RoutePlanner({ imdf, venueId, step, from, to, inline = f
   const levelShort = (id) => imdf.levelById.get(id)?.short || '';
   const exclude = step === 'from' ? to?.id : from?.id;
   const places = useMemo(() => imdf.pois.filter((p) => p.kind !== 'unnamed' && p.levelId), [imdf]);
+  const wantLabel = want && SHORTCUTS.find((s) => s.id === want);
 
   const pick = (poi) => {
     store.set(recentKey, [poi.id, ...(store.get(recentKey, []) || []).filter((id) => id !== poi.id)].slice(0, 6));
     setQuery('');
     onPick(step, poi);
-  };
-
-  // The nearest place of a kind to where you are: straight-line distance, a floor counts as 45 m.
-  const nearest = (group) => {
-    const ord = (p) => imdf.levelById.get(p.levelId)?.ordinal ?? 0;
-    const here = from || to;
-    const M = 111000;
-    const cands = places.filter((p) => p.group === GROUP_OF[group] && p.id !== here?.id);
-    if (!here) return cands[0] || null;
-    let best = null;
-    for (const p of cands) {
-      const d = Math.hypot((p.point[0] - here.point[0]) * M, (p.point[1] - here.point[1]) * M) + Math.abs(ord(p) - ord(here)) * 45;
-      if (!best || d < best.d) best = { p, d };
-    }
-    return best?.p || null;
   };
 
   const q = query.trim().toLowerCase();
@@ -53,9 +40,12 @@ export default function RoutePlanner({ imdf, venueId, step, from, to, inline = f
         .sort((a, b) => (placeName(a).toLowerCase().startsWith(q) ? 0 : 1) - (placeName(b).toLowerCase().startsWith(q) ? 0 : 1) || b.area - a.area)
         .slice(0, 40)
     : [];
-  const landmarks = places.filter((p) => p.group === 'exits' || (p.kind === 'amenity' && LANDMARK.has(p.category))).filter((p) => p.levelId === floor);
+  const entrances = places.filter((p) => p.kind === 'amenity' && p.category === 'entry' && p.id !== exclude);
+  const landmarks = places.filter((p) => p.kind === 'amenity' && (LANDMARK.has(p.category) || p.category === 'parking') && p.levelId === floor);
   const shopsHere = places.filter((p) => p.kind === 'occupant' && p.levelId === floor && p.id !== exclude).sort((a, b) => placeName(a).localeCompare(placeName(b)));
   const popular = places.filter((p) => p.kind === 'occupant' && p.id !== exclude).sort((a, b) => b.area - a.area).slice(0, 8);
+  const recentHere = recent.filter((p) => p.id !== exclude);
+  const stepNo = step === 'to' ? 1 : 2;
 
   const Row = ({ poi }) => (
     <button type="button" className="plan-row" onClick={() => pick(poi)}>
@@ -66,6 +56,7 @@ export default function RoutePlanner({ imdf, venueId, step, from, to, inline = f
           {t(imdf.levelById.get(poi.levelId)?.name || '')} · {t(categoryText(poi.category))}
         </small>
       </span>
+      <Icon name="arrowRight" />
     </button>
   );
   const Tile = ({ poi }) => (
@@ -74,40 +65,46 @@ export default function RoutePlanner({ imdf, venueId, step, from, to, inline = f
       <strong>{placeName(poi)}</strong>
     </button>
   );
+  const back = inline ? step === 'from' : true;
 
   return (
     <div className={`planner ${inline ? 'is-inline' : 'is-overlay'}`} role={inline ? undefined : 'dialog'} aria-modal={inline ? undefined : true} aria-label={step === 'from' ? t('Where are you?') : t('Where to?')}>
       <div className="plan-top">
-        {(!inline || step === 'to') && (
-          <button className="icon-btn plain" type="button" onClick={() => (step === 'to' && inline ? onStep('from') : onClose?.())} aria-label={step === 'to' && inline ? t('Back') : t('Close')}>
-            <Icon name={step === 'to' && inline ? 'arrowLeft' : 'close'} strokeWidth={2.6} />
+        {back && (
+          <button className="icon-btn plain" type="button" onClick={() => (inline ? onStep('to') : onClose?.())} aria-label={inline ? t('Back') : t('Close')}>
+            <Icon name={inline ? 'arrowLeft' : 'close'} strokeWidth={2.6} />
           </button>
         )}
-        <div className="plan-progress" aria-label={t('Step {n} of {total}', { n: step === 'from' ? 1 : 2, total: 2 })}>
-          <span className="is-on" />
-          <span className={step === 'to' ? 'is-on' : ''} />
-        </div>
+        {(inline || !from || !to) && (
+          <>
+            <div className="plan-progress" aria-hidden="true">
+              <span className="is-on" />
+              <span className={stepNo === 2 ? 'is-on' : ''} />
+            </div>
+            <span className="plan-count">{t('Step {n} of {total}', { n: stepNo, total: 2 })}</span>
+          </>
+        )}
       </div>
 
       <div className="plan-body" key={step}>
-        <h2>{step === 'from' ? t('Where are you?') : t('Where to?')}</h2>
-        {step === 'from' ? (
-          <p className="plan-sub">{t('Pick the shop, sign or entrance closest to you.')}</p>
-        ) : (
-          from && (
-            <button type="button" className="plan-from" onClick={() => onStep('from')}>
-              <span className="dot" aria-hidden="true" />
-              <span>
-                {t('From')} <strong>{placeName(from)}</strong> · {levelShort(from.levelId)}
-              </span>
-              <span className="plan-change">{t('Change')}</span>
-            </button>
-          )
+        {step === 'from' && (to || wantLabel) && (
+          <button type="button" className="plan-from is-to" onClick={() => onStep('to')}>
+            <Icon name="pin" />
+            <span>
+              {t('Going to')} <strong>{to ? placeName(to) : t(NEAREST[want])}</strong>
+              {to && <> · {levelShort(to.levelId)}</>}
+            </span>
+            <span className="plan-change">{t('Change')}</span>
+          </button>
         )}
+        <h2>{step === 'from' ? t('Where are you?') : t('Where to?')}</h2>
+        <p className="plan-sub">
+          {step === 'from' ? t('Pick the shop, sign or entrance closest to you. No GPS needed.') : t('Search for a shop, or tap what you need.')}
+        </p>
 
         <label className="plan-search">
           <Icon name="search" />
-          <input type="search" value={query} onChange={(e) => setQuery(e.target.value)} placeholder={t('Search shops, banks, washrooms…')} enterKeyHint="search" />
+          <input type="search" value={query} onChange={(e) => setQuery(e.target.value)} placeholder={step === 'from' ? t('Shop or sign next to you…') : t('Search shops, banks, washrooms…')} enterKeyHint="search" />
           {query && (
             <button type="button" className="plan-clear" onClick={() => setQuery('')} aria-label={t('Clear')}>
               <Icon name="close" />
@@ -117,76 +114,106 @@ export default function RoutePlanner({ imdf, venueId, step, from, to, inline = f
 
         {q ? (
           <div className="plan-list">{results.length ? results.map((p) => <Row key={p.id} poi={p} />) : <p className="plan-empty">{t('Nothing found. Try another name.')}</p>}</div>
-        ) : (
+        ) : step === 'to' ? (
           <>
-            {step === 'to' && (
-              <section>
-                <h3>{t('Nearest to you')}</h3>
-                <div className="plan-quick">
-                  {SHORTCUTS.map((s) => {
-                    const near = nearest(s.id);
-                    return (
-                      <button key={s.id} type="button" className="plan-quick-tile" disabled={!near} onClick={() => near && pick(near)}>
-                        <Icon name={s.icon} />
-                        <strong>{t(s.label)}</strong>
-                        <small>{near ? placeName(near) : '—'}</small>
-                      </button>
-                    );
-                  })}
-                </div>
-              </section>
-            )}
-            {recent.filter((p) => p.id !== exclude).length > 0 && (
+            <section>
+              <h3>{from ? t('Nearest to you') : t('What do you need?')}</h3>
+              <div className="plan-quick">
+                {SHORTCUTS.map((s) => {
+                  const near = from ? nearestOf(imdf, s.id, from) : null;
+                  return (
+                    <button
+                      key={s.id}
+                      type="button"
+                      className="plan-quick-tile"
+                      aria-pressed={want === s.id}
+                      onClick={() => (near ? pick(near) : onWant(s.id))}
+                    >
+                      <Icon name={s.icon} />
+                      <strong>{t(NEAREST[s.id])}</strong>
+                      <small>{near ? `${placeName(near)} · ${levelShort(near.levelId)}` : t('Closest to where you are')}</small>
+                    </button>
+                  );
+                })}
+              </div>
+            </section>
+            {recentHere.length > 0 && (
               <section>
                 <h3>{t('Recent')}</h3>
-                <div className="plan-chips">
-                  {recent
-                    .filter((p) => p.id !== exclude)
-                    .map((p) => (
-                      <button key={p.id} type="button" onClick={() => pick(p)}>
-                        <Icon name="clock" /> {placeName(p)}
-                      </button>
-                    ))}
-                </div>
-              </section>
-            )}
-            {step === 'to' && (
-              <section>
-                <h3>{t('Popular')}</h3>
-                <div className="plan-grid">
-                  {popular.map((p) => (
-                    <Tile key={p.id} poi={p} />
+                <div className="plan-list">
+                  {recentHere.slice(0, 3).map((p) => (
+                    <Row key={p.id} poi={p} />
                   ))}
                 </div>
               </section>
             )}
             <section>
-              <h3>{step === 'from' ? t('Stores on this floor') : t('Everything on a floor')}</h3>
-              <div className="plan-floors" role="tablist" aria-label={t('Floors')}>
-                {levels.map((l) => (
-                  <button key={l.id} type="button" role="tab" aria-selected={floor === l.id} onClick={() => setFloor(l.id)}>
-                    {l.short}
-                  </button>
-                ))}
-              </div>
-              {step === 'from' && landmarks.length > 0 && (
-                <div className="plan-chips is-landmarks">
-                  {landmarks.map((p) => (
-                    <button key={p.id} type="button" onClick={() => pick(p)}>
-                      <PlaceTile poi={p} /> {placeName(p)}
-                    </button>
-                  ))}
-                </div>
-              )}
+              <h3>{t('Popular')}</h3>
               <div className="plan-grid">
-                {shopsHere.map((p) => (
+                {popular.map((p) => (
                   <Tile key={p.id} poi={p} />
                 ))}
               </div>
             </section>
+            {floorSection(t('Everything on a floor'))}
+          </>
+        ) : (
+          <>
+            {entrances.length > 0 && (
+              <section>
+                <h3>{t('Just walked in?')}</h3>
+                <div className="plan-list">
+                  {entrances.map((p) => (
+                    <Row key={p.id} poi={p} />
+                  ))}
+                </div>
+              </section>
+            )}
+            {recentHere.length > 0 && (
+              <section>
+                <h3>{t('Recent')}</h3>
+                <div className="plan-chips">
+                  {recentHere.map((p) => (
+                    <button key={p.id} type="button" onClick={() => pick(p)}>
+                      <Icon name="clock" /> {placeName(p)}
+                    </button>
+                  ))}
+                </div>
+              </section>
+            )}
+            {floorSection(t('Or by floor: what is next to you?'), true)}
           </>
         )}
       </div>
     </div>
   );
+
+  function floorSection(title, landmarksToo = false) {
+    return (
+      <section>
+        <h3>{title}</h3>
+        <div className="plan-floors" role="tablist" aria-label={t('Floors')}>
+          {levels.map((l) => (
+            <button key={l.id} type="button" role="tab" aria-selected={floor === l.id} onClick={() => setFloor(l.id)}>
+              {l.short}
+            </button>
+          ))}
+        </div>
+        {landmarksToo && landmarks.length > 0 && (
+          <div className="plan-chips is-landmarks">
+            {landmarks.map((p) => (
+              <button key={p.id} type="button" onClick={() => pick(p)}>
+                <PlaceTile poi={p} /> {placeName(p)}
+              </button>
+            ))}
+          </div>
+        )}
+        <div className="plan-grid">
+          {shopsHere.map((p) => (
+            <Tile key={p.id} poi={p} />
+          ))}
+        </div>
+      </section>
+    );
+  }
 }

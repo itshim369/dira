@@ -2,7 +2,7 @@ import { Icon } from '../components/Icons.jsx';
 import { Logo } from '../components/Logo.jsx';
 import SiteFooter from '../components/SiteFooter.jsx';
 import { SHORTCUTS } from '../places.js';
-import { href } from '../lib.js';
+import { href, navigate } from '../lib.js';
 import { useT } from '../prefs.js';
 import PrefsControls from '../components/PrefsControls.jsx';
 
@@ -36,6 +36,21 @@ export default function Landing() {
       <main className="home-main">
         <section className="home-hero">
           <h1 className="display">{t('Never get lost inside a building again.')}</h1>
+          <form
+            className="home-search"
+            role="search"
+            onSubmit={(e) => {
+              e.preventDefault();
+              const q = new FormData(e.currentTarget).get('q')?.toString().trim();
+              navigate('/venue/sarit', q ? { q } : {});
+            }}
+          >
+            <Icon name="search" />
+            <input name="q" type="search" placeholder={t('Where to in Sarit Centre?')} aria-label={t('Search Sarit Centre')} enterKeyHint="go" />
+            <button className="btn btn-primary" type="submit" aria-label={t('Go')}>
+              <Icon name="arrowRight" />
+            </button>
+          </form>
           <a className="home-pilot" href={href('/venue/sarit')} aria-label={t('Open the Sarit Centre map')}>
             <span className="home-pilot-pic">
               <img className="hero-light" src="./brand/hero-3d.jpg" alt="" />
@@ -62,7 +77,7 @@ export default function Landing() {
           <h2 id="need-title">{t('What do you need?')}</h2>
           <div className="home-quick">
             {SHORTCUTS.map((s) => (
-              <a key={s.id} className="home-quick-tile" href={href('/venue/sarit')}>
+              <a key={s.id} className="home-quick-tile" href={href('/venue/sarit', { want: s.id })}>
                 <Icon name={s.icon} />
                 <span>{t(s.label)}</span>
               </a>

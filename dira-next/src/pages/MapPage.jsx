@@ -8,7 +8,7 @@ import { LogoMark } from '../components/Logo.jsx';
 import { findPoi, networkOf, usePlans, useVenueData } from '../data.js';
 import { buildSteps } from '../directions.js';
 import { buildTrack, passingShops, stretchOf } from '../guide.js';
-import { SHORTCUTS, placeName } from '../places.js';
+import { SHORTCUTS, placeName, nearestOf } from '../places.js';
 import { formatMinutes, href, navigate, roundMetres } from '../lib.js';
 import NotFound from './NotFound.jsx';
 import PrefsControls from '../components/PrefsControls.jsx';
@@ -100,15 +100,16 @@ export default function MapPage({ venue, params }) {
   }, []);
 
   const update = useCallback(
-    (changes) => {
-      const next = { from: fromPoi?.id, to: toPoi?.id, mode, floor: params.floor, map: params.map, ...changes };
+    (changes, { push = false } = {}) => {
+      const next = { from: fromPoi?.id, to: toPoi?.id, want: params.want, mode, floor: params.floor, map: params.map, ...changes };
       if (('from' in changes || 'to' in changes || 'mode' in changes) && !('floor' in changes)) delete next.floor;
       if (next.mode === 'fastest') delete next.mode;
       delete next.focus;
       if ('focus' in changes) next.focus = changes.focus;
-      navigate(`/venue/${venue.id}`, next, { replace: true });
+      // Answers in the planner are pushed, so the phone's Back button steps back a question.
+      navigate(`/venue/${venue.id}`, next, { replace: !push });
     },
-    [venue, fromPoi, toPoi, mode, params.floor, params.map],
+    [venue, fromPoi, toPoi, mode, params.floor, params.map, params.want],
   );
 
   if (!venue || venue.status !== 'live') return <NotFound />;
@@ -179,10 +180,16 @@ export default function MapPage({ venue, params }) {
     window.scrollTo({ top: 0 });
   };
   // Choosing an end: picking the other end's place swaps them, as before.
-  const choose = (role, p) => {
-    if (role === 'from') update(withFloor(p.id === toPoi?.id ? { from: p.id, to: fromPoi?.id } : { from: p.id }));
-    else update(withFloor(p.id === fromPoi?.id ? { to: p.id, from: toPoi?.id } : { to: p.id }));
+  // A "nearest washroom" wish made before we knew where you are is settled when you say.
+  const want = SHORTCUTS.some((s) => s.id === params.want) && !toPoi ? params.want : null;
+  const choose = (role, p, opts) => {
+    if (role === 'from' && want) {
+      const near = nearestOf(imdf, want, p);
+      update({ from: p.id, to: near?.id, want: undefined }, opts);
+    } else if (role === 'from') update(withFloor(p.id === toPoi?.id ? { from: p.id, to: fromPoi?.id } : { from: p.id }), opts);
+    else update(withFloor(p.id === fromPoi?.id ? { to: p.id, from: toPoi?.id, want: undefined } : { to: p.id, want: undefined }), opts);
   };
+  const wish = (g, opts) => update({ want: g, to: undefined }, opts);
   const floorPicker = <FloorPicker imdf={imdf} value={levelId} overview={!!buildingView} onChange={(f) => update({ floor: f })} route={route} from={fromPoi} to={toPoi} />;
 
   return (
@@ -216,8 +223,20 @@ export default function MapPage({ venue, params }) {
 
       <VenueNav venue={venue} current="map" from={fromPoi?.id} to={toPoi?.id} mode={mode} />
 
-      {!showMap && !route ? (
-        <RoutePlanner imdf={imdf} venueId={venue.id} inline step={fromPoi ? 'to' : 'from'} from={fromPoi} to={toPoi} onStep={(st) => st === 'from' && update({ from: undefined })} onPick={choose} />
+      {!showMap && !route && !(fromPoi && toPoi) ? (
+        <RoutePlanner
+          imdf={imdf}
+          venueId={venue.id}
+          inline
+          step={toPoi || want ? 'from' : 'to'}
+          from={fromPoi}
+          to={toPoi}
+          want={want}
+          initialQuery={params.q || ''}
+          onStep={() => update({ to: undefined, want: undefined })}
+          onPick={(role, p) => choose(role, p, { push: true })}
+          onWant={(g) => wish(g, { push: true })}
+        />
       ) : (
       <div className={`map-layout${showMap ? '' : ' no-map'}`}>
         <aside className="map-panel">
@@ -512,12 +531,17 @@ export default function MapPage({ venue, params }) {
           step={plan}
           from={fromPoi}
           to={toPoi}
+          want={want}
           onStep={setPlan}
           onClose={() => setPlan(null)}
+          onWant={(g) => {
+            wish(g);
+            setPlan('from');
+          }}
           onPick={(role, p) => {
             choose(role, p);
-            // Asked where you are with no destination yet: go straight on to "Where to?".
-            setPlan(role === 'from' && !toPoi ? 'to' : null);
+            // Picked a destination with no start yet: go straight on to "Where are you?".
+            setPlan(role === 'to' && !fromPoi ? 'from' : role === 'from' && !toPoi && !want ? 'to' : null);
           }}
         />
       )}

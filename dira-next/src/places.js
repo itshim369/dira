@@ -66,3 +66,18 @@ export function initials(name) {
   if (words.length === 1) return words[0].slice(0, 2).toUpperCase();
   return (words[0][0] + words[1][0]).toUpperCase();
 }
+
+/** The nearest place in a shortcut group ('food', 'money', 'help', 'exits') to `here`: straight-line
+ * distance, with each floor of difference counted as 45 m. Without `here`, the first one. */
+export function nearestOf(imdf, group, here) {
+  const ord = (p) => imdf.levelById.get(p.levelId)?.ordinal ?? 0;
+  const M = 111000;
+  const cands = imdf.pois.filter((p) => p.kind !== 'unnamed' && p.levelId && (group === 'help' ? p.category === 'restroom' : p.group === group) && p.id !== here?.id);
+  if (!here) return cands[0] || null;
+  let best = null;
+  for (const p of cands) {
+    const d = Math.hypot((p.point[0] - here.point[0]) * M, (p.point[1] - here.point[1]) * M) + Math.abs(ord(p) - ord(here)) * 45;
+    if (!best || d < best.d) best = { p, d };
+  }
+  return best?.p || null;
+}
