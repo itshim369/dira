@@ -12,6 +12,8 @@ import { SHORTCUTS, placeName } from '../places.js';
 import { formatMinutes, href, navigate, roundMetres } from '../lib.js';
 import NotFound from './NotFound.jsx';
 import PrefsControls from '../components/PrefsControls.jsx';
+import VenueNav from '../components/VenueNav.jsx';
+import RideCutaway from '../components/RideCutaway.jsx';
 import { tr, useT, usePrefs } from '../prefs.js';
 
 export const MODES = [
@@ -58,6 +60,13 @@ export default function MapPage({ venue, params }) {
   const [guide, setGuide] = useState(null);
   useEffect(() => setGuide(null), [route]);
   const [streetView, setStreetView] = useState(false);
+  // Riding between floors: the building in cross-section for a moment.
+  const [ride, setRide] = useState(null);
+  useEffect(() => {
+    if (!ride) return undefined;
+    const id = setTimeout(() => setRide(null), 2400);
+    return () => clearTimeout(id);
+  }, [ride]);
   // The stores along the stretch being walked (on the start step, the first stretch ahead).
   const track = useMemo(() => (route && steps.length ? buildTrack(route, steps) : null), [route, steps]);
   const passing = useMemo(() => {
@@ -197,15 +206,14 @@ export default function MapPage({ venue, params }) {
               <Icon name={browsing ? 'close' : 'layers'} /> {browsing ? t('Hide map') : t('Map')}
             </button>
           )}
-          <a className="icon-btn plain" href={href(`/venue/${venue.id}/blueprint`, { from: fromPoi?.id, to: toPoi?.id })} aria-label={t('Blueprint: every floor in 3D')} title={t('Blueprint')}>
-            <Icon name="cube" />
-          </a>
           <PrefsControls compact />
           <button className="icon-btn plain search-btn" type="button" onClick={() => setPicker({ role: 'to' })} aria-label={t('Search places')}>
             <Icon name="search" strokeWidth={2.75} />
           </button>
         </div>
       </header>
+
+      <VenueNav venue={venue} current="map" from={fromPoi?.id} to={toPoi?.id} mode={mode} />
 
       <div className={`map-layout${showMap ? '' : ' no-map'}`}>
         <aside className="map-panel">
@@ -372,6 +380,7 @@ export default function MapPage({ venue, params }) {
           onLevel={(f) => update({ floor: f })}
         >
           <div className="map-overlay-tl mobile-only">{floorPicker}</div>
+          {ride && guideStep && <RideCutaway imdf={imdf} kind={ride.kind} fromLevelId={ride.from} toLevelId={ride.to} />}
           {guideStep && (
             <div className="guide-bar" role="region" aria-label={t('Walking directions')} aria-live="polite">
               <div className="guide-progress" aria-hidden="true">
@@ -420,7 +429,14 @@ export default function MapPage({ venue, params }) {
                   <Icon name="arrowLeft" strokeWidth={2.6} />
                 </button>
                 {guide < steps.length - 1 ? (
-                  <button className="btn btn-primary guide-next" type="button" onClick={() => setGuide(guide + 1)}>
+                  <button
+                    className="btn btn-primary guide-next"
+                    type="button"
+                    onClick={() => {
+                      if (guideStep.toLevelId) setRide({ kind: guideStep.kind, from: guideStep.levelId, to: guideStep.toLevelId });
+                      setGuide(guide + 1);
+                    }}
+                  >
                     {t('Next')} <Icon name="arrowRight" />
                   </button>
                 ) : (

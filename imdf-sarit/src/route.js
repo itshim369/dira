@@ -11,6 +11,7 @@ const DOOR_REACH_M = 2.6; // a door cell lies within this distance of the unit's
 const DOOR_BAND_M = 0.9; // ...and within this much of the closest open cell, so routes meet the shopfront
 const MIN_AREA_CELLS = Math.round(30 / (CELL * CELL)); // open areas under 30 m² are trace leftovers
 const WALK_SPEED = 1.2; // m/s
+const CENTRE_FACTOR = 0.8; // walking along a corridor's centre line costs this much of a normal step
 const HUMAN_CLEAR_CELLS = 3; // straightened lines keep up to this far (about 1.8 m) off walls, as people do
 const SECONDS_PER_LEVEL = { elevator: 45, escalator: 25, stairs: 35 };
 // How to change floors: a weight on each connector's real time; null = not allowed.
@@ -248,7 +249,7 @@ export function createRouter(imdf) {
           if (di && dj && (!G.walk[j * G.W + ni] || !G.walk[nj * G.W + i])) continue;
           const n = nl + G.offset;
           if (closed[n]) continue;
-          const ng = g[k] + (di && dj ? D : 1) * (1 + CLEARANCE_WEIGHT / (1 + G.dist[nl]));
+          const ng = g[k] + (di && dj ? D : 1) * (1 + CLEARANCE_WEIGHT / (1 + G.dist[nl])) * (G.centre && G.centre[nl] ? CENTRE_FACTOR : 1);
           if (ng < g[n]) {
             g[n] = ng;
             came[n] = k;
@@ -342,6 +343,35 @@ export function createRouter(imdf) {
   }
 
   return {
+    /**
+     * Prefer the corridors' centre lines, as people walk them: `network` is a list of
+     * { levelId, edges: [{ coords: [[lon, lat]] }] } (dira-next's corridor network). The walkable
+     * floor itself does not change.
+     */
+    setCentrelines(network) {
+      for (const g of grids) g.centre = null;
+      for (const lv of network || []) {
+        const g = gridByLevel.get(lv.levelId);
+        if (!g) continue;
+        const mask = new Uint8Array(g.W * g.H);
+        for (const e of lv.edges)
+          for (let k = 1; k < e.coords.length; k++) {
+            const a = toM(e.coords[k - 1]);
+            const b = toM(e.coords[k]);
+            const n = Math.max(1, Math.ceil(Math.hypot(b[0] - a[0], b[1] - a[1]) / 0.3));
+            for (let t = 0; t <= n; t++) {
+              const [ci, cj] = cellOf(g, [a[0] + ((b[0] - a[0]) * t) / n, a[1] + ((b[1] - a[1]) * t) / n]);
+              for (let dj = -1; dj <= 1; dj++)
+                for (let di = -1; di <= 1; di++) {
+                  const i = ci + di;
+                  const j = cj + dj;
+                  if (i >= 0 && j >= 0 && i < g.W && j < g.H) mask[j * g.W + i] = 1;
+                }
+            }
+          }
+        g.centre = mask;
+      }
+    },
     /** The walkable floor per level, for audits and debugging: { levelId, W, H, cell, walk, cellCentre(i,j) -> [lon,lat] }. */
     inspect() {
       return grids.map((g) => ({

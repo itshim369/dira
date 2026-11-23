@@ -4,6 +4,7 @@ import { useVenueData } from '../data.js';
 import { formatMinutes, href, roundMetres } from '../lib.js';
 import { floorChanges, floorChangeText, STEP_KIND, useRouteState } from './MapPage.jsx';
 import NotFound from './NotFound.jsx';
+import VenueNav from '../components/VenueNav.jsx';
 import { useT } from '../prefs.js';
 import { placeName } from '../places.js';
 
@@ -46,6 +47,7 @@ export default function StepsPage({ venue, params }) {
           <h1>{placeName(toPoi)}</h1>
         </div>
       </header>
+      <VenueNav venue={venue} current="steps" from={fromPoi?.id} to={toPoi?.id} mode={mode} />
 
       <div className="steps-layout">
         <aside className="steps-aside">

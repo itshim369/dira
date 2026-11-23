@@ -13,6 +13,12 @@ const raw = { manifest: read('imdf/manifest.json') };
 for (const f of ['venue', 'building', 'level', 'footprint', 'unit', 'opening', 'amenity', 'anchor', 'occupant', 'address', 'relationship']) raw[f] = read(`imdf/${f}.geojson`);
 const imdf = indexImdf(raw, read('content/places.json'));
 const router = createRouter(imdf);
+// NETWORK=1: route the way the app does, along the corridor centre lines (dira-next's network).
+if (process.env.NETWORK) {
+  const { corridorNetwork } = await import('../../dira-next/src/network.js');
+  router.setCentrelines(corridorNetwork(router));
+  console.log('routing along corridor centre lines');
+}
 
 const arg = process.argv.find((a) => a.startsWith('--pairs='));
 const PAIRS = arg ? +arg.split('=')[1] : 500;

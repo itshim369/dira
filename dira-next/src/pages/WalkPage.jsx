@@ -6,6 +6,7 @@ import { placeName } from '../places.js';
 import { href, navigate } from '../lib.js';
 import { useT } from '../prefs.js';
 import NotFound from './NotFound.jsx';
+import VenueNav from '../components/VenueNav.jsx';
 import { STEP_KIND, useRouteState } from './MapPage.jsx';
 
 // three.js only loads on this page.
@@ -61,6 +62,8 @@ export default function WalkPage({ venue, params }) {
         <Suspense fallback={<div className="blueprint-loading">{t('Building the walk…')}</div>}>
           <WalkView3D
             imdf={imdf}
+            network={networkOf(data)}
+            mapHref={mapHref}
             plans={plans}
             planBase={`${venue.base}plans/`}
             track={track}
@@ -87,6 +90,9 @@ export default function WalkPage({ venue, params }) {
           </strong>
         </div>
       </header>
+      <div className="venue-nav-float">
+        <VenueNav venue={venue} current="walk" from={fromPoi?.id} to={toPoi?.id} mode={params.mode} />
+      </div>
       <p className="walk-look">{t('Drag to look around')}</p>
 
       {ride && (

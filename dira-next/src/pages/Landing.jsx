@@ -29,6 +29,9 @@ export default function Landing() {
           <Logo height={36} />
         </a>
         <nav>
+          <a className="nav-link nav-pilot" href={href('/venue/sarit')}>
+            Sarit Centre <span className="pilot-tag">{t('Pilot')}</span>
+          </a>
           <a className="nav-link" href={href('/venues')}>
             {t('Venues')}
           </a>
@@ -48,16 +51,17 @@ export default function Landing() {
               {t('Pick a venue, tap where you are and where you want to go. Dira shows every floor in 3D and draws your route, floor by floor, even without internet.')}
             </p>
             <div className="hero-actions">
-              <a className="btn btn-primary btn-lg" href={href('/venues')}>
-                {t('Get started')} <Icon name="arrowRight" />
+              <a className="btn btn-primary btn-lg" href={href('/venue/sarit')}>
+                {t('Open Sarit Centre')} <Icon name="arrowRight" />
               </a>
-              <a className="btn btn-outline btn-lg" href="#how" onClick={(e) => (e.preventDefault(), document.getElementById('how')?.scrollIntoView())}>
-                {t('How it works')}
+              <a className="btn btn-outline btn-lg" href={href('/venues')}>
+                {t('All venues')}
               </a>
             </div>
           </div>
           <a className="card hero-shot" href={href('/venue/sarit')} aria-label={t('Open the Sarit Centre map')}>
-            <img src="./brand/hero-3d.jpg" alt={t('Dira’s 3D map of Sarit Centre’s Lower Ground floor with a route to the escalator')} />
+            <img className="hero-light" src="./brand/hero-3d.jpg" alt={t('Dira’s 3D map of Sarit Centre’s Lower Ground floor with a route to the escalator')} />
+            <img className="hero-dark" src="./brand/hero-blueprint.webp" alt={t('Dira’s blueprint of Sarit Centre: every floor stacked in 3D with a route through them')} />
             <span className="hero-shot-bar">
               <span>
                 <span className="eyebrow">{t('Live now')}</span>

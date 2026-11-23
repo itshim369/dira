@@ -27,7 +27,8 @@ const C = {
   beacon: '#ff6b3d',
 };
 
-export default function WalkView3D({ imdf, plans, planBase, track, steps, step, passing, arrows, destPoint, destLevelId }) {
+export default function WalkView3D({ imdf, network, plans, planBase, track, steps, step, passing, arrows, destPoint, destLevelId, mapHref }) {
+  const mini = useRef(null);
   const el = useRef(null);
   const api = useRef(null);
 
@@ -106,15 +107,23 @@ export default function WalkView3D({ imdf, plans, planBase, track, steps, step, 
         fatMats.push(mat);
         g.add(new LineSegments2(new LineSegmentsGeometry().setPositions(segs), mat));
       }
-      // Signboards over the stores.
+      // Shop signs on the shopfronts: on the edge of each shop that faces the walkways (the
+      // corridor network), at fascia height, facing out.
       const signs = new Map();
+      const net = network?.find((n) => n.levelId === levelId);
+      const corridor = net ? net.edges.flatMap((e) => e.coords.map((c) => P(c))) : [];
       for (const poi of imdf.pois) {
         if (poi.kind !== 'occupant' || poi.levelId !== levelId) continue;
-        const sprite = signSprite(poi);
-        sprite.position.copy(P(poi.point, WALL_M + 1.3));
-        g.add(sprite);
-        signs.set(poi.id, sprite);
+        const unit = imdf.unitById.get(poi.unitId);
+        const front = unit && shopFront(unit.geometry.coordinates[0].map((c) => P(c)), corridor);
+        const sign = shopSign(poi, front, P(poi.point));
+        g.add(sign.group);
+        signs.set(poi.id, sign);
       }
+      // A ceiling grid, so the corridor reads as indoors.
+      const ceil = new THREE.Mesh(new THREE.ShapeGeometry(shape).rotateX(Math.PI / 2), new THREE.MeshBasicMaterial({ map: gridTexture(), transparent: true, opacity: 0.5, depthWrite: false, side: THREE.DoubleSide }));
+      ceil.position.y = WALL_M + 1.6;
+      g.add(ceil);
       // The destination: a beacon you can see from afar.
       if (destLevelId === levelId && destPoint) {
         const beam = new THREE.Mesh(new THREE.CylinderGeometry(0.7, 0.7, 14, 24, 1, true), new THREE.MeshBasicMaterial({ color: C.beacon, transparent: true, opacity: 0.35, depthWrite: false, side: THREE.DoubleSide, fog: false }));
@@ -189,9 +198,60 @@ export default function WalkView3D({ imdf, plans, planBase, track, steps, step, 
       const h = ((yaw + look) * Math.PI) / 180;
       camera.lookAt(pos.x + Math.sin(h) * 10, EYE_M - 1.1, pos.z - Math.cos(h) * 10);
       renderer.render(scene, camera);
+      drawMini(at, ((yaw + look) * Math.PI) / 180);
       raf = requestAnimationFrame(tick);
     };
     raf = requestAnimationFrame(tick);
+
+    // The corner map: this floor from above, the route, and you with the way you face.
+    const miniData = new Map(
+      levelIds.map((id) => [
+        id,
+        {
+          ring: imdf.levelById.get(id).feature.geometry.coordinates[0].map((c) => P(c)),
+          route: track.legs.filter((l) => l.levelId === id).map((l) => l.coords.map((c) => P(c))),
+        },
+      ]),
+    );
+    const drawMini = (pos, heading) => {
+      const cv = mini.current;
+      if (!cv) return;
+      const ctx = cv.getContext('2d');
+      const W = cv.width;
+      const d = miniData.get(track.legs[pos.leg].levelId);
+      const me = P(poseAt(track, pos.leg, pos.s, 0).ll);
+      const k = W / 70; // 70 m across
+      const X = (v) => W / 2 + (v.x - me.x) * k;
+      const Y = (v) => W / 2 + (v.z - me.z) * k;
+      ctx.clearRect(0, 0, W, W);
+      ctx.fillStyle = 'rgba(20,13,9,0.9)';
+      ctx.fillRect(0, 0, W, W);
+      ctx.strokeStyle = 'rgba(244,220,196,0.55)';
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      d.ring.forEach((v, i) => (i ? ctx.lineTo(X(v), Y(v)) : ctx.moveTo(X(v), Y(v))));
+      ctx.stroke();
+      ctx.strokeStyle = '#ff7a52';
+      ctx.lineWidth = 4;
+      ctx.lineCap = 'round';
+      for (const line of d.route) {
+        ctx.beginPath();
+        line.forEach((v, i) => (i ? ctx.lineTo(X(v), Y(v)) : ctx.moveTo(X(v), Y(v))));
+        ctx.stroke();
+      }
+      ctx.save();
+      ctx.translate(W / 2, W / 2);
+      ctx.rotate(heading);
+      ctx.fillStyle = '#faf3ec';
+      ctx.beginPath();
+      ctx.moveTo(0, -13);
+      ctx.lineTo(9, 9);
+      ctx.lineTo(0, 4);
+      ctx.lineTo(-9, 9);
+      ctx.closePath();
+      ctx.fill();
+      ctx.restore();
+    };
 
     const showLevel = (levelId) => {
       for (const [id, f] of floors) f.group.visible = id === levelId;
@@ -213,10 +273,10 @@ export default function WalkView3D({ imdf, plans, planBase, track, steps, step, 
       /** Signs of the stores passed on this stretch lit, the rest dim. */
       highlight(ids) {
         for (const f of floors.values())
-          for (const [id, sprite] of f.signs) {
+          for (const [id, sign] of f.signs) {
             const on = ids.has(id);
-            sprite.material.opacity = on ? 1 : 0.45;
-            sprite.scale.set(on ? 7.2 : 5, on ? 1.8 : 1.25, 1);
+            sign.fascia.material.opacity = on ? 1 : 0.55;
+            sign.blade.visible = on;
           }
       },
       /** The painted floor arrows (polygons from turnFeatures). */
@@ -262,7 +322,7 @@ export default function WalkView3D({ imdf, plans, planBase, track, steps, step, 
       host.removeChild(renderer.domElement);
       api.current = null;
     };
-  }, [imdf, plans, planBase, track, destPoint, destLevelId]);
+  }, [imdf, network, plans, planBase, track, destPoint, destLevelId]);
 
   // ---------- Follow the step ----------
   const shown = useRef(null);
@@ -281,19 +341,54 @@ export default function WalkView3D({ imdf, plans, planBase, track, steps, step, 
     if (arrows) api.current?.arrows(arrows);
   }, [arrows, track]);
 
-  return <div className="walk-canvas" ref={el} />;
+  return (
+    <>
+      <div className="walk-canvas" ref={el} />
+      <a className="walk-mini" href={mapHref} aria-label="Map">
+        <canvas ref={mini} width="220" height="220" />
+      </a>
+    </>
+  );
 }
 
-function signSprite(poi) {
+/** The edge of a shop (ring in scene metres) nearest the corridor network: { a, b, mid, out, len }. */
+function shopFront(ring, corridor) {
+  let best = null;
+  for (let k = 1; k < ring.length; k++) {
+    const a = ring[k - 1];
+    const b = ring[k];
+    const len = Math.hypot(b.x - a.x, b.z - a.z);
+    if (len < 1.2) continue;
+    const mid = new THREE.Vector3((a.x + b.x) / 2, 0, (a.z + b.z) / 2);
+    let d = Infinity;
+    let near = null;
+    for (const c of corridor) {
+      const dd = Math.hypot(c.x - mid.x, c.z - mid.z);
+      if (dd < d) {
+        d = dd;
+        near = c;
+      }
+    }
+    if (!near) continue;
+    if (!best || d < best.d) {
+      let out = new THREE.Vector3(-(b.z - a.z) / len, 0, (b.x - a.x) / len);
+      if (out.x * (near.x - mid.x) + out.z * (near.z - mid.z) < 0) out = out.negate();
+      best = { a, b, mid, out, len, d };
+    }
+  }
+  return best;
+}
+
+function signCanvas(poi) {
   const c = document.createElement('canvas');
   c.width = 512;
   c.height = 128;
   const x = c.getContext('2d');
-  x.fillStyle = 'rgba(20,13,9,0.92)';
+  x.fillStyle = 'rgba(20,13,9,0.94)';
   x.strokeStyle = '#ffb27a';
   x.lineWidth = 5;
   x.beginPath();
-  x.roundRect(4, 4, 504, 120, 22);
+  x.roundRect(4, 4, 504, 120, 18);
   x.fill();
   x.stroke();
   x.fillStyle = '#ec6a44';
@@ -316,8 +411,51 @@ function signSprite(poi) {
   x.fillText(name, 128, 66);
   const tex = new THREE.CanvasTexture(c);
   tex.colorSpace = THREE.SRGBColorSpace;
-  tex.anisotropy = 4;
-  const s = new THREE.Sprite(new THREE.SpriteMaterial({ map: tex, transparent: true, opacity: 0.45 }));
-  s.scale.set(5, 1.25, 1);
-  return s;
+  tex.anisotropy = 8;
+  return tex;
+}
+
+/**
+ * A shop's signs: a fascia on its shopfront, facing the corridor, and a blade sign standing out
+ * from the wall (readable looking down the corridor), shown while you pass the shop.
+ */
+function shopSign(poi, front, centre) {
+  const tex = signCanvas(poi);
+  const group = new THREE.Group();
+  const w = front ? Math.min(5, Math.max(2.4, front.len * 0.8)) : 4;
+  const fascia = new THREE.Mesh(new THREE.PlaneGeometry(w, w / 4), new THREE.MeshBasicMaterial({ map: tex, transparent: true, opacity: 0.55 }));
+  const blade = new THREE.Group();
+  const bw = 2.2;
+  for (const flip of [0, Math.PI]) {
+    const face = new THREE.Mesh(new THREE.PlaneGeometry(bw, bw / 4), new THREE.MeshBasicMaterial({ map: tex, transparent: true }));
+    face.rotation.y = flip;
+    face.position.z = flip ? -0.01 : 0.01;
+    blade.add(face);
+  }
+  blade.visible = false;
+  if (front) {
+    const yaw = Math.atan2(front.out.x, front.out.z);
+    fascia.position.set(front.mid.x + front.out.x * 0.06, WALL_M - 0.55, front.mid.z + front.out.z * 0.06);
+    fascia.rotation.y = yaw;
+    // The blade hangs out from the shopfront, square to it.
+    blade.position.set(front.mid.x + front.out.x * (bw / 2 + 0.1), WALL_M - 0.3, front.mid.z + front.out.z * (bw / 2 + 0.1));
+    blade.rotation.y = yaw + Math.PI / 2;
+  } else {
+    fascia.position.set(centre.x, WALL_M + 1.2, centre.z);
+  }
+  group.add(fascia, blade);
+  return { group, fascia, blade };
+}
+
+function gridTexture() {
+  const c = document.createElement('canvas');
+  c.width = c.height = 128;
+  const x = c.getContext('2d');
+  x.strokeStyle = 'rgba(244,220,196,0.22)';
+  x.lineWidth = 2;
+  x.strokeRect(0, 0, 128, 128);
+  const tex = new THREE.CanvasTexture(c);
+  tex.wrapS = tex.wrapT = THREE.RepeatWrapping;
+  tex.repeat.set(1 / 4, 1 / 4); // a line every 4 m
+  return tex;
 }

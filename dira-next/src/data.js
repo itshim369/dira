@@ -15,7 +15,11 @@ export function loadVenue(venue) {
         if (photo && !photo.src.startsWith('http') && !photo.src.startsWith('./venues')) photo.src = venue.base + photo.src;
       }
       if (imdf.venueContent?.photo) imdf.venueContent.photo.src = venue.base + imdf.venueContent.photo.src;
-      return { imdf, router: createRouter(imdf) };
+      const router = createRouter(imdf);
+      // Routes follow the corridors' centre lines, the way people walk them.
+      const network = corridorNetwork(router);
+      router.setCentrelines(network);
+      return { imdf, router, network };
     });
     p.catch(() => cache.delete(venue.id));
     cache.set(venue.id, p);
@@ -45,12 +49,9 @@ export function findPoi(imdf, key) {
   return imdf.pois.find((p) => p.id === key) || imdf.pois.find((p) => p.name === key) || null;
 }
 
-/** The corridor network of a venue's floors, worked out once per session (about 0.1 s). */
-const networks = new WeakMap();
+/** The corridor network of a venue's floors (worked out once, when the venue loads). */
 export function networkOf(data) {
-  if (!data) return null;
-  if (!networks.has(data)) networks.set(data, corridorNetwork(data.router));
-  return networks.get(data);
+  return data?.network || null;
 }
 
 /** A venue's plan images placed on the map (plans/plans.json), or {} when it has none. */

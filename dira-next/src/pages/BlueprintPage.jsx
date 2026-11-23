@@ -6,6 +6,7 @@ import { placeName } from '../places.js';
 import { formatMinutes, href, navigate } from '../lib.js';
 import { useT } from '../prefs.js';
 import NotFound from './NotFound.jsx';
+import VenueNav from '../components/VenueNav.jsx';
 import { useRouteState } from './MapPage.jsx';
 
 // three.js only loads on this page.
@@ -65,6 +66,9 @@ export default function BlueprintPage({ venue, params }) {
           <Icon name="layers" />
         </button>
       </header>
+      <div className="venue-nav-float">
+        <VenueNav venue={venue} current="blueprint" from={fromPoi?.id} to={toPoi?.id} mode={mode} />
+      </div>
 
       {imdf && plans ? (
         <Suspense fallback={<div className="blueprint-loading">{t('Building the blueprint…')}</div>}>

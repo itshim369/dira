@@ -106,6 +106,8 @@ export default function IndoorMap({ imdf, network = null, passing = null, street
   // "Zoom in to read shop names": shown each time the map opens while it is too far out for most
   // names (the stores themselves always show), until the visitor zooms in or closes it.
   const [zoomHint, setZoomHint] = useState(false);
+  // "Around here": the stores nearest the middle of the map, by name, as you pan.
+  const [around, setAround] = useState([]);
   const hintSeen = useRef(false);
   const baseMinZoom = useRef(0);
   // At a zoom limit, its button greys out: 'in' (closest), 'out' (furthest) or null.
@@ -151,6 +153,16 @@ export default function IndoorMap({ imdf, network = null, passing = null, street
       items.push({ poi, node, want, withLabel, p: map.project(poi.point) });
     }
     items.sort((a, b) => b.want - a.want || b.poi.area - a.poi.area);
+    if (!gd && !bv) {
+      const c = map.project(map.getCenter());
+      const near = items
+        .filter((it) => it.poi.kind === 'occupant')
+        .map((it) => ({ id: it.poi.id, d: Math.hypot(it.p.x - c.x, it.p.y - c.y) }))
+        .sort((a, b) => a.d - b.d)
+        .slice(0, 6)
+        .map((x) => x.id);
+      setAround((prev) => (prev.join() === near.join() ? prev : near));
+    } else setAround((prev) => (prev.length ? [] : prev));
     const placed = [];
     const free = (box) => !placed.some((b) => box[0] < b[2] && box[2] > b[0] && box[1] < b[3] && box[3] > b[1]);
     for (const it of items) {
@@ -647,6 +659,26 @@ export default function IndoorMap({ imdf, network = null, passing = null, street
           onTilt={(p) => setPitched(p > 2)}
           className={buildingView ? 'is-raised' : ''}
         />
+      )}
+      {ready && around.length > 0 && !buildingView && !guiding && (
+        <>
+          <span className="around-lens" aria-hidden="true" />
+          <div className="around-rail" aria-label={tr('Around here')}>
+            <span className="around-head">{tr('Around here')}</span>
+            <div className="around-list">
+              {around.map((id) => {
+                const poi = imdf.pois.find((p) => p.id === id);
+                return (
+                  poi && (
+                    <button key={id} type="button" onClick={() => handlers.current.onSelect?.(poi)}>
+                      {placeName(poi)}
+                    </button>
+                  )
+                );
+              })}
+            </div>
+          </div>
+        </>
       )}
       {ready && zoomHint && (
         <div className="zoom-hint" role="status">
