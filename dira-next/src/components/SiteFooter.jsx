@@ -21,21 +21,17 @@ const SOCIAL_ICON = {
   ),
 };
 
-/** Contact block and footer: Dira's social accounts. `#contact` is where "Contact us" scrolls. */
+/** Footer: Dira's social accounts. */
 export default function SiteFooter() {
   const t = useT();
   return (
     <footer className="site-footer-wrap" id="contact" aria-labelledby="contact-title">
       <div className="contact-card">
         <div>
-          <span className="eyebrow">{t('Contact us')}</span>
+          <span className="eyebrow">{t('Follow Dira')}</span>
           <h2 className="display" id="contact-title">
-            {t('Talk to the Dira team')}
+            {t('Find us online')}
           </h2>
-          <p>{t('Want your mall, hospital or event mapped? Book a free viewing, or find us here.')}</p>
-          <a className="btn btn-primary" href={href('/contact')}>
-            {t('Book a viewing')}
-          </a>
         </div>
         <ul className="socials">
           {SOCIALS.map((s) => {

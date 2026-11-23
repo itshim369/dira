@@ -40,7 +40,7 @@ export default function VenuesPage() {
       <main>
         <div className="venues-head">
           <div>
-            <h1 className="display">{t('Where are you today?')}</h1>
+            <h1 className="display">{t('Venues')}</h1>
             <p>{t('Choose a venue to open its map.')}</p>
           </div>
           <label className="search plain">
@@ -105,29 +105,20 @@ export default function VenuesPage() {
             <div className="section-label">
               <span className="eyebrow">{t('Coming soon')}</span>
             </div>
-            <div className="soon-grid">
+            <ul className="soon-list">
               {soon.map((v) => (
-                <article key={v.id} className="featured is-disabled" aria-disabled="true">
-                  <div className="featured-preview">
-                    <Icon name={v.icon} className="venue-icon" strokeWidth={1.6} />
-                  </div>
-                  <div className="featured-body">
-                    <h2 className="display">{v.name}</h2>
-                    <p className="meta">{t(TYPE_LABEL[v.type])}</p>
-                    <div className="facts">
-                      {v.facts.map((f) => (
-                        <span key={f} className="fact">
-                          {t(f)}
-                        </span>
-                      ))}
-                    </div>
-                    <button className="btn btn-lg btn-disabled" type="button" disabled>
-                      {t('Map coming soon')}
-                    </button>
-                  </div>
-                </article>
+                <li key={v.id} aria-disabled="true">
+                  <span className="tile">
+                    <Icon name={v.icon} />
+                  </span>
+                  <span>
+                    <strong>{v.name}</strong>
+                    <small>{t(TYPE_LABEL[v.type])}</small>
+                  </span>
+                  <span className="soon-tag">{t('Soon')}</span>
+                </li>
               ))}
-            </div>
+            </ul>
           </>
         )}
 

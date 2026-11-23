@@ -6,11 +6,10 @@ import StepsPage from './pages/StepsPage.jsx';
 import BlueprintPage from './pages/BlueprintPage.jsx';
 import WalkPage from './pages/WalkPage.jsx';
 import NotFound from './pages/NotFound.jsx';
-import ContactPage from './pages/ContactPage.jsx';
 import { getVenue } from './venues.js';
 import { useHashRoute } from './lib.js';
 
-const TITLES = { '/': 'Dira | Indoor navigation', '/venues': 'Choose a venue | Dira', '/contact': 'Book a viewing | Dira' };
+const TITLES = { '/': 'Dira | Indoor navigation', '/venues': 'Choose a venue | Dira' };
 
 export default function App() {
   const { path, params } = useHashRoute();
@@ -24,7 +23,6 @@ export default function App() {
 
   if (path === '/') return <Landing />;
   if (path === '/venues') return <VenuesPage />;
-  if (path === '/contact') return <ContactPage />;
   if (parts[0] === 'venue' && parts.length === 2) return <MapPage key={parts[1]} venue={venue} params={params} />;
   if (parts[0] === 'venue' && parts[2] === 'walk') return <WalkPage venue={venue} params={params} />;
   if (parts[0] === 'venue' && parts[2] === 'blueprint') return <BlueprintPage venue={venue} params={params} />;
