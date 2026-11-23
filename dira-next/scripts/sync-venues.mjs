@@ -17,7 +17,7 @@ for (const v of VENUES) {
   }
   rmSync(dest, { recursive: true, force: true });
   mkdirSync(dest, { recursive: true });
-  for (const dir of ['imdf', 'content', 'photos']) {
+  for (const dir of ['imdf', 'content', 'photos', 'plans']) {
     if (existsSync(new URL(dir, src))) cpSync(new URL(dir, src), new URL(dir, dest), { recursive: true });
   }
   console.log(`${v.id}: synced from ${v.from}`);

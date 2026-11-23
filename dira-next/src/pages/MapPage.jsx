@@ -186,6 +186,9 @@ export default function MapPage({ venue, params }) {
               <Icon name={browsing ? 'close' : 'layers'} /> {browsing ? t('Hide map') : t('Map')}
             </button>
           )}
+          <a className="icon-btn plain" href={href(`/venue/${venue.id}/blueprint`, { from: fromPoi?.id, to: toPoi?.id })} aria-label={t('Blueprint: every floor in 3D')} title={t('Blueprint')}>
+            <Icon name="cube" />
+          </a>
           <PrefsControls compact />
           <button className="icon-btn plain search-btn" type="button" onClick={() => setPicker({ role: 'to' })} aria-label={t('Search places')}>
             <Icon name="search" strokeWidth={2.75} />
