@@ -7,6 +7,7 @@ import { Icon, StepTile } from '../components/Icons.jsx';
 import { LogoMark } from '../components/Logo.jsx';
 import { findPoi, networkOf, usePlans, useVenueData } from '../data.js';
 import { buildSteps } from '../directions.js';
+import { buildTrack, passingShops, stretchOf } from '../guide.js';
 import { SHORTCUTS, placeName } from '../places.js';
 import { formatMinutes, href, navigate, roundMetres } from '../lib.js';
 import NotFound from './NotFound.jsx';
@@ -56,6 +57,15 @@ export default function MapPage({ venue, params }) {
   // The guided walk: which written step the walking figure is on (null = not walking).
   const [guide, setGuide] = useState(null);
   useEffect(() => setGuide(null), [route]);
+  const [streetView, setStreetView] = useState(false);
+  // The stores along the stretch being walked (on the start step, the first stretch ahead).
+  const track = useMemo(() => (route && steps.length ? buildTrack(route, steps) : null), [route, steps]);
+  const passing = useMemo(() => {
+    if (!track || guide == null) return [];
+    const stretch = stretchOf(track, steps, guide === 0 ? 1 : guide);
+    return stretch ? passingShops(track, imdf, stretch.leg, stretch.s0, stretch.s1).filter((p) => p.poi.id !== fromPoi?.id) : [];
+  }, [track, steps, guide, imdf, fromPoi]);
+  const sides = { left: passing.filter((p) => p.side === 'left'), right: passing.filter((p) => p.side === 'right') };
 
   useEffect(() => {
     if (!('serviceWorker' in navigator)) return;
@@ -332,6 +342,8 @@ export default function MapPage({ venue, params }) {
         <IndoorMap
           imdf={imdf}
           network={route ? networkOf(data) : null}
+          passing={guideStep ? passing : null}
+          streetView={!!guideStep && streetView}
           plans={plans}
           planBase={`${venue.base}plans/`}
           levelId={levelId}
@@ -375,7 +387,30 @@ export default function MapPage({ venue, params }) {
                   )}
                 </div>
               </div>
+              {passing.length > 0 && (
+                <div className="pass-rail" aria-label={t('Stores you pass')}>
+                  {['left', 'right'].map((side) => (
+                    <div key={side} className={`pass-side is-${side}`}>
+                      <span className="pass-head">{side === 'left' ? t('On your left') : t('On your right')}</span>
+                      <div className="pass-list">
+                        {sides[side].length ? (
+                          sides[side].map(({ poi }) => (
+                            <button key={poi.id} type="button" onClick={() => setSelectedId(poi.id)}>
+                              {placeName(poi)}
+                            </button>
+                          ))
+                        ) : (
+                          <span className="pass-none">—</span>
+                        )}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
               <div className="guide-controls">
+                <button className="icon-btn street-btn" type="button" aria-pressed={streetView} onClick={() => setStreetView(!streetView)} aria-label={t('Street view')} title={t('Street view')}>
+                  <Icon name="walk" />
+                </button>
                 <button className="icon-btn" type="button" onClick={() => setGuide(Math.max(0, guide - 1))} disabled={guide === 0} aria-label={t('Back')}>
                   <Icon name="arrowLeft" strokeWidth={2.6} />
                 </button>

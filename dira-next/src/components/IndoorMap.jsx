@@ -5,7 +5,7 @@ import 'maplibre-gl/dist/maplibre-gl.css';
 import { addImdfLayers, baseStyle, showLevel } from '@imdf/mapLayers.js';
 import { addBuildingLayers, addFloorLabels, arrivalLabel, arrivalPoint, highlightFloor, levelHeights, showBuilding, showFloorLabels, updateFloorLabels } from '../buildingLayers.js';
 import { applyMapTheme } from '../mapTheme.js';
-import { addGuideLayers, beamFeatures, buildTrack, distanceToTurn, poseAt, setGuideTheme, showGuideLevel, splitRoute, turnFeatures } from '../guide.js';
+import { addGuideLayers, passingFeatures, beamFeatures, buildTrack, distanceToTurn, poseAt, setGuideTheme, showGuideLevel, splitRoute, turnFeatures } from '../guide.js';
 import ViewStick from './ViewStick.jsx';
 import { Icon } from './Icons.jsx';
 import { markerIcon, initials, placeName } from '../places.js';
@@ -63,7 +63,9 @@ const MIN_ZOOM_MARGIN = 0.4;
 // Closest zoom: one shop and its neighbours fill a phone screen.
 const MAX_ZOOM = 21;
 // The guided walk's follow camera: behind and above the walking figure, facing where it walks.
-const FOLLOW = { zoom: 20.55, pitch: 60, wideAtCorner: 0.45 };
+const FOLLOW = { zoom: 20.55, pitch: 60, wideAtCorner: 0.45, ahead: 2.5 };
+// Street view: low behind the figure, looking down the corridor at the storefronts.
+const STREET = { zoom: 20.9, pitch: 72, wideAtCorner: 0.3, ahead: 6 };
 const WALK_SPEED = 5; // metres a second on screen
 const reducedMotion = () => window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
 const turnToward = (from, to, k) => from + (((to - from + 540) % 360) - 180) * k;
@@ -94,7 +96,7 @@ const FLOOR_ARROW =
  * With `buildingView` ('aerial' or 'side') it shows the whole building, floors stacked; picking
  * a floor (`onPickFloor`) flies in to that floor, arriving at its stairs and lift.
  */
-export default function IndoorMap({ imdf, network = null, plans = null, planBase = '', levelId, route, steps = [], guideStep = null, startId, destId, selectedId, group, focus, fitKey, walker = true, buildingEnabled = false, buildingView = null, onBuilding, onPickFloor, onSelect, onLevel, children }) {
+export default function IndoorMap({ imdf, network = null, passing = null, streetView = false, plans = null, planBase = '', levelId, route, steps = [], guideStep = null, startId, destId, selectedId, group, focus, fitKey, walker = true, buildingEnabled = false, buildingView = null, onBuilding, onPickFloor, onSelect, onLevel, children }) {
   const el = useRef(null);
   const mapRef = useRef(null);
   const markers = useRef(new Map());
@@ -112,7 +114,8 @@ export default function IndoorMap({ imdf, network = null, plans = null, planBase
   const state = useRef({});
   const guiding = guideStep != null && !!route;
   const landmarkId = guiding ? steps[guideStep]?.landmarkId || null : null;
-  state.current = { levelId, startId, destId, selectedId, group, route, buildingView, landmarkId, guiding };
+  const passingIds = useMemo(() => new Set((passing || []).map((p) => p.poi.id)), [passing]);
+  state.current = { levelId, startId, destId, selectedId, group, route, buildingView, landmarkId, guiding, passingIds };
   const handlers = useRef({});
   handlers.current = { onSelect, onLevel, onPickFloor };
 
@@ -120,7 +123,7 @@ export default function IndoorMap({ imdf, network = null, plans = null, planBase
     const map = mapRef.current;
     if (!map) return;
     const z = map.getZoom();
-    const { levelId: lv, startId: s, destId: d, selectedId: sel, group: g, route: r, buildingView: bv, landmarkId: lm, guiding: gd } = state.current;
+    const { levelId: lv, startId: s, destId: d, selectedId: sel, group: g, route: r, buildingView: bv, landmarkId: lm, guiding: gd, passingIds: pass } = state.current;
     const shopZoom = shopZoomFor(r);
     setZoomEdge(z >= map.getMaxZoom() - 0.01 ? 'in' : z <= map.getMinZoom() + 0.01 ? 'out' : null);
     if (!hintSeen.current && !bv && !gd) {
@@ -133,7 +136,8 @@ export default function IndoorMap({ imdf, network = null, plans = null, planBase
         node.classList.add('is-hidden');
         continue;
       }
-      const pinned = poi.id === sel || poi.id === s || poi.id === d || poi.id === lm;
+      // Stores along the stretch being walked always show with their names.
+      const pinned = poi.id === sel || poi.id === s || poi.id === d || poi.id === lm || (gd && pass?.has(poi.id));
       let want;
       if (pinned) want = 3;
       else if (g) want = poi.group === g ? 2 : 0;
@@ -171,6 +175,7 @@ export default function IndoorMap({ imdf, network = null, plans = null, planBase
       it.node.classList.toggle('is-selected', it.poi.id === sel || it.poi.id === d);
       it.node.classList.toggle('is-start', it.poi.id === s);
       it.node.classList.toggle('is-landmark', it.poi.id === lm);
+      it.node.classList.toggle('is-passing', !!(gd && pass?.has(it.poi.id)));
     }
   }, []);
 
@@ -466,6 +471,7 @@ export default function IndoorMap({ imdf, network = null, plans = null, planBase
     if (!ready || !map) return;
     const empty = { type: 'FeatureCollection', features: [] };
     map.getSource('guide-turns').setData(track ? turnFeatures(track, steps, network, guiding ? guideStep : null) : empty);
+    map.getSource('guide-passing').setData(guiding && passing?.length ? passingFeatures(imdf, passing) : empty);
     map.getSource('guide-beam').setData(track && dest ? beamFeatures(track, dest.point) : empty);
     if (!guiding) {
       const parts = track ? splitRoute(track, null) : { done: empty, ahead: empty };
@@ -477,7 +483,7 @@ export default function IndoorMap({ imdf, network = null, plans = null, planBase
     map.getSource('guide-landmark').setData(unit ? { type: 'FeatureCollection', features: [{ type: 'Feature', properties: { level: unit.properties.level_id }, geometry: unit.geometry }] } : empty);
     showGuideLevel(map, levelId);
     layout();
-  }, [ready, track, steps, network, guideStep, dest, guiding, landmarkId, levelId, imdf, layout]);
+  }, [ready, track, steps, network, passing, guideStep, dest, guiding, landmarkId, levelId, imdf, layout]);
 
   // ---------- The guided walk: the figure walks each step, the camera follows ----------
   const walkAt = useRef(null); // where the figure stands: { leg, s }
@@ -491,10 +497,14 @@ export default function IndoorMap({ imdf, network = null, plans = null, planBase
       ex.figure = ex.floorArrow = null;
       walkAt.current = null;
       if (map.getLayer('walls')) map.setPaintProperty('walls', 'fill-extrusion-height', ['get', 'h']);
+      map.setMaxPitch(buildingEnabled ? 85 : 65);
       return undefined;
     }
-    // Lower the walls while walking, so they never hide the figure.
-    map.setPaintProperty('walls', 'fill-extrusion-height', ['*', ['get', 'h'], 0.5]);
+    // Lower the walls while walking, so they never hide the figure; in street view they stand
+    // full height, a corridor of storefronts at eye level.
+    map.setPaintProperty('walls', 'fill-extrusion-height', streetView ? ['get', 'h'] : ['*', ['get', 'h'], 0.5]);
+    map.setMaxPitch(streetView ? 80 : buildingEnabled ? 85 : 65);
+    const follow = streetView ? STREET : FOLLOW;
     if (!ex.figure) {
       const fig = document.createElement('div');
       fig.className = 'guide-figure';
@@ -534,14 +544,14 @@ export default function IndoorMap({ imdf, network = null, plans = null, planBase
       const facing = poseAt(track, li, s, 6).heading;
       bearing = bearing == null || !smooth ? facing : turnToward(bearing, facing, Math.min(1, dt * 3.2));
       const corner = distanceToTurn(track, li, s);
-      const zoom = FOLLOW.zoom - (corner < 8 ? FOLLOW.wideAtCorner * (1 - corner / 8) : 0);
+      const zoom = follow.zoom - (corner < 8 ? follow.wideAtCorner * (1 - corner / 8) : 0);
       ex.figure.setLngLat(pose.ll);
       ex.floorArrow.setLngLat(pose.ll).setRotation(pose.heading);
       const parts = splitRoute(track, { leg: li, s });
       map.getSource('guide-done').setData(parts.done);
       map.getSource('guide-ahead').setData(parts.ahead);
       walkAt.current = { leg: li, s };
-      return { center: poseAt(track, li, s, 2.5).aheadLL, bearing, zoom, pitch: FOLLOW.pitch, padding };
+      return { center: poseAt(track, li, s, follow.ahead).aheadLL, bearing, zoom, pitch: follow.pitch, padding };
     };
     const sameLeg = prev && prev.leg === target.leg && guideStep > 0 && !reducedMotion();
     if (!sameLeg || target.s <= prev.s + 0.05) {
@@ -575,7 +585,7 @@ export default function IndoorMap({ imdf, network = null, plans = null, planBase
       cancelAnimationFrame(raf);
       fig.classList.remove('is-walking');
     };
-  }, [ready, guiding, guideStep, track]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [ready, guiding, guideStep, track, streetView]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // Leaving the guide: back to the usual framing.
   useEffect(() => {

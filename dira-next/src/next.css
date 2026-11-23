@@ -1638,3 +1638,88 @@ a.social:hover small {
 .poi.is-dot .poi-tile > * {
   display: none;
 }
+
+/* ---------- Passing by: signboards of the stores along this stretch ---------- */
+.guide-bar {
+  flex-wrap: wrap;
+}
+.pass-rail {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  width: 100%;
+  order: 2;
+}
+.guide-controls {
+  order: 3;
+}
+.pass-side {
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+  padding: 8px 10px;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: color-mix(in srgb, var(--cream) 70%, transparent);
+}
+.pass-side.is-right {
+  text-align: right;
+}
+.pass-head {
+  color: var(--terracotta);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.pass-side.is-left .pass-head::before {
+  content: '‹ ';
+}
+.pass-side.is-right .pass-head::after {
+  content: ' ›';
+}
+.pass-list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  max-height: 66px;
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+.pass-side.is-right .pass-list {
+  align-items: flex-end;
+}
+.pass-list button {
+  flex: none;
+  text-align: inherit;
+  max-width: 100%;
+  line-height: 1.35;
+  overflow: hidden;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--espresso);
+  font: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.pass-none {
+  color: var(--muted-2);
+}
+.street-btn[aria-pressed='true'] {
+  background: var(--terracotta);
+  color: var(--on-accent);
+  border-color: var(--terracotta);
+}
+/* A store being passed: its tile lit like a sign. */
+.poi.is-passing .poi-tile {
+  border-color: #ffb27a;
+  box-shadow: 0 0 0 3px rgba(255, 178, 122, 0.35), 0 0 14px rgba(255, 140, 76, 0.45);
+}
+.poi.is-passing .poi-label {
+  font-weight: 800;
+}

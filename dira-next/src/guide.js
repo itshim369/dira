@@ -12,6 +12,7 @@ const COLOR = {
   arrow: '#E0673F',
   arrowLit: '#FF8A4C',
   keep: '#E9C9A8',
+  passing: '#FFB27A',
 };
 
 // ---------- Track ----------
@@ -304,7 +305,7 @@ const chevron = (ctx, s) => {
   ctx.stroke();
 };
 
-export const GUIDE_LAYERS = ['guide-done', 'guide-chevrons', 'guide-turns', 'guide-turn-edge', 'guide-landmark', 'guide-ring', 'guide-beam'];
+export const GUIDE_LAYERS = ['guide-passing', 'guide-passing-edge', 'guide-done', 'guide-chevrons', 'guide-turns', 'guide-turn-edge', 'guide-landmark', 'guide-ring', 'guide-beam'];
 
 /** Adds the guide's sources and layers; the floor-level ones go under `beforeId` (the walls). */
 export function addGuideLayers(map, beforeId) {
@@ -315,7 +316,7 @@ export function addGuideLayers(map, beforeId) {
   };
   add('guide-chevron', 24, chevron);
   const empty = fc([]);
-  for (const id of ['guide-done', 'guide-ahead', 'guide-turns', 'guide-landmark', 'guide-beam']) map.addSource(id, { type: 'geojson', data: empty });
+  for (const id of ['guide-done', 'guide-ahead', 'guide-turns', 'guide-landmark', 'guide-beam', 'guide-passing']) map.addSource(id, { type: 'geojson', data: empty });
   const none = ['==', ['get', 'level'], ''];
   map.addLayer({
     id: 'guide-done',
@@ -362,6 +363,20 @@ export function addGuideLayers(map, beforeId) {
     paint: { 'line-color': '#FFFFFF', 'line-width': ['interpolate', ['linear'], ['zoom'], 18, 0.6, 21, 2.2], 'line-opacity': ['case', ['==', ['get', 'kind'], 'keep'], 0.5, 0.9] },
   }, beforeId);
   map.addLayer({
+    id: 'guide-passing',
+    type: 'fill-extrusion',
+    source: 'guide-passing',
+    filter: none,
+    paint: { 'fill-extrusion-color': COLOR.passing, 'fill-extrusion-height': 2.4, 'fill-extrusion-base': 0.02, 'fill-extrusion-opacity': 0.32, 'fill-extrusion-vertical-gradient': true },
+  }, beforeId);
+  map.addLayer({
+    id: 'guide-passing-edge',
+    type: 'line',
+    source: 'guide-passing',
+    filter: none,
+    paint: { 'line-color': COLOR.passing, 'line-width': ['interpolate', ['linear'], ['zoom'], 18, 1, 21, 3], 'line-opacity': 0.9 },
+  }, beforeId);
+  map.addLayer({
     id: 'guide-landmark',
     type: 'fill-extrusion',
     source: 'guide-landmark',
@@ -398,4 +413,76 @@ export function showGuideLevel(map, levelId) {
 
 export function setGuideTheme(map, dark) {
   if (map.getLayer('guide-done')) map.setPaintProperty('guide-done', 'line-color', dark ? COLOR.walkedDark : COLOR.walked);
+}
+
+// ---------- Passing by: the stores along a stretch of the walk ----------
+
+const PASS_M = 4; // a shop whose front is this close to the walked line is one you pass
+
+/** Nearest point on a ring (metres) to p. */
+function nearestOn(ring, p) {
+  let best = null;
+  for (let k = 1; k < ring.length; k++) {
+    const a = ring[k - 1];
+    const b = ring[k];
+    const dx = b[0] - a[0];
+    const dy = b[1] - a[1];
+    const L = dx * dx + dy * dy;
+    const t = L ? Math.max(0, Math.min(1, ((p[0] - a[0]) * dx + (p[1] - a[1]) * dy) / L)) : 0;
+    const q = [a[0] + t * dx, a[1] + t * dy];
+    const d = Math.hypot(p[0] - q[0], p[1] - q[1]);
+    if (!best || d < best.d) best = { d, q };
+  }
+  return best;
+}
+
+/**
+ * The stores you pass walking leg li from s0 to s1 metres, in the order you reach them:
+ * [{ poi, side: 'left' | 'right', s }] (s = metres along the leg where you are beside it).
+ */
+export function passingShops(track, imdf, li, s0, s1) {
+  const leg = track.legs[li];
+  const samples = [];
+  for (let s = Math.max(0, s0); s <= Math.min(leg.total, s1) + 0.01; s += 1.5) {
+    const p = poseAtM(track, li, s);
+    const q = poseAtM(track, li, s + 1);
+    samples.push({ s, p, dir: [q[0] - p[0], q[1] - p[1]] });
+  }
+  if (!samples.length) return [];
+  const out = [];
+  for (const poi of imdf.pois) {
+    if (poi.kind !== 'occupant' || poi.levelId !== leg.levelId) continue;
+    const unit = imdf.unitById.get(poi.unitId);
+    if (!unit) continue;
+    const ring = unit.geometry.coordinates[0].map(track.P.toM);
+    let best = null;
+    for (const smp of samples) {
+      const n = nearestOn(ring, smp.p);
+      if (n && n.d <= PASS_M && (!best || n.d < best.d)) best = { ...n, smp };
+    }
+    if (!best) continue;
+    const { dir, p } = best.smp;
+    const cross = dir[0] * (best.q[1] - p[1]) - dir[1] * (best.q[0] - p[0]);
+    out.push({ poi, side: cross > 0 ? 'left' : 'right', s: best.smp.s });
+  }
+  return out.sort((a, b) => a.s - b.s);
+}
+
+/** The units of the stores passed, as polygons for the lit storefronts. */
+export function passingFeatures(imdf, passing) {
+  return fc(
+    passing.map(({ poi, side }) => {
+      const unit = imdf.unitById.get(poi.unitId);
+      return { type: 'Feature', properties: { level: unit.properties.level_id, side }, geometry: unit.geometry };
+    }),
+  );
+}
+
+/** Where on the track the figure walks for step g: { leg, s0, s1 } (null for rides and the start). */
+export function stretchOf(track, steps, g) {
+  if (g <= 0 || !steps[g] || steps[g].toLevelId || steps[g].kind === 'arrive') return null;
+  const end = track.stops[g];
+  const prev = track.stops[g - 1];
+  const s0 = prev.leg === end.leg ? prev.s : 0;
+  return { leg: end.leg, s0, s1: end.s };
 }
