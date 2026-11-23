@@ -4,6 +4,7 @@ import VenuesPage from './pages/VenuesPage.jsx';
 import MapPage from './pages/MapPage.jsx';
 import StepsPage from './pages/StepsPage.jsx';
 import BlueprintPage from './pages/BlueprintPage.jsx';
+import WalkPage from './pages/WalkPage.jsx';
 import NotFound from './pages/NotFound.jsx';
 import ContactPage from './pages/ContactPage.jsx';
 import { getVenue } from './venues.js';
@@ -25,6 +26,7 @@ export default function App() {
   if (path === '/venues') return <VenuesPage />;
   if (path === '/contact') return <ContactPage />;
   if (parts[0] === 'venue' && parts.length === 2) return <MapPage key={parts[1]} venue={venue} params={params} />;
+  if (parts[0] === 'venue' && parts[2] === 'walk') return <WalkPage venue={venue} params={params} />;
   if (parts[0] === 'venue' && parts[2] === 'blueprint') return <BlueprintPage venue={venue} params={params} />;
   if (parts[0] === 'venue' && parts[2] === 'steps') return <StepsPage venue={venue} params={params} />;
   return <NotFound />;

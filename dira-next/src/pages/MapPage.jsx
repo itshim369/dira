@@ -294,9 +294,14 @@ export default function MapPage({ venue, params }) {
                   </div>
                 </div>
               )}
-              <button className="btn btn-primary btn-lg btn-block start-walk" type="button" onClick={startWalk}>
-                <Icon name="walk" /> {t('Start walking')}
-              </button>
+              <div className="walk-choices">
+                <button className="btn btn-primary btn-lg start-walk" type="button" onClick={startWalk}>
+                  <Icon name="walk" /> {t('Start walking')}
+                </button>
+                <a className="btn btn-outline btn-lg walk-view-btn" href={href(`/venue/${venue.id}/walk`, { from: fromPoi?.id, to: toPoi?.id, mode: mode === 'fastest' ? undefined : mode })}>
+                  <Icon name="cube" /> {t('Walk view')}
+                </a>
+              </div>
               <div className="summary-actions">
                 <a className="btn btn-dark btn-lg" href={stepsHref}>
                   {t('All steps')} <Icon name="arrowRight" />
