@@ -29,14 +29,14 @@ const write = (key, value) => {
 };
 
 const inBrowser = typeof window !== 'undefined';
-const systemDark = () => inBrowser && !!window.matchMedia?.('(prefers-color-scheme: dark)').matches;
 const browserLang = () => {
   const l = ((typeof navigator !== 'undefined' && navigator.language) || 'en').slice(0, 2);
   return LANGUAGES.some((x) => x.id === l) ? l : 'en';
 };
 
 let state = {
-  theme: read('theme') === 'dark' || read('theme') === 'light' ? read('theme') : systemDark() ? 'dark' : 'light',
+  // Blueprint (dark) is the look; light is a choice the viewer makes.
+  theme: read('theme') === 'light' ? 'light' : 'dark',
   themeChosen: !!read('theme'),
   lang: LANGUAGES.some((x) => x.id === read('lang')) ? read('lang') : browserLang(),
 };
@@ -48,17 +48,10 @@ function apply() {
   const root = document.documentElement;
   root.dataset.theme = state.theme;
   root.lang = state.lang === 'sw' ? 'sw-KE' : state.lang === 'fr' ? 'fr' : 'en-KE';
-  document.querySelector('meta[name="theme-color"]')?.setAttribute('content', state.theme === 'dark' ? '#1C120D' : '#FAF3EC');
+  document.querySelector('meta[name="theme-color"]')?.setAttribute('content', state.theme === 'dark' ? '#140D09' : '#FAF3EC');
 }
 apply();
 
-// Follow the phone's setting while the viewer has not chosen.
-if (inBrowser) window.matchMedia?.('(prefers-color-scheme: dark)').addEventListener?.('change', (e) => {
-  if (state.themeChosen) return;
-  state = { ...state, theme: e.matches ? 'dark' : 'light' };
-  apply();
-  emit();
-});
 
 export function setTheme(theme) {
   state = { ...state, theme, themeChosen: true };

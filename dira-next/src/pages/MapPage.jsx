@@ -5,7 +5,7 @@ import PlacePicker from '../components/PlacePicker.jsx';
 import PlaceSheet from '../components/PlaceSheet.jsx';
 import { Icon, StepTile } from '../components/Icons.jsx';
 import { LogoMark } from '../components/Logo.jsx';
-import { findPoi, networkOf, useVenueData } from '../data.js';
+import { findPoi, networkOf, usePlans, useVenueData } from '../data.js';
 import { buildSteps } from '../directions.js';
 import { SHORTCUTS, placeName } from '../places.js';
 import { formatMinutes, href, navigate, roundMetres } from '../lib.js';
@@ -48,6 +48,7 @@ export default function MapPage({ venue, params }) {
   const t = useT();
   const { data, error } = useVenueData(venue);
   const { imdf, fromPoi, toPoi, mode, route, steps } = useRouteState(venue, params, data);
+  const plans = usePlans(venue);
   const [picker, setPicker] = useState(null);
   const [selectedId, setSelectedId] = useState(null);
   const [offline, setOffline] = useState(false);
@@ -331,6 +332,8 @@ export default function MapPage({ venue, params }) {
         <IndoorMap
           imdf={imdf}
           network={route ? networkOf(data) : null}
+          plans={plans}
+          planBase={`${venue.base}plans/`}
           levelId={levelId}
           route={route}
           startId={fromPoi?.id}

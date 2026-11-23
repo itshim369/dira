@@ -32,30 +32,34 @@
   --page-max: 1280px;
 }
 
-/* Dark mode: the same brand, lights off. Surfaces and text swap; terracotta stays the accent.
-   Set on <html data-theme> by src/prefs.js (and before paint by index.html). */
+/* Blueprint (the default look): the plan drawn in light on a dark drafting sheet. Terracotta
+   stays the accent, brightened for the dark; text on it is dark. The light look is the
+   alternative. Set on <html data-theme> by src/prefs.js (and before paint by index.html). */
 :root[data-theme='dark'] {
   color-scheme: dark;
-  --terracotta: #d4604a;
-  --terracotta-press: #c8553d;
-  --espresso: #f3e6dc;
-  --espresso-2: #e3cdbe;
-  --cream: #1a110c;
-  --sand: #3a271d;
-  --white: #241812;
-  --line: #3e2b21;
-  --muted: #c4ab9c;
-  --muted-2: #a08678;
-  --map-floor: #2b1d16;
-  --map-corridor: #45302a;
-  --map-bg: #120b08;
-  --label-bg: rgba(36, 24, 18, 0.88);
+  --terracotta: #ec6a44;
+  --terracotta-press: #d95c38;
+  --espresso: #faf3ec;
+  --espresso-2: #f0dfd0;
+  --cream: #140d09;
+  --sand: #3a281d;
+  --white: #1f150f;
+  --line: #3b2a20;
+  --muted: #d6bda8;
+  --muted-2: #a8907e;
+  --map-floor: #1f150f;
+  --map-corridor: #2c1f17;
+  --on-accent: #140d09;
+  --map-bg: #140d09;
+  --label-bg: rgba(20, 13, 9, 0.86);
   --open: #8fd19e;
-  --open-bg: #1f3a26;
+  --open-bg: #1c3322;
   --closed: #f0a08e;
-  --closed-bg: #4a2219;
-  --shadow: rgba(0, 0, 0, 0.45);
-  --scrim: rgba(0, 0, 0, 0.6);
+  --closed-bg: #45201a;
+  --shadow: rgba(0, 0, 0, 0.5);
+  --scrim: rgba(0, 0, 0, 0.62);
+  --grid-line: rgba(244, 220, 196, 0.045);
+  --edge: rgba(244, 220, 196, 0.18);
 }
 
 *,

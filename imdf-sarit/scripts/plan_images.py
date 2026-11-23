@@ -6,6 +6,8 @@ Pulls the plan image out of each PDF page (the same image the floors were traced
 down for the web and writes:
 
   public/plans/<LEVEL>.webp   the plan
+  public/plans/<LEVEL>-lines.webp  its drawn edges only, as light lines on transparency (the
+                              blueprint look of the map)
   public/plans/plans.json     per IMDF level id: the image and its four corners as [lon, lat]
                               (top left, top right, bottom right, bottom left)
 
@@ -16,6 +18,7 @@ import io
 import json
 from pathlib import Path
 
+import numpy as np
 import pymupdf
 from PIL import Image
 
@@ -25,6 +28,22 @@ ROOT = Path(__file__).resolve().parent.parent
 PDFS = ROOT.parent / "images"
 OUT = ROOT / "public" / "plans"
 MAX_SIDE = 2400
+
+
+LINE_RGB = (244, 220, 196)
+
+
+def lines(img):
+    """The plan's edges (Sobel on brightness) as sand-coloured lines; everything else transparent."""
+    g = np.asarray(img.convert("L"), dtype=np.float32) / 255
+    p = np.pad(g, 1, mode="edge")
+    gx = (p[:-2, 2:] + 2 * p[1:-1, 2:] + p[2:, 2:]) - (p[:-2, :-2] + 2 * p[1:-1, :-2] + p[2:, :-2])
+    gy = (p[2:, :-2] + 2 * p[2:, 1:-1] + p[2:, 2:]) - (p[:-2, :-2] + 2 * p[:-2, 1:-1] + p[:-2, 2:])
+    a = np.clip((np.hypot(gx, gy) - 0.12) / 0.43, 0, 1)
+    rgba = np.zeros((*g.shape, 4), dtype=np.uint8)
+    rgba[..., :3] = LINE_RGB
+    rgba[..., 3] = (a * 255).astype(np.uint8)
+    return Image.fromarray(rgba, "RGBA")
 
 
 def main():
@@ -47,7 +66,8 @@ def main():
         if k < 1:
             img = img.resize((round(w * k), round(h * k)), Image.LANCZOS)
         img.save(OUT / f"{code}.webp", "WEBP", quality=82)
-        out[fid("level", "sarit", code)] = {"level": code, "name": name, "image": f"{code}.webp", "corners": corners}
+        lines(img).save(OUT / f"{code}-lines.webp", "WEBP", quality=80)
+        out[fid("level", "sarit", code)] = {"level": code, "name": name, "image": f"{code}.webp", "lines": f"{code}-lines.webp", "corners": corners}
         print(f"{code}: {w}x{h} -> {img.size[0]}x{img.size[1]}")
     (OUT / "plans.json").write_text(json.dumps(out, indent=1))
 

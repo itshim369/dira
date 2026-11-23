@@ -3,6 +3,7 @@
   "level": "LG",
   "name": "Lower Ground",
   "image": "LG.webp",
+  "lines": "LG-lines.webp",
   "corners": [
    [
     36.799472,
@@ -26,6 +27,7 @@
   "level": "G",
   "name": "Ground floor",
   "image": "G.webp",
+  "lines": "G-lines.webp",
   "corners": [
    [
     36.8001285,
@@ -49,6 +51,7 @@
   "level": "F1",
   "name": "First floor",
   "image": "F1.webp",
+  "lines": "F1-lines.webp",
   "corners": [
    [
     36.8001292,
@@ -72,6 +75,7 @@
   "level": "F2",
   "name": "Second floor",
   "image": "F2.webp",
+  "lines": "F2-lines.webp",
   "corners": [
    [
     36.8001389,
@@ -95,6 +99,7 @@
   "level": "F3",
   "name": "Third floor",
   "image": "F3.webp",
+  "lines": "F3-lines.webp",
   "corners": [
    [
     36.8002905,
@@ -118,6 +123,7 @@
   "level": "F4",
   "name": "Fourth floor",
   "image": "F4.webp",
+  "lines": "F4-lines.webp",
   "corners": [
    [
     36.8002904,
@@ -141,6 +147,7 @@
   "level": "F5",
   "name": "Fifth floor",
   "image": "F5.webp",
+  "lines": "F5-lines.webp",
   "corners": [
    [
     36.8006018,
@@ -164,6 +171,7 @@
   "level": "F6",
   "name": "Sixth floor",
   "image": "F6.webp",
+  "lines": "F6-lines.webp",
   "corners": [
    [
     36.8007844,

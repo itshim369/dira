@@ -94,7 +94,7 @@ const FLOOR_ARROW =
  * With `buildingView` ('aerial' or 'side') it shows the whole building, floors stacked; picking
  * a floor (`onPickFloor`) flies in to that floor, arriving at its stairs and lift.
  */
-export default function IndoorMap({ imdf, network = null, levelId, route, steps = [], guideStep = null, startId, destId, selectedId, group, focus, fitKey, walker = true, buildingEnabled = false, buildingView = null, onBuilding, onPickFloor, onSelect, onLevel, children }) {
+export default function IndoorMap({ imdf, network = null, plans = null, planBase = '', levelId, route, steps = [], guideStep = null, startId, destId, selectedId, group, focus, fitKey, walker = true, buildingEnabled = false, buildingView = null, onBuilding, onPickFloor, onSelect, onLevel, children }) {
   const el = useRef(null);
   const mapRef = useRef(null);
   const markers = useRef(new Map());
@@ -279,6 +279,8 @@ export default function IndoorMap({ imdf, network = null, levelId, route, steps 
     const map = mapRef.current;
     if (!ready || !map) return;
     showLevel(map, levelId, highlightUnit);
+    if (map.getLayer('bp-unit-edges')) map.setFilter('bp-unit-edges', ['all', ['==', ['get', 'level'], levelId], ['!=', ['get', 'category'], 'walkway']]);
+    if (map.getLayer('bp-level-edge')) map.setFilter('bp-level-edge', ['==', ['get', 'level'], levelId]);
     layout();
     const ex = extras.current;
     ex.dest?.remove();
@@ -349,6 +351,22 @@ export default function IndoorMap({ imdf, network = null, levelId, route, steps 
     raf = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(raf);
   }, [ready, route, levelId, walker, imdf, lang, guiding]);
+
+  // ---------- Blueprint: the floor's own plan drawing, as faint lines under the rooms ----------
+  useEffect(() => {
+    const map = mapRef.current;
+    if (!ready || !map || !plans) return;
+    const before = map.getLayer('bp-unit-edges') ? 'bp-unit-edges' : undefined;
+    for (const [id, plan] of Object.entries(plans)) {
+      const layer = `bp-plan-${plan.level}`;
+      if (!plan.lines) continue;
+      if (!map.getSource(layer)) {
+        map.addSource(layer, { type: 'image', url: planBase + plan.lines, coordinates: plan.corners });
+        map.addLayer({ id: layer, type: 'raster', source: layer, paint: { 'raster-opacity': ['interpolate', ['linear'], ['zoom'], 16.5, 0.5, 18.5, 0.3, 20, 0.08], 'raster-fade-duration': 0 } }, before);
+      }
+      map.setLayoutProperty(layer, 'visibility', theme === 'dark' && id === levelId && !buildingView ? 'visible' : 'none');
+    }
+  }, [ready, plans, planBase, levelId, theme, buildingView]);
 
   // ---------- Whole building ----------
   const wasBuilding = useRef(null);

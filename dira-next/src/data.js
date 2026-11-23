@@ -52,3 +52,25 @@ export function networkOf(data) {
   if (!networks.has(data)) networks.set(data, corridorNetwork(data.router));
   return networks.get(data);
 }
+
+/** A venue's plan images placed on the map (plans/plans.json), or {} when it has none. */
+const planCache = new Map();
+export function usePlans(venue) {
+  const [plans, setPlans] = useState(null);
+  useEffect(() => {
+    if (!venue) return undefined;
+    let alive = true;
+    if (!planCache.has(venue.id))
+      planCache.set(
+        venue.id,
+        fetch(`${venue.base}plans/plans.json`)
+          .then((r) => (r.ok ? r.json() : {}))
+          .catch(() => ({})),
+      );
+    planCache.get(venue.id).then((p) => alive && setPlans(p));
+    return () => {
+      alive = false;
+    };
+  }, [venue]);
+  return plans;
+}

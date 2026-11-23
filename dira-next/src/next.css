@@ -1584,3 +1584,41 @@ a.social:hover small {
     animation: none;
   }
 }
+
+/* ---------- Blueprint look: drafting grid, line-drawn cards ---------- */
+:root[data-theme='dark'] body {
+  background-color: var(--cream);
+  background-image: linear-gradient(var(--grid-line) 1px, transparent 1px), linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+:root[data-theme='dark'] .card,
+:root[data-theme='dark'] .guide-bar,
+:root[data-theme='dark'] .place-sheet,
+:root[data-theme='dark'] .zoom-hint {
+  border: 1px solid var(--edge);
+  background: rgba(31, 21, 15, 0.94);
+  backdrop-filter: blur(10px);
+}
+:root[data-theme='dark'] .indoor-map {
+  border: 1px solid var(--edge);
+}
+:root[data-theme='dark'] .icon-btn:not(.plain) {
+  border: 1px solid var(--edge);
+}
+:root[data-theme='dark'] .map-header h1,
+:root[data-theme='dark'] .hero h1 {
+  text-shadow: 0 0 24px rgba(236, 106, 68, 0.18);
+}
+:root[data-theme='dark'] .fp-trigger {
+  border: 1px solid var(--edge);
+  background: rgba(20, 13, 9, 0.88);
+  color: var(--espresso);
+  backdrop-filter: blur(8px);
+}
+:root[data-theme='dark'] .fp-trigger > svg {
+  color: var(--terracotta);
+}
+:root[data-theme='dark'] .fp-trigger-text span {
+  color: var(--muted);
+  opacity: 1;
+}

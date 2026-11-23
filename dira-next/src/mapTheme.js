@@ -5,19 +5,20 @@
 import { COLORS, unitFeatures, wallFeatures } from '@imdf/mapLayers.js';
 
 const DARK = {
-  background: '#120B08',
-  site: '#1E140F',
-  siteLine: '#33241C',
-  floor: '#2A1D16',
-  wall: '#4A372C',
-  outerWall: '#5A4436',
-  selected: '#8A3D2C',
-  routeCasing: '#1A110C',
-  connector: '#7A4A35',
-  connectorWall: '#9A6248',
-  slab: '#2A1D16',
+  background: '#140D09',
+  site: '#1A110C',
+  siteLine: '#3B2A20',
+  floor: '#1F150F',
+  wall: '#5A4434',
+  outerWall: '#6A5040',
+  selected: '#7A3524',
+  routeCasing: '#140D09',
+  connector: '#6A3E2C',
+  connectorWall: '#8C5A42',
+  slab: '#1F150F',
   shell: '#C8B4A6',
-  earth: '#5A4436',
+  earth: '#4A3628',
+  edge: '#E9C9A8',
 };
 const LIGHT = { slab: COLORS.floor, shell: '#8E7A6C', earth: '#A88C76', connectorWall: '#6E4B3A' };
 
@@ -55,15 +56,26 @@ function darkOf(hex) {
   if (up === LIGHT.connectorWall.toUpperCase()) return DARK.connectorWall;
   const [h, s, l] = hexToHsl(hex);
   if (l < 0.5) return DARK.connector; // lifts, escalators, stairs
-  return hslToHex([h, Math.min(1, s * 0.35), 0.17 + (1 - l) * 0.7]);
+  return hslToHex([h, Math.min(1, s * 0.3), 0.13 + (1 - l) * 0.55]);
 }
 
 const recolor = (fc, key, dark) =>
   dark ? { ...fc, features: fc.features.map((f) => ({ ...f, properties: { ...f.properties, [key]: darkOf(f.properties[key]) } })) } : fc;
 
+/** The blueprint's line art over the floor: every room and floor outlined in sand (dark only). */
+export const BLUEPRINT_LAYERS = ['bp-unit-edges', 'bp-level-edge'];
+function addBlueprintLayers(map) {
+  if (map.getLayer('bp-unit-edges')) return;
+  const before = map.getLayer('route-casing') ? 'route-casing' : undefined;
+  map.addLayer({ id: 'bp-level-edge', type: 'line', source: 'levels', paint: { 'line-color': DARK.edge, 'line-width': ['interpolate', ['linear'], ['zoom'], 16, 1, 20, 2.6], 'line-opacity': 0.85 } }, before);
+  map.addLayer({ id: 'bp-unit-edges', type: 'line', source: 'units', filter: ['==', ['get', 'level'], ''], paint: { 'line-color': DARK.edge, 'line-width': ['interpolate', ['linear'], ['zoom'], 16, 0.4, 20, 1.3], 'line-opacity': 0.7 } }, before);
+}
+
 /** Paint the map (and the whole-building layers, when present) light or dark. */
 export function applyMapTheme(map, imdf, dark) {
   const paint = (layer, prop, value) => map.getLayer(layer) && map.setPaintProperty(layer, prop, value);
+  addBlueprintLayers(map);
+  for (const id of BLUEPRINT_LAYERS) map.setLayoutProperty(id, 'visibility', dark ? 'visible' : 'none');
   paint('background', 'background-color', dark ? DARK.background : COLORS.background);
   paint('venue-fill', 'fill-color', dark ? DARK.site : COLORS.site);
   paint('venue-line', 'line-color', dark ? DARK.siteLine : COLORS.siteLine);
