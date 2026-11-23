@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import IndoorMap from '../components/IndoorMap.jsx';
 import FloorPicker from '../components/FloorPicker.jsx';
-import PlacePicker from '../components/PlacePicker.jsx';
+import RoutePlanner from '../components/RoutePlanner.jsx';
 import PlaceSheet from '../components/PlaceSheet.jsx';
 import { Icon, StepTile } from '../components/Icons.jsx';
 import { LogoMark } from '../components/Logo.jsx';
@@ -52,7 +52,8 @@ export default function MapPage({ venue, params }) {
   const { data, error } = useVenueData(venue);
   const { imdf, fromPoi, toPoi, mode, route, steps } = useRouteState(venue, params, data);
   const plans = usePlans(venue);
-  const [picker, setPicker] = useState(null);
+  // The route planner over the map: which question is open ('from' or 'to'), or null.
+  const [plan, setPlan] = useState(null);
   const [selectedId, setSelectedId] = useState(null);
   const [offline, setOffline] = useState(false);
   const [shared, setShared] = useState(false);
@@ -138,28 +139,6 @@ export default function MapPage({ venue, params }) {
   const nextStep = steps[1];
   const group = params.group || null;
 
-  function pickNearest(category) {
-    if (!fromPoi) return;
-    const P = (p) => [p[0] * 111000, p[1] * 111000];
-    const ord = (p) => imdf.levelById.get(p.levelId)?.ordinal ?? 0;
-    const here = P(fromPoi.point);
-    const candidates = imdf.pois
-      .filter((p) => p.category === category && p.id !== fromPoi.id && p.levelId)
-      .map((p) => {
-        const q = P(p.point);
-        return { p, guess: Math.hypot(q[0] - here[0], q[1] - here[1]) + Math.abs(ord(p) - ord(fromPoi)) * 45 };
-      })
-      .sort((a, b) => a.guess - b.guess)
-      .slice(0, 5);
-    let best = null;
-    for (const { p } of candidates) {
-      const r = data.router.route(fromPoi, p, { mode });
-      if (r && (!best || r.seconds < best.seconds)) best = { p, seconds: r.seconds };
-    }
-    setPicker(null);
-    if (best) update({ to: best.p.id });
-  }
-
   async function share() {
     const url = window.location.href;
     try {
@@ -199,6 +178,11 @@ export default function MapPage({ venue, params }) {
     update({ from: undefined, to: undefined, map: undefined });
     window.scrollTo({ top: 0 });
   };
+  // Choosing an end: picking the other end's place swaps them, as before.
+  const choose = (role, p) => {
+    if (role === 'from') update(withFloor(p.id === toPoi?.id ? { from: p.id, to: fromPoi?.id } : { from: p.id }));
+    else update(withFloor(p.id === fromPoi?.id ? { to: p.id, from: toPoi?.id } : { to: p.id }));
+  };
   const floorPicker = <FloorPicker imdf={imdf} value={levelId} overview={!!buildingView} onChange={(f) => update({ floor: f })} route={route} from={fromPoi} to={toPoi} />;
 
   return (
@@ -224,7 +208,7 @@ export default function MapPage({ venue, params }) {
             </button>
           )}
           <PrefsControls compact />
-          <button className="icon-btn plain search-btn" type="button" onClick={() => setPicker({ role: 'to' })} aria-label={t('Search places')}>
+          <button className="icon-btn plain search-btn" type="button" onClick={() => setPlan('to')} aria-label={t('Search places')}>
             <Icon name="search" strokeWidth={2.75} />
           </button>
         </div>
@@ -232,6 +216,9 @@ export default function MapPage({ venue, params }) {
 
       <VenueNav venue={venue} current="map" from={fromPoi?.id} to={toPoi?.id} mode={mode} />
 
+      {!showMap && !route ? (
+        <RoutePlanner imdf={imdf} venueId={venue.id} inline step={fromPoi ? 'to' : 'from'} from={fromPoi} to={toPoi} onStep={(st) => st === 'from' && update({ from: undefined })} onPick={choose} />
+      ) : (
       <div className={`map-layout${showMap ? '' : ' no-map'}`}>
         <aside className="map-panel">
           <div className="card route-card">
@@ -241,11 +228,11 @@ export default function MapPage({ venue, params }) {
               <Icon name="pin" />
             </div>
             <div className="route-fields">
-              <button type="button" className="route-field" onClick={() => setPicker({ role: 'from' })}>
+              <button type="button" className="route-field" onClick={() => setPlan('from')}>
                 <span className="eyebrow">{t('You are at')}</span>
                 <strong className={fromPoi ? '' : 'placeholder'}>{fromPoi ? placeName(fromPoi) : t('Choose where you are')}</strong>
               </button>
-              <button type="button" className="route-field" onClick={() => setPicker({ role: 'to' })}>
+              <button type="button" className="route-field" onClick={() => setPlan('to')}>
                 <span className="eyebrow">{t('Going to')}</span>
                 <strong className={toPoi ? '' : 'placeholder'}>{toPoi ? placeName(toPoi) : t('Choose a destination')}</strong>
               </button>
@@ -269,7 +256,7 @@ export default function MapPage({ venue, params }) {
                 aria-pressed={group === s.id}
                 onClick={() => {
                   navigate(`/venue/${venue.id}`, { ...params, group: group === s.id ? undefined : s.id }, { replace: true });
-                  if (group !== s.id) setPicker({ role: 'to', filter: s.id });
+                  if (group !== s.id) setPlan('to');
                 }}
               >
                 <Icon name={s.icon} />
@@ -355,7 +342,7 @@ export default function MapPage({ venue, params }) {
                 <>
                   <h3>{t('You are already there')}</h3>
                   <p>{t('Your start and destination are the same place.')}</p>
-                  <button className="btn btn-primary" type="button" onClick={() => setPicker({ role: 'to' })}>
+                  <button className="btn btn-primary" type="button" onClick={() => setPlan('to')}>
                     {t('Choose a destination')}
                   </button>
                 </>
@@ -516,19 +503,21 @@ export default function MapPage({ venue, params }) {
         </IndoorMap>
         )}
       </div>
+      )}
 
-      {picker && (
-        <PlacePicker
+      {plan && (
+        <RoutePlanner
           imdf={imdf}
-          role={picker.role}
-          initialFilter={picker.filter || 'all'}
-          currentLevelId={levelId}
-          onClose={() => setPicker(null)}
-          onNearest={fromPoi ? pickNearest : undefined}
-          onPick={(p) => {
-            setPicker(null);
-            if (picker.role === 'from') update(p.id === toPoi?.id ? { from: p.id, to: fromPoi?.id } : { from: p.id });
-            else update(p.id === fromPoi?.id ? { to: p.id, from: toPoi?.id } : { to: p.id });
+          venueId={venue.id}
+          step={plan}
+          from={fromPoi}
+          to={toPoi}
+          onStep={setPlan}
+          onClose={() => setPlan(null)}
+          onPick={(role, p) => {
+            choose(role, p);
+            // Asked where you are with no destination yet: go straight on to "Where to?".
+            setPlan(role === 'from' && !toPoi ? 'to' : null);
           }}
         />
       )}
