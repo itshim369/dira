@@ -86,6 +86,7 @@ export default {
   'Where to in Sarit Centre?': 'Unaenda wapi Sarit Centre?',
   'Search Sarit Centre': 'Tafuta Sarit Centre',
   'Go': 'Nenda',
+  'All floors': 'Ghorofa zote',
   ' and ': ' na ',
   '* Required. Viewings are free and take about 45 minutes.': '* Lazima. Maonyesho ni bure na huchukua takriban dakika 45.',
   '1 floor change': 'Badiliko 1 la ghorofa',

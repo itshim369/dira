@@ -3245,3 +3245,73 @@ a.social:hover small {
   padding: 0;
   border-radius: 14px;
 }
+
+/* Blueprint: one floor at a time, and a floor bar that fits a phone */
+.blueprint-focus {
+  position: absolute;
+  left: 12px;
+  bottom: calc(max(16px, env(safe-area-inset-bottom)) + 64px);
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  max-width: calc(100% - 24px);
+  padding: 6px 14px 6px 6px;
+  border: 1px solid rgba(244, 220, 196, 0.22);
+  border-radius: 999px;
+  background: rgba(31, 21, 15, 0.92);
+  color: #faf3ec;
+  backdrop-filter: blur(8px);
+  animation: plan-in 0.25s ease;
+}
+.blueprint-focus span {
+  overflow: hidden;
+  font-weight: 700;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.blueprint-focus b {
+  display: inline-grid;
+  place-items: center;
+  min-width: 26px;
+  height: 26px;
+  margin-right: 4px;
+  border-radius: 50%;
+  background: #ff7a52;
+  color: #140d09;
+  font-size: 13px;
+}
+.blueprint-back {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  gap: 6px;
+  min-height: 40px;
+  padding: 0 14px;
+  border: 0;
+  border-radius: 999px;
+  background: #faf3ec;
+  color: #140d09;
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+}
+.blueprint-back svg {
+  width: 18px;
+  height: 18px;
+}
+@media (max-width: 600px) {
+  .blueprint-floors {
+    right: 12px;
+    justify-content: space-between;
+    gap: 2px;
+  }
+  .blueprint-floors button {
+    flex: 1 1 0;
+    min-width: 0;
+    padding: 0 4px;
+  }
+  .blueprint-page:has(.blueprint-focus) .blueprint-panel {
+    bottom: calc(max(16px, env(safe-area-inset-bottom)) + 124px);
+  }
+}

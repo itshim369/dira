@@ -98,16 +98,26 @@ export default function Blueprint3D({ imdf, router, plans, planBase, focusId, ga
       parts.base.push(slab);
       const edge = [];
       ringSegments(outer, 0, edge);
-      parts.base.push(fat(edge, C.outline, 2.2, 0.9));
+      parts.base.push(fat(edge, C.outline, 2.6, 1));
 
       // Plan image, vacuum-formed onto the slab: its ink becomes light, its paper transparent.
       const plan = plans?.[level.id];
       if (plan) {
-        const [tl, tr, br, bl] = plan.corners.map((c) => P(c, 0.02));
-        const geo = new THREE.BufferGeometry();
-        geo.setAttribute('position', new THREE.Float32BufferAttribute([tl, tr, br, bl].flatMap((v) => [v.x, v.y, v.z]), 3));
-        geo.setAttribute('uv', new THREE.Float32BufferAttribute([0, 1, 1, 1, 1, 0, 0, 0], 2));
-        geo.setIndex([0, 3, 1, 1, 3, 2]);
+        // Cut to the floor's outline so each floor reads as one closed shape, not a loose sheet.
+        const [tl, tr, , bl] = plan.corners.map((c) => P(c));
+        const ux = tr.x - tl.x, uz = tr.z - tl.z, wx = bl.x - tl.x, wz = bl.z - tl.z;
+        const det = ux * wz - uz * wx || 1;
+        const geo = slabGeo.clone();
+        const pos = geo.attributes.position;
+        const uv = [];
+        for (let k = 0; k < pos.count; k++) {
+          const qx = pos.getX(k) - tl.x, qz = pos.getZ(k) - tl.z;
+          const u = (qx * wz - qz * wx) / det;
+          const w = (ux * qz - uz * qx) / det;
+          uv.push(u, 1 - w);
+        }
+        geo.setAttribute('uv', new THREE.Float32BufferAttribute(uv, 2));
+        geo.translate(0, 0.07, 0);
         const mat = new THREE.ShaderMaterial({
           transparent: true,
           depthWrite: false,
@@ -125,7 +135,8 @@ export default function Blueprint3D({ imdf, router, plans, planBase, focusId, ga
               float gy = (tl + 2.0 * t + tr) - (bl + 2.0 * b + br);
               float edge = smoothstep(0.12, 0.55, length(vec2(gx, gy)));
               float wash = (1.0 - L(vec2(0))) * 0.12;
-              gl_FragColor = vec4(tint, max(edge, wash) * opacity); }`,
+              if (vUv.x < 0.0 || vUv.x > 1.0 || vUv.y < 0.0 || vUv.y > 1.0) discard;
+          gl_FragColor = vec4(tint, max(edge, wash) * opacity); }`,
         });
         texLoader.load(planBase + plan.image, (tex) => {
           tex.colorSpace = THREE.SRGBColorSpace;
@@ -177,20 +188,48 @@ export default function Blueprint3D({ imdf, router, plans, planBase, focusId, ga
         const pts = net.nodes.filter((n) => n.degree > 2).flatMap((n) => P(n.at, 0.3).toArray());
         const geo = new THREE.BufferGeometry();
         geo.setAttribute('position', new THREE.Float32BufferAttribute(pts, 3));
-        parts.paths.push(new THREE.Points(geo, new THREE.PointsMaterial({ color: C.junction, size: 6, sizeAttenuation: false, transparent: true, depthWrite: false })));
+        parts.paths.push(new THREE.Points(geo, new THREE.PointsMaterial({ color: C.junction, size: 3.5, sizeAttenuation: false, transparent: true, depthWrite: false })));
       }
 
       // Floor name, floating at the floor's west edge.
-      const xs = outer.map((c) => P(c).x);
-      const zs = outer.map((c) => P(c).z);
-      const label = textSprite(level.short, level.name);
-      label.position.set(Math.min(...xs) - 14, 2, (Math.min(...zs) + Math.max(...zs)) / 2);
+      // Floor badge at the floor's west-most corner.
+      const west = outer.map((c) => P(c)).reduce((a, b) => (b.x < a.x ? b : a));
+      const label = textSprite(level.short);
+      label.position.set(west.x - 3, 1, west.z);
       parts.base.push(label);
 
       for (const list of Object.values(parts)) for (const o of list) group.add(o);
       scene.add(group);
-      floors.set(level.id, { group, parts, rank: level.ordinal - minOrdinal, label });
+      const box = new THREE.Box3().setFromObject(slab);
+      floors.set(level.id, { group, parts, rank: level.ordinal - minOrdinal, label, box });
     }
+
+    // The drafting plate: a framed base under the building so the drawing has a finished edge.
+    const foot = new THREE.Box3();
+    for (const f of floors.values()) foot.union(f.box);
+    const PAD = 14;
+    const x0 = foot.min.x - PAD, x1 = foot.max.x + PAD, z0 = foot.min.z - PAD, z1 = foot.max.z + PAD;
+    const plate = new THREE.Group();
+    const fill = new THREE.Mesh(new THREE.PlaneGeometry(x1 - x0, z1 - z0), new THREE.MeshBasicMaterial({ color: '#1b120d', transparent: true, opacity: 0.9, depthWrite: false }));
+    fill.rotation.x = -Math.PI / 2;
+    fill.position.set((x0 + x1) / 2, -0.4, (z0 + z1) / 2);
+    fill.renderOrder = -2;
+    plate.add(fill);
+    const grid = [];
+    for (let x = Math.ceil(x0 / 10) * 10; x < x1; x += 10) grid.push(x, -0.3, z0, x, -0.3, z1);
+    for (let z = Math.ceil(z0 / 10) * 10; z < z1; z += 10) grid.push(x0, -0.3, z, x1, -0.3, z);
+    plate.add(thin(grid, C.outline, 0.07));
+    const sq = (a0, a1, b0, b1, y) => [a0, y, b0, a1, y, b0, a1, y, b0, a1, y, b1, a1, y, b1, a0, y, b1, a0, y, b1, a0, y, b0];
+    plate.add(fat(sq(x0, x1, z0, z1, -0.3), C.outline, 1.6, 0.6));
+    plate.add(thin(sq(x0 + 4, x1 - 4, z0 + 4, z1 - 4, -0.3), C.outline, 0.3));
+    const T = 10;
+    const ticks = [];
+    for (const [cx, cz, sx, sz] of [[x0, z0, 1, 1], [x1, z0, -1, 1], [x1, z1, -1, -1], [x0, z1, 1, -1]]) ticks.push(cx, -0.25, cz, cx + sx * T, -0.25, cz, cx, -0.25, cz, cx, -0.25, cz + sz * T);
+    plate.add(fat(ticks, C.junction, 3, 1));
+    const north = northSprite();
+    north.position.set(x1 - 12, 1, z0 + 12);
+    plate.add(north);
+    scene.add(plate);
 
     // Lifts, escalators and stairs between floors: vertical links at their shafts.
     const centreOf = (unitId) => {
@@ -232,6 +271,68 @@ export default function Blueprint3D({ imdf, router, plans, planBase, focusId, ga
     scene.add(runner, startMark, endMark);
     let routePath = null; // { pts: Vector3[], cum: number[], total }
 
+    // Fit a box on screen from a direction: the distance at which its bounding sphere fills the
+    // narrower field of view.
+    const target = new THREE.Vector3();
+    const camGoal = new THREE.Vector3();
+    let gliding = false;
+    controls.addEventListener('start', () => (gliding = false));
+    let view = { box: null, dir: null };
+    const fit = (instant = false) => {
+      if (!view.box) return;
+      const sphere = view.box.getBoundingSphere(new THREE.Sphere());
+      // The bars over the canvas: frame the building in the clear space between them.
+      const r = host.getBoundingClientRect();
+      const w = r.width || 1;
+      const h = r.height || 1;
+      let top = 0;
+      let bottom = 0;
+      for (const n of document.querySelectorAll('.blueprint-top, .venue-nav-float')) top = Math.max(top, n.getBoundingClientRect().bottom - r.top);
+      for (const n of document.querySelectorAll('.blueprint-floors, .blueprint-focus')) bottom = Math.max(bottom, r.bottom - n.getBoundingClientRect().top);
+      top = Math.min(top, h * 0.4) + 8;
+      bottom = Math.min(bottom, h * 0.3) + 8;
+      camera.setViewOffset(w, h, 0, (bottom - top) / 2, w, h);
+      const tanFull = Math.tan((camera.fov * Math.PI) / 360);
+      const tanV = (tanFull * (h - top - bottom)) / h;
+      const tanH = (tanFull * (w - 32)) / h;
+      // Exact fit: each corner of the box, seen from a direction, must sit inside the frame. Try
+      // directions round the south side (so north stays roughly up) and keep the one that shows
+      // the building largest: on a tall phone that turns the long side away from you.
+      const { min, max } = view.box;
+      const corners = [];
+      for (const cx of [min.x, max.x]) for (const cy of [min.y, max.y]) for (const cz of [min.z, max.z]) corners.push(new THREE.Vector3(cx, cy, cz).sub(sphere.center));
+      const distFor = (dir) => {
+        const fwd = dir.clone().negate();
+        const right = new THREE.Vector3().crossVectors(fwd, new THREE.Vector3(0, 1, 0)).normalize();
+        const up = new THREE.Vector3().crossVectors(right, fwd);
+        let d = 10;
+        for (const o of corners) {
+          const z = o.dot(fwd);
+          d = Math.max(d, z + Math.abs(o.dot(right)) / tanH, z + Math.abs(o.dot(up)) / tanV);
+        }
+        return d;
+      };
+      const e = view.elevation;
+      let best = null;
+      for (let deg = -60; deg <= 60; deg += 5) {
+        const a = (deg * Math.PI) / 180;
+        const dir = new THREE.Vector3(Math.sin(a) * Math.cos(e), Math.sin(e), Math.cos(a) * Math.cos(e));
+        // A slight preference for the classic corner view, so it only turns when it pays.
+        const d = distFor(dir) * (1 + Math.abs(deg - 25) * 0.0015);
+        if (!best || d < best.d) best = { d, dir };
+      }
+      view.dir = best.dir;
+      const d = distFor(best.dir);
+      target.copy(sphere.center);
+      camGoal.copy(sphere.center).addScaledVector(view.dir, d);
+      controls.maxDistance = Math.max(900, d * 1.6);
+      if (instant) {
+        camera.position.copy(camGoal);
+        controls.target.copy(target);
+        gliding = false;
+      } else gliding = true;
+    };
+
     // ---------- Sizing and the frame loop ----------
     const resize = () => {
       const w = host.clientWidth;
@@ -240,19 +341,26 @@ export default function Blueprint3D({ imdf, router, plans, planBase, focusId, ga
       camera.aspect = w / h;
       camera.updateProjectionMatrix();
       for (const m of fatMaterials) m.resolution.set(w * renderer.getPixelRatio(), h * renderer.getPixelRatio());
+      // Badges keep one size on screen, about 28 px.
+      const k = 26 / (1.65 * Math.max(200, h));
+      for (const f of floors.values()) f.label.scale.set(k, k, 1);
+      fit(true);
     };
     const ro = new ResizeObserver(resize);
     ro.observe(host);
     resize();
 
-    const target = new THREE.Vector3();
     let raf = 0;
     let last = performance.now();
     let travelled = 0;
     const tick = (now) => {
       const dt = Math.min(0.05, (now - last) / 1000);
       last = now;
-      controls.target.lerp(target, 0.08);
+      controls.target.lerp(target, gliding ? 0.1 : 0.08);
+      if (gliding) {
+        camera.position.lerp(camGoal, 0.1);
+        if (camera.position.distanceTo(camGoal) < 0.5) gliding = false;
+      }
       controls.update();
       if (routePath && routeLine.visible) {
         travelled = (travelled + dt * Math.max(18, routePath.total / 9)) % (routePath.total + 20);
@@ -267,33 +375,20 @@ export default function Blueprint3D({ imdf, router, plans, planBase, focusId, ga
       raf = requestAnimationFrame(tick);
     };
 
-    // First view: from the south-east, above the stack.
-    const all = new THREE.Box3();
-    for (const f of floors.values()) all.expandByObject(f.parts.base[0]);
-    const size = all.getSize(new THREE.Vector3());
-    const span = Math.max(size.x, size.z);
-    const home = () => {
-      // Narrow (portrait) screens need to stand further back to fit the building's width.
-      const d = span / Math.min(1, camera.aspect * 1.25);
-      camera.position.set(d * 0.55, d * 0.75, d * 0.95);
-      target.set(0, 0, 0);
-      controls.target.copy(target);
-    };
-    home();
+    const home = () => fit();
     raf = requestAnimationFrame(tick);
 
     api.current = {
-      layout({ focusId: fid, gap: g, show: s }) {
-        const focusRank = fid ? floors.get(fid)?.rank : null;
+      layout({ focusId: fid, gap: g, show: s }, first = false) {
+        if (fid && !floors.has(fid)) fid = null;
+        const box = new THREE.Box3();
         for (const [id, f] of floors) {
           f.group.position.y = f.rank * g;
-          const dim = !fid || id === fid ? 1 : 0.07;
-          f.group.traverse((o) => {
-            if (!o.material) return;
-            if (o.material.userData.base == null) o.material.userData.base = o.material.uniforms?.opacity?.value ?? o.material.opacity;
-            if (o.material.uniforms?.opacity) o.material.uniforms.opacity.value = o.material.userData.base * dim;
-            else o.material.opacity = o.material.userData.base * dim;
-          });
+          f.group.visible = !fid || id === fid;
+          if (f.group.visible) {
+            box.union(f.box.clone().translate(new THREE.Vector3(0, f.rank * g, 0)));
+            f.label.visible = !fid;
+          }
           for (const o of f.parts.plan) o.visible = s.plan;
           for (const o of f.parts.walls) o.visible = s.walls;
           for (const o of f.parts.paths) o.visible = s.paths;
@@ -314,9 +409,13 @@ export default function Blueprint3D({ imdf, router, plans, planBase, focusId, ga
           obj.computeLineDistances();
           obj.visible = s.links && pos.length > 0 && !fid;
         }
-        target.set(0, focusRank != null ? focusRank * g : ((levels.length - 1) * g) / 2.6, 0);
+        plate.position.y = fid ? floors.get(fid).rank * g : 0;
+        if (!fid) box.expandByPoint(new THREE.Vector3(x0, 0, z0)).expandByPoint(new THREE.Vector3(x1, 0, z1));
+        // A chosen floor is seen more from above, like a plan; the whole building from the corner.
+        view = { box, elevation: ((fid ? 62 : 36) * Math.PI) / 180 };
+        fit(first);
       },
-      setRoute(r, g, visible) {
+      setRoute(r, g, visible, fid) {
         if (!r) {
           routePath = null;
           routeLine.visible = runner.visible = startMark.visible = endMark.visible = false;
@@ -324,7 +423,13 @@ export default function Blueprint3D({ imdf, router, plans, planBase, focusId, ga
         }
         const y = (levelId) => floors.get(levelId).rank * g + 0.6;
         const pts = [];
-        for (const leg of r.legs) for (const c of leg.coordinates) pts.push(P(c, y(leg.levelId)));
+        // With one floor chosen, only the part of the route on it.
+        for (const leg of r.legs) if (!fid || leg.levelId === fid) for (const c of leg.coordinates) pts.push(P(c, y(leg.levelId)));
+        if (pts.length < 2) {
+          routePath = null;
+          routeLine.visible = runner.visible = startMark.visible = endMark.visible = false;
+          return;
+        }
         const segs = [];
         for (let k = 1; k < pts.length; k++) segs.push(...pts[k - 1].toArray(), ...pts[k].toArray());
         routeLine.geometry.dispose();
@@ -334,7 +439,9 @@ export default function Blueprint3D({ imdf, router, plans, planBase, focusId, ga
         routePath = { pts, cum, total: cum[cum.length - 1] };
         startMark.position.copy(pts[0]);
         endMark.position.copy(pts[pts.length - 1]);
-        routeLine.visible = runner.visible = startMark.visible = endMark.visible = visible;
+        routeLine.visible = runner.visible = visible;
+        startMark.visible = visible && (!fid || r.legs[0].levelId === fid);
+        endMark.visible = visible && (!fid || r.legs[r.legs.length - 1].levelId === fid);
       },
       home,
     };
@@ -357,9 +464,12 @@ export default function Blueprint3D({ imdf, router, plans, planBase, focusId, ga
     };
   }, [imdf, router, plans, planBase]);
 
+  const laidOut = useRef(false);
   useEffect(() => {
-    api.current?.layout({ focusId, gap, show });
-    api.current?.setRoute(route, gap, show.route);
+    if (!api.current) return;
+    api.current.layout({ focusId, gap, show }, !laidOut.current);
+    laidOut.current = true;
+    api.current.setRoute(route, gap, show.route, focusId);
   }, [focusId, gap, show, route, plans]);
 
   return (
@@ -374,37 +484,56 @@ export default function Blueprint3D({ imdf, router, plans, planBase, focusId, ga
   );
 }
 
-function textSprite(short, name) {
+function textSprite(short) {
   const c = document.createElement('canvas');
-  c.width = 512;
-  c.height = 128;
+  c.width = c.height = 128;
   const x = c.getContext('2d');
-  x.fillStyle = 'rgba(20,13,9,0.82)';
+  x.fillStyle = '#ff7a52';
   x.beginPath();
-  x.roundRect(4, 4, 504, 120, 60);
+  x.arc(64, 64, 58, 0, Math.PI * 2);
   x.fill();
+  x.strokeStyle = '#140d09';
+  x.lineWidth = 6;
+  x.stroke();
+  x.fillStyle = '#140d09';
+  x.font = `800 ${short.length > 1 ? 52 : 64}px system-ui, sans-serif`;
+  x.textAlign = 'center';
+  x.textBaseline = 'middle';
+  x.fillText(short, 64, 68);
+  const tex = new THREE.CanvasTexture(c);
+  tex.colorSpace = THREE.SRGBColorSpace;
+  const s = new THREE.Sprite(new THREE.SpriteMaterial({ map: tex, transparent: true, depthWrite: false, depthTest: false, sizeAttenuation: false, fog: false }));
+  s.center.set(1, 0.5);
+  s.renderOrder = 5;
+  return s;
+}
+
+function northSprite() {
+  const c = document.createElement('canvas');
+  c.width = c.height = 128;
+  const x = c.getContext('2d');
   x.strokeStyle = '#f4dcc4';
   x.lineWidth = 4;
+  x.beginPath();
+  x.arc(64, 64, 58, 0, Math.PI * 2);
   x.stroke();
   x.fillStyle = '#ff7a52';
   x.beginPath();
-  x.arc(64, 64, 42, 0, Math.PI * 2);
+  x.moveTo(64, 14);
+  x.lineTo(84, 70);
+  x.lineTo(64, 60);
+  x.lineTo(44, 70);
+  x.closePath();
   x.fill();
-  x.fillStyle = '#140d09';
-  x.font = '800 40px system-ui, sans-serif';
+  x.fillStyle = '#faf3ec';
+  x.font = '800 34px system-ui, sans-serif';
   x.textAlign = 'center';
   x.textBaseline = 'middle';
-  x.fillText(short, 64, 66);
-  x.fillStyle = '#faf3ec';
-  x.textAlign = 'left';
-  x.font = '700 46px system-ui, sans-serif';
-  x.fillText(name, 124, 66);
+  x.fillText('N', 64, 96);
   const tex = new THREE.CanvasTexture(c);
   tex.colorSpace = THREE.SRGBColorSpace;
-  const s = new THREE.Sprite(new THREE.SpriteMaterial({ map: tex, transparent: true, depthWrite: false, depthTest: false }));
-  s.scale.set(40, 10, 1);
-  s.center.set(1, 0.5);
-  s.renderOrder = 5;
+  const s = new THREE.Sprite(new THREE.SpriteMaterial({ map: tex, transparent: true, depthWrite: false }));
+  s.scale.set(12, 12, 1);
   return s;
 }
 

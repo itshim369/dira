@@ -86,6 +86,7 @@ export default {
   'Where to in Sarit Centre?': 'Où aller à Sarit Centre ?',
   'Search Sarit Centre': 'Rechercher dans Sarit Centre',
   'Go': 'Aller',
+  'All floors': 'Tous les étages',
   ' and ': ' et ',
   '* Required. Viewings are free and take about 45 minutes.': '* Obligatoire. Les visites sont gratuites et durent environ 45 minutes.',
   '1 floor change': '1 changement d’étage',
