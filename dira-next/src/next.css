@@ -2238,3 +2238,297 @@ a.social:hover small {
 .indoor-map:has(.building-bar) .around-rail {
   display: none;
 }
+
+/* ======================================================================
+   Phones: an app layout, not a shrunk page.
+   - Before a route: a full-screen "where are you / where to" form.
+   - With the map: top bar and route, the map in the middle, a bottom sheet
+     (peek or full), and a bottom tab bar for the venue's views.
+   ====================================================================== */
+@media (max-width: 959px) {
+  :root {
+    --tabbar: calc(62px + env(safe-area-inset-bottom));
+    --peek: 196px;
+  }
+  .sheet-handle {
+    display: none;
+  }
+
+  /* Bottom tab bar */
+  .page > .venue-nav {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 30;
+    margin: 0;
+    padding: 6px 8px env(safe-area-inset-bottom);
+    gap: 0;
+    border: 0;
+    border-top: 1px solid var(--line);
+    border-radius: 0;
+    background: color-mix(in srgb, var(--white) 94%, transparent);
+    backdrop-filter: blur(12px);
+  }
+  .page > .venue-nav .venue-tab {
+    flex: 1 1 0;
+    flex-direction: column;
+    gap: 3px;
+    min-height: 54px;
+    padding: 4px 2px;
+    border-radius: 12px;
+    background: none;
+    color: var(--muted);
+    font-size: 11px;
+  }
+  .page > .venue-nav .venue-tab svg {
+    width: 22px;
+    height: 22px;
+    padding: 3px 12px;
+    box-sizing: content-box;
+    border-radius: 999px;
+  }
+  .page > .venue-nav .venue-tab.is-on {
+    background: none;
+    color: var(--terracotta);
+  }
+  .page > .venue-nav .venue-tab.is-on svg {
+    background: color-mix(in srgb, var(--terracotta) 18%, transparent);
+  }
+  .page:has(> .venue-nav) {
+    padding-bottom: calc(var(--tabbar) + 16px);
+  }
+  .map-screen.is-guiding > .venue-nav {
+    display: none;
+  }
+
+  /* ---------- Before a route: the form ---------- */
+  .map-screen:not(.with-map) .route-card {
+    padding: 8px 8px 8px 18px;
+    border-radius: 22px;
+  }
+  .map-screen:not(.with-map) .route-field {
+    min-height: 70px;
+  }
+  .map-screen:not(.with-map) .route-field strong {
+    font-size: 19px;
+  }
+  .map-screen .shortcut-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .map-screen .shortcut-chip {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 10px;
+    min-height: 82px;
+    padding: 14px;
+    border-radius: 18px;
+    font-size: 15px;
+    text-align: left;
+  }
+  .map-screen .shortcut-chip svg {
+    width: 26px;
+    height: 26px;
+    color: var(--terracotta);
+  }
+  .map-screen .mode-row {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 0;
+    padding: 4px;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    background: var(--white);
+  }
+  .map-screen .mode-row .chip {
+    flex: 1 1 0;
+    min-width: 0;
+    min-height: 40px;
+    padding: 0 6px;
+    border: 0;
+    border-radius: 10px;
+    background: none;
+    font-size: 14px;
+  }
+  .map-screen .mode-row .chip[aria-pressed='true'] {
+    background: var(--terracotta);
+    color: var(--on-accent);
+  }
+  .map-screen:not(.with-map) .notice {
+    border: 0;
+    background: none;
+    padding: 4px 4px 0;
+  }
+  .map-screen:not(.with-map) .notice h3 {
+    font-size: 15px;
+  }
+  .map-screen:not(.with-map) .notice p {
+    font-size: 14px;
+  }
+  .map-screen:not(.with-map) .map-sheet {
+    display: grid;
+    gap: 14px;
+  }
+
+  /* ---------- With the map: top bar, map, bottom sheet ---------- */
+  .map-screen.with-map {
+    position: fixed;
+    inset: 0 0 var(--tabbar) 0;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    min-height: 0;
+    overflow: hidden;
+  }
+  .map-screen.with-map .map-header {
+    flex: none;
+    padding: max(8px, env(safe-area-inset-top)) 12px 4px;
+  }
+  .map-screen.with-map .map-header .title {
+    grid-row: 1;
+    grid-column: 2;
+  }
+  .map-screen.with-map .map-header h1 {
+    font-size: 18px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .map-screen.with-map .map-header .status {
+    display: none;
+  }
+  .map-screen.with-map .map-layout,
+  .map-screen.with-map .map-panel {
+    display: contents;
+  }
+  .map-screen.with-map .route-card {
+    flex: none;
+    margin: 0 12px 8px;
+    padding: 2px 4px 2px 14px;
+    border-radius: 16px;
+  }
+  .map-screen.with-map .route-field {
+    min-height: 44px;
+    padding: 4px 0;
+  }
+  .map-screen.with-map .route-field .eyebrow {
+    font-size: 10px;
+  }
+  .map-screen.with-map .route-field strong {
+    font-size: 15px;
+  }
+  .map-screen.with-map .route-card .swap {
+    width: 40px;
+    height: 40px;
+    min-height: 40px;
+  }
+  .map-screen.with-map .indoor-map {
+    flex: 1 1 auto;
+    min-height: 0;
+    height: auto;
+    margin: 0 0 calc(var(--peek) - 22px);
+    border: 0;
+    border-radius: 0;
+  }
+  .map-screen.with-map .map-sheet {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: var(--tabbar);
+    z-index: 20;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    height: var(--peek);
+    max-height: calc(100dvh - var(--tabbar) - 96px);
+    padding: 0 16px 16px;
+    overflow: hidden;
+    border-top: 1px solid var(--line);
+    border-radius: 24px 24px 0 0;
+    background: var(--white);
+    box-shadow: 0 -10px 30px var(--shadow);
+    transition: height 0.32s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  .map-screen.with-map.sheet-full .map-sheet {
+    height: calc(100dvh - var(--tabbar) - 96px);
+    overflow-y: auto;
+  }
+  .map-screen.with-map .sheet-handle {
+    display: grid;
+    place-items: center;
+    flex: none;
+    width: 100%;
+    height: 26px;
+    padding: 0;
+    border: 0;
+    background: none;
+    cursor: grab;
+    touch-action: none;
+  }
+  .map-screen.with-map .sheet-handle span {
+    width: 42px;
+    height: 5px;
+    border-radius: 999px;
+    background: var(--line);
+  }
+  /* With a route, the sheet leads with the answer: time, then the two ways to go. */
+  .map-screen.has-route .map-sheet .summary {
+    order: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 0;
+    border: 0;
+    background: none;
+    backdrop-filter: none;
+  }
+  .map-screen.has-route .map-sheet .mode-row {
+    order: 2;
+  }
+  .map-screen.has-route .summary > * {
+    order: 3;
+  }
+  .map-screen.has-route .summary .summary-top {
+    order: 1;
+  }
+  .map-screen.has-route .summary .walk-choices {
+    order: 2;
+  }
+  .map-screen.has-route .summary .summary-time {
+    font-size: 34px;
+  }
+  /* The guided walk takes the whole screen. */
+  .map-screen.with-map.is-guiding .map-sheet {
+    display: none;
+  }
+  .map-screen.with-map.is-guiding .indoor-map {
+    margin: 0;
+  }
+}
+@media (max-width: 959px) {
+  :root {
+    --peek: 178px;
+  }
+  .map-screen.has-route:not(.is-guiding) .around-rail,
+  .map-screen.has-route:not(.is-guiding) .around-lens,
+  .map-screen.has-route:not(.is-guiding) .zoom-hint {
+    display: none;
+  }
+  .map-screen.with-map:not(.sheet-full) .map-sheet {
+    -webkit-mask-image: linear-gradient(#000 calc(100% - 22px), transparent);
+    mask-image: linear-gradient(#000 calc(100% - 22px), transparent);
+  }
+}
+/* The sheet handle only exists in the phone layout. */
+.sheet-handle {
+  display: none;
+}
+@media (min-width: 960px) {
+  .map-sheet {
+    display: grid;
+    gap: 16px;
+  }
+}

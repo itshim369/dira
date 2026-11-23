@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import IndoorMap from '../components/IndoorMap.jsx';
 import FloorPicker from '../components/FloorPicker.jsx';
 import PlacePicker from '../components/PlacePicker.jsx';
@@ -60,6 +60,23 @@ export default function MapPage({ venue, params }) {
   const [guide, setGuide] = useState(null);
   useEffect(() => setGuide(null), [route]);
   const [streetView, setStreetView] = useState(false);
+  // On phones the panel under the map is a bottom sheet: 'peek' (the essentials) or 'full'.
+  const [sheet, setSheet] = useState('peek');
+  useEffect(() => setSheet('peek'), [route]);
+  const dragY = useRef(null);
+  const sheetHandle = {
+    onClick: () => setSheet(sheet === 'full' ? 'peek' : 'full'),
+    onPointerDown: (e) => {
+      dragY.current = e.clientY;
+    },
+    onPointerUp: (e) => {
+      if (dragY.current == null) return;
+      const dy = e.clientY - dragY.current;
+      dragY.current = null;
+      if (dy < -30) setSheet('full');
+      else if (dy > 30) setSheet('peek');
+    },
+  };
   // Riding between floors: the building in cross-section for a moment.
   const [ride, setRide] = useState(null);
   useEffect(() => {
@@ -185,7 +202,7 @@ export default function MapPage({ venue, params }) {
   const floorPicker = <FloorPicker imdf={imdf} value={levelId} overview={!!buildingView} onChange={(f) => update({ floor: f })} route={route} from={fromPoi} to={toPoi} />;
 
   return (
-    <div className={`map-screen page${guideStep ? ' is-guiding' : ''}`}>
+    <div className={`map-screen page${guideStep ? ' is-guiding' : ''}${showMap ? ' with-map' : ''}${route ? ' has-route' : ''}${sheet === 'full' ? ' sheet-full' : ''}`}>
       <header className="map-header">
         <a className="icon-btn plain" href={href('/venues')} aria-label={t('Back to venues')}>
           <Icon name="arrowLeft" strokeWidth={2.75} />
@@ -238,6 +255,10 @@ export default function MapPage({ venue, params }) {
             </button>
           </div>
 
+          <div className="map-sheet">
+          <button className="sheet-handle" type="button" aria-label={sheet === 'full' ? t('Show less') : t('Show more')} aria-expanded={sheet === 'full'} {...sheetHandle}>
+            <span />
+          </button>
           {!route && (
           <div className="shortcut-row" role="group" aria-label={t('Find nearby')}>
             {SHORTCUTS.map((s) => (
@@ -349,6 +370,7 @@ export default function MapPage({ venue, params }) {
               )}
             </section>
           )}
+          </div>
         </aside>
 
         {showMap && (

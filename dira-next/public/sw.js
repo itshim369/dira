@@ -1,6 +1,6 @@
 // Offline cache for Dira. Venue maps are bundled with the app, so caching the app
 // shell (plus fonts) is enough for maps to open without a signal.
-const CACHE = 'dira-v18';
+const CACHE = 'dira-v19';
 
 self.addEventListener('install', (event) => {
   event.waitUntil(caches.open(CACHE).then((c) => c.addAll(['./', './index.html'])));

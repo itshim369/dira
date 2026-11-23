@@ -49,6 +49,8 @@ export default {
   'All venues': 'Maeneo yote',
   'Pilot': 'Majaribio',
   'Around here': 'Karibu hapa',
+  'Show more': 'Onyesha zaidi',
+  'Show less': 'Onyesha kidogo',
   ' and ': ' na ',
   '* Required. Viewings are free and take about 45 minutes.': '* Lazima. Maonyesho ni bure na huchukua takriban dakika 45.',
   '1 floor change': 'Badiliko 1 la ghorofa',

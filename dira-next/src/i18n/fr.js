@@ -49,6 +49,8 @@ export default {
   'All venues': 'Tous les lieux',
   'Pilot': 'Pilote',
   'Around here': 'Autour d’ici',
+  'Show more': 'Afficher plus',
+  'Show less': 'Afficher moins',
   ' and ': ' et ',
   '* Required. Viewings are free and take about 45 minutes.': '* Obligatoire. Les visites sont gratuites et durent environ 45 minutes.',
   '1 floor change': '1 changement d’étage',
